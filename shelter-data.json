@@ -1,0 +1,185 @@
+{
+  "pets": [
+    {
+      "name": "Milo",
+      "type": "Dog",
+      "age": "2 years",
+      "breed": "Labrador Mix",
+      "desc": "Friendly, calm, and great with kids.",
+      "image": "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80",
+      "color": "#4fc7c7"
+    },
+    {
+      "name": "Coco",
+      "type": "Cat",
+      "age": "1 year",
+      "breed": "Tabby",
+      "desc": "Playful indoor cat with a soft coat.",
+      "image": "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=80",
+      "color": "#b55a4f"
+    },
+    {
+      "name": "Snow",
+      "type": "Rabbit",
+      "age": "8 months",
+      "breed": "Mini Lop",
+      "desc": "Gentle rabbit who loves quiet spaces.",
+      "image": "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=600&q=80",
+      "color": "#cc874f"
+    },
+    {
+      "name": "Luna",
+      "type": "Dog",
+      "age": "3 years",
+      "breed": "Beagle Mix",
+      "desc": "Energetic and ready for daily walks.",
+      "image": "https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=600&q=80",
+      "color": "#8b9868"
+    },
+    {
+      "name": "Nala",
+      "type": "Cat",
+      "age": "4 years",
+      "breed": "Persian Mix",
+      "desc": "Calm companion with a loving nature.",
+      "image": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80",
+      "color": "#df9676"
+    },
+    {
+      "name": "Biscuit",
+      "type": "Rabbit",
+      "age": "1 year",
+      "breed": "Dutch Rabbit",
+      "desc": "Curious and easy to care for.",
+      "image": "https://images.unsplash.com/photo-1535241749838-299277b6305f?auto=format&fit=crop&w=600&q=80",
+      "color": "#ffbd20"
+    },
+    {
+      "name": "Charlie",
+      "type": "Dog",
+      "age": "5 years",
+      "breed": "German Shepherd",
+      "desc": "Loyal and protective family dog.",
+      "image": "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=600&q=80",
+      "color": "#b55a4f"
+    },
+    {
+      "name": "Whiskers",
+      "type": "Cat",
+      "age": "2 years",
+      "breed": "Siamese",
+      "desc": "Vocal and affectionate lap cat.",
+      "image": "data:image/jpeg;base64,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",
+      "color": "#4fc7c7"
+    },
+    {
+      "name": "Thumper",
+      "type": "Rabbit",
+      "age": "6 months",
+      "breed": "Holland Lop",
+      "desc": "Adorable fluffball with floppy ears.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOtpvqVkjODiKvaYhikBunjjPdjW2DBRni3RgBQREChg&s",
+      "color": "#8b9868"
+    },
+    {
+      "name": "Rocky",
+      "type": "Dog",
+      "age": "4 years",
+      "breed": "Pitbull Mix",
+      "desc": "Muscular but gentle and loving.",
+      "image": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80",
+      "color": "#cc874f"
+    },
+    {
+      "name": "Mittens",
+      "type": "Cat",
+      "age": "3 years",
+      "breed": "Ragdoll",
+      "desc": "Goes limp when you pick her up.",
+      "image": "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=600&q=80",
+      "color": "#df9676"
+    },
+    {
+      "name": "Clover",
+      "type": "Rabbit",
+      "age": "10 months",
+      "breed": "Flemish Giant",
+      "desc": "Giant gentle bunny, loves cuddles.",
+      "image": "data:image/jpeg;base64,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",
+      "color": "#ffbd20"
+    },
+    {
+      "name": "Buddy",
+      "type": "Dog",
+      "age": "1 year",
+      "breed": "Golden Retriever",
+      "desc": "Puppy energy with a heart of gold.",
+      "image": "https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=600&q=80",
+      "color": "#4fc7c7"
+    },
+    {
+      "name": "Shadow",
+      "type": "Cat",
+      "age": "6 years",
+      "breed": "Bombay",
+      "desc": "Sleek black cat with golden eyes.",
+      "image": "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=80",
+      "color": "#b55a4f"
+    },
+    {
+      "name": "Pepper",
+      "type": "Rabbit",
+      "age": "2 years",
+      "breed": "Angora",
+      "desc": "Fluffy and hypoallergenic companion.",
+      "image": "https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=600&q=80",
+      "color": "#8b9868"
+    },
+    {
+      "name": "Ziggy",
+      "type": "Dog",
+      "age": "3 years",
+      "breed": "Dachshund",
+      "desc": "Short legs, big personality.",
+      "image": "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=600&q=80",
+      "color": "#cc874f"
+    }
+  ],
+  "stories": [
+    {
+      "title": "Bella found her home",
+      "text": "Bella was shy at first, but now she is the happiest puppy in her new family."
+    },
+    {
+      "title": "Tommy the cat",
+      "text": "Tommy went from shelter life to a warm apartment with lots of sunshine."
+    },
+    {
+      "title": "Rumi the rabbit",
+      "text": "Rumi now lives safely with two kids who adore gentle pets."
+    }
+  ],
+  "events": [
+    {
+      "date": "12 Sep",
+      "title": "Adoption Drive",
+      "text": "Meet adoptable pets and speak with volunteers.",
+      "image": "images/adoption.png",
+      "alt": "Adoption drive"
+    },
+    {
+      "date": "20 Sep",
+      "title": "Vaccination Camp",
+      "text": "Free vaccination support for rescued animals.",
+      "image": "images/vaccination.png",
+      "alt": "Vaccination camp"
+    },
+    {
+      "date": "28 Sep",
+      "title": "Volunteer Orientation",
+      "text": "Join our team and help at the shelter.",
+      "image": "images/volunteer.png",
+      "alt": "Volunteer orientation"
+    }
+  ]
+}

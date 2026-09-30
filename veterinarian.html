@@ -1,0 +1,4710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="FurEver Care — Advanced Premium Veterinary Healthcare, Specialist Profiles, Real-Time Appointment Booking, and Comprehensive Pet Medical Histories.">
+  <meta name="keywords"
+    content="veterinarian, pet care, animal clinic, doctor booking, pet medical history, canine specialist, feline cardiologist, animal surgery">
+  <title>Veterinary </title>
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap"
+    rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  
+<style id="inlined-styles">
+
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #FFFFFF;
+  color: #2D1B36;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+
+h1, h2, h3, h4, h5, h6,
+.font-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #481F72;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h1 { font-size: 2.75rem; letter-spacing: -0.02em; }
+h2 { font-size: 2.2rem; letter-spacing: -0.015em; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 0.95rem; }
+
+p {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #6e5e78;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button, input, select, textarea {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.95rem;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.section {
+  padding: 90px 0;
+  position: relative;
+}
+
+.section-blush {
+  background-color: #FDEDED;
+  border-top: 1px solid #f8d5db;
+  border-bottom: 1px solid #f8d5db;
+}
+
+.section-white {
+  background-color: #FFFFFF;
+}
+
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 50px auto;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #FDEDED;
+  color: #481F72;
+  border: 1px solid #FEA3B6;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.section-blush .section-tag {
+  background-color: #FFFFFF;
+}
+
+.section-title {
+  font-size: 2.35rem;
+  margin-bottom: 14px;
+  color: #481F72;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #6e5e78;
+  line-height: 1.6;
+}
+
+
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(72, 31, 114, 0.08);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #481F72;
+  user-select: none;
+}
+
+.brand-logo .paw-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #481F72, #FEA3B6);
+  color: #FFFFFF;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(72, 31, 114, 0.2);
+}
+
+.brand-logo span.accent {
+  color: #e0778c;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: #481F72;
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background: #FEA3B6;
+  border-radius: 4px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.btn-nav-book {
+  background: #481F72;
+  color: #FFFFFF;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(72, 31, 114, 0.18);
+}
+
+.btn-nav-book:hover {
+  background: #5f2b96;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(72, 31, 114, 0.25);
+}
+
+.booking-badge-counter {
+  background: #FEA3B6;
+  color: #481F72;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 9999px;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  font-size: 1.6rem;
+  color: #481F72;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(72, 31, 114, 0.15);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-toggle:hover {
+  background: #FDEDED;
+}
+
+.site-header.is-open .mobile-menu-toggle {
+  color: #e0778c;
+}
+
+
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: #481F72;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(72, 31, 114, 0.07);
+}
+
+.btn-primary:hover {
+  background-color: #5f2b96;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(72, 31, 114, 0.22);
+}
+
+.btn-accent {
+  background-color: #FEA3B6;
+  color: #481F72;
+  box-shadow: 0 4px 14px rgba(72, 31, 114, 0.07);
+}
+
+.btn-accent:hover {
+  background-color: #fa8ea4;
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(254, 163, 182, 0.45);
+}
+
+.btn-outline-white {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline-white:hover {
+  background-color: #FFFFFF;
+  color: #481F72;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  color: #481F72;
+  border-color: #481F72;
+}
+
+.btn-outline-primary:hover {
+  background-color: #481F72;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 8px 18px;
+  font-size: 0.88rem;
+}
+
+.btn-lg {
+  padding: 15px 36px;
+  font-size: 1.1rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+}
+
+.badge-available {
+  background-color: #FEA3B6;
+  color: #481F72;
+  border: 1px solid rgba(72, 31, 114, 0.12);
+}
+
+.badge-booked {
+  background-color: #4c4355;
+  color: #e2dde7;
+  border: 1px solid #645b6e;
+}
+
+.badge-specialization {
+  background-color: #FDEDED;
+  color: #481F72;
+  border: 1px solid #FEA3B6;
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.badge-new-appointment {
+  background: linear-gradient(135deg, #481F72, #e0778c);
+  color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(72, 31, 114, 0.25);
+  animation: pulse-glow 2.5s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(254, 163, 182, 0.6); }
+  50% { box-shadow: 0 0 0 8px rgba(254, 163, 182, 0); }
+}
+
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.12s; }
+.delay-2 { animation-delay: 0.24s; }
+.delay-3 { animation-delay: 0.36s; }
+.delay-4 { animation-delay: 0.48s; }
+
+@media (min-width: 993px) {
+  .nav-switch-role {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.85rem; }
+  .section { padding: 65px 0; }
+  .site-header { height: auto; }
+  .mobile-menu-toggle { display: flex; }
+  .nav-wrapper { flex-wrap: wrap; position: relative; }
+  .nav-wrapper > nav { order: 6; width: 100%; }
+  .nav-wrapper > .btn-switch-role { display: none !important; }
+  .nav-switch-role {
+    margin-top: 6px;
+  }
+  .nav-switch-role .btn-switch-role {
+    width: 100% !important;
+    justify-content: center;
+  }
+  .nav-links a.btn-switch-role::after {
+    display: none;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+    padding: 8px 0 6px 0;
+  }
+  .site-header.is-open .nav-links {
+    display: flex;
+    animation: fadeInUp 0.3s ease forwards;
+  }
+  .nav-links li {
+    width: 100%;
+    text-align: right;
+    border-top: 1px solid rgba(72, 31, 114, 0.08);
+  }
+  .nav-links li:first-child {
+    border-top: none;
+  }
+  .nav-links a {
+    display: block;
+    padding: 12px 2px;
+    font-size: 1rem;
+  }
+  .nav-links a::after {
+    left: auto;
+    right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .brand-logo {
+    font-size: 1.35rem;
+    gap: 8px;
+  }
+  .brand-logo svg {
+    width: 36px;
+    height: 36px;
+  }
+  .brand-logo .paw-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 0.95rem;
+  }
+  .btn-nav-book {
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    gap: 6px;
+  }
+  .btn-switch-role {
+    font-size: 12.5px !important;
+    padding: 8px 14px !important;
+    gap: 6px !important;
+  }
+  h1 { font-size: 1.95rem; }
+  h2 { font-size: 1.6rem; }
+  .section { padding: 50px 0; }
+  .btn { width: 100%; }
+}
+
+
+
+
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  padding: 26px 20px 30px 20px;
+  background: linear-gradient(180deg, rgba(253, 237, 237, 0.55) 0%, #FFFFFF 100%);
+  overflow: hidden;
+}
+
+.hero-cover-container {
+  position: relative;
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 42px rgba(72, 31, 114, 0.16);
+  border: 2px solid #FEA3B6;
+  background: #481F72;
+  aspect-ratio: 1024 / 683;
+  line-height: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-cover-container:hover {
+  box-shadow: 0 20px 48px rgba(72, 31, 114, 0.22);
+}
+
+.hero-cover-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: inherit;
+}
+
+
+.hero-hotspot-btn-left {
+  position: absolute;
+  top: 58.5%;
+  left: 8.8%;
+  width: 21.8%;
+  height: 10%;
+  border-radius: 9999px;
+  cursor: pointer;
+  z-index: 10;
+  display: block;
+  background: transparent;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-hotspot-btn-left:hover,
+.hero-hotspot-btn-left:focus-visible {
+  background: rgba(254, 163, 182, 0.25);
+  box-shadow: 0 0 24px rgba(254, 163, 182, 0.85), inset 0 0 10px rgba(255, 255, 255, 0.5);
+  transform: scale(1.02);
+}
+
+.hero-hotspot-btn-left:active {
+  background: rgba(254, 163, 182, 0.4);
+  transform: scale(0.97);
+}
+
+
+.hero-hotspot-btn-arrow {
+  position: absolute;
+  top: 22.5%;
+  left: 63%;
+  width: 25%;
+  height: 15.5%;
+  border-radius: 14px;
+  cursor: pointer;
+  z-index: 10;
+  display: block;
+  background: transparent;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-hotspot-btn-arrow:hover,
+.hero-hotspot-btn-arrow:focus-visible {
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 0 24px rgba(254, 163, 182, 0.75), inset 0 0 10px rgba(255, 255, 255, 0.4);
+  transform: scale(1.02);
+}
+
+.hero-hotspot-btn-arrow:active {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0.97);
+}
+
+
+.hero-uploader-control {
+  position: absolute;
+  bottom: 18px;
+  right: 20px;
+  z-index: 12;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1.5px solid #FEA3B6;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #481F72;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(72, 31, 114, 0.10);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  user-select: none;
+}
+
+.hero-uploader-control:hover {
+  background: #FFFFFF;
+  color: #37155a;
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(254, 163, 182, 0.45);
+}
+
+.hero-uploader-control:active {
+  transform: scale(0.96);
+}
+
+
+.hero-highlights-container {
+  max-width: 1220px;
+  margin: 18px auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.hero-highlight-chip {
+  background: #FFFFFF;
+  border: 1.5px solid #f8d5db;
+  border-radius: 16px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 4px 14px rgba(72, 31, 114, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hero-highlight-chip:hover {
+  transform: translateY(-3px);
+  border-color: #FEA3B6;
+  box-shadow: 0 8px 24px rgba(72, 31, 114, 0.12);
+  background: #fcf4f4;
+}
+
+.hero-highlight-chip .highlight-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #481F72, #5f2b96);
+  color: #FEA3B6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(72, 31, 114, 0.15);
+}
+
+.hero-highlight-chip .highlight-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.hero-highlight-chip .highlight-text strong {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.98rem;
+  color: #481F72;
+  font-weight: 600;
+}
+
+.hero-highlight-chip .highlight-text span {
+  font-size: 0.82rem;
+  color: #6e5e78;
+}
+
+
+.services-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.service-select-card {
+  background: #FDEDED;
+  border: 1.5px solid #f8d5db;
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-select-card:hover {
+  background: #FFFFFF;
+  border-color: #FEA3B6;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(72, 31, 114, 0.10);
+}
+
+.service-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #481F72, #5f2b96);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(72, 31, 114, 0.04);
+}
+
+.service-card-info h4 {
+  font-size: 1.05rem;
+  color: #481F72;
+  margin-bottom: 3px;
+}
+
+.service-card-info p {
+  font-size: 0.85rem;
+  color: #6e5e78;
+  margin-bottom: 6px;
+}
+
+
+
+.hero-ribbon-bar {
+  position: relative;
+  z-index: 5;
+  background: linear-gradient(90deg, #37155a 0%, #481F72 50%, #37155a 100%);
+  border-top: 2px solid #FEA3B6;
+  border-bottom: 2px solid #FEA3B6;
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(72, 31, 114, 0.22);
+  overflow: hidden;
+}
+
+.hero-ribbon-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(254, 163, 182, 0.08) 50%,
+    transparent 100%
+  );
+  animation: ribbonShimmer 6s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes ribbonShimmer {
+  0% { transform: translateX(-30%); }
+  100% { transform: translateX(30%); }
+}
+
+.hero-ribbon-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.hero-ribbon-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-ribbon-title .ribbon-paw {
+  color: #FEA3B6;
+  font-size: 1.5rem;
+  display: inline-block;
+  animation: pawWiggle 3s ease-in-out infinite;
+}
+
+.hero-ribbon-title .ribbon-paw.right {
+  animation-delay: 1.5s;
+}
+
+@keyframes pawWiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-10deg) scale(1.15); }
+  75% { transform: rotate(10deg) scale(1.15); }
+}
+
+.hero-ribbon-subtitle {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #FEA3B6;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: 20px 16px 24px 16px;
+  }
+  .hero-cover-container {
+    border-radius: 20px;
+  }
+  .hero-highlights-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .hero-ribbon-bar {
+    padding: 18px 14px;
+  }
+  .hero-ribbon-title {
+    font-size: 1.35rem;
+    gap: 10px;
+  }
+  .hero-ribbon-title .ribbon-paw {
+    font-size: 1.3rem;
+  }
+  .hero-ribbon-subtitle {
+    font-size: 0.98rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 14px 12px 18px 12px;
+  }
+  .hero-cover-container {
+    border-radius: 16px;
+    border-width: 1.5px;
+    box-shadow: 0 10px 28px rgba(72, 31, 114, 0.14);
+  }
+  .hero-uploader-control {
+    bottom: 12px;
+    right: 12px;
+    padding: 6px 12px;
+    font-size: 0.76rem;
+    gap: 6px;
+  }
+  .hero-highlights-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .hero-highlight-chip {
+    padding: 10px 12px;
+    gap: 10px;
+    border-radius: 10px;
+  }
+  .hero-highlight-chip .highlight-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.05rem;
+    border-radius: 10px;
+  }
+  .hero-highlight-chip .highlight-text strong {
+    font-size: 0.88rem;
+  }
+  .hero-highlight-chip .highlight-text span {
+    font-size: 0.74rem;
+  }
+  .hero-ribbon-bar {
+    padding: 14px 12px;
+  }
+  .hero-ribbon-title {
+    font-size: 1.15rem;
+    gap: 8px;
+  }
+  .hero-ribbon-title .ribbon-paw {
+    font-size: 1.15rem;
+  }
+  .hero-ribbon-subtitle {
+    font-size: 0.88rem;
+  }
+  .services-modal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 10px 8px 14px 8px;
+  }
+  .hero-cover-container {
+    border-radius: 12px;
+    border-width: 1px;
+    box-shadow: 0 6px 18px rgba(72, 31, 114, 0.12);
+  }
+  .hero-uploader-control {
+    bottom: 8px;
+    right: 8px;
+    padding: 4px 9px;
+    font-size: 0.68rem;
+    gap: 4px;
+  }
+  .hero-uploader-control span.upload-text {
+    font-size: 0.68rem;
+  }
+  .hero-highlights-container {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .hero-highlight-chip {
+    padding: 8px 12px;
+    gap: 10px;
+  }
+  .hero-highlight-chip .highlight-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+  .hero-highlight-chip .highlight-text strong {
+    font-size: 0.84rem;
+  }
+  .hero-highlight-chip .highlight-text span {
+    font-size: 0.72rem;
+  }
+  .hero-ribbon-bar {
+    padding: 12px 8px;
+  }
+  .hero-ribbon-title {
+    font-size: 0.96rem;
+    gap: 5px;
+    line-height: 1.25;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .hero-ribbon-title .ribbon-paw {
+    font-size: 0.95rem;
+  }
+  .hero-ribbon-subtitle {
+    font-size: 0.78rem;
+    line-height: 1.35;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .hero-section {
+    padding: 8px 6px 12px 6px;
+  }
+  .hero-cover-container {
+    border-radius: 10px;
+  }
+  .hero-uploader-control {
+    padding: 3px 7px;
+    font-size: 0.62rem;
+  }
+  .hero-ribbon-title {
+    font-size: 0.88rem;
+  }
+  .hero-ribbon-subtitle {
+    font-size: 0.72rem;
+  }
+}
+
+
+
+
+.user-appointments-section {
+  display: none; 
+  padding: 40px 0;
+  background: linear-gradient(180deg, #fff, #fcf4f4);
+  border-bottom: 2px solid #f8d5db;
+}
+
+.user-appointment-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(72, 31, 114, 0.10);
+  border: 2px solid #FEA3B6;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.appointment-header-band {
+  background: #481F72;
+  color: #FFFFFF;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.appointment-header-band h3 {
+  color: #FFFFFF;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.appointment-id-tag {
+  background: rgba(254, 163, 182, 0.25);
+  border: 1px solid #FEA3B6;
+  color: #FEA3B6;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.85rem;
+}
+
+.appointment-body-grid {
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 180px 1fr 1fr 200px;
+  gap: 24px;
+  align-items: center;
+}
+
+.pet-avatar-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid #FEA3B6;
+  box-shadow: 0 4px 14px rgba(72, 31, 114, 0.07);
+}
+
+.pet-avatar-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pet-info-block h4 {
+  font-size: 1.45rem;
+  color: #481F72;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pet-meta-list {
+  list-style: none;
+  font-size: 0.92rem;
+  color: #6e5e78;
+}
+
+.pet-meta-list li {
+  margin-bottom: 4px;
+  display: flex;
+  gap: 6px;
+}
+
+.pet-meta-list strong {
+  color: #481F72;
+}
+
+.doctor-booked-summary {
+  background: #FDEDED;
+  padding: 16px 20px;
+  border-radius: 16px;
+  border: 1px solid #f8d5db;
+}
+
+.doctor-booked-summary .doc-heading {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  color: #481F72;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.doctor-booked-summary .slot-highlight {
+  font-weight: 700;
+  color: #481F72;
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+.appointment-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.doctor-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(72, 31, 114, 0.07);
+  border: 1px solid rgba(72, 31, 114, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.doctor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(72, 31, 114, 0.18);
+  border-color: #FEA3B6;
+}
+
+.doctor-card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 270px;
+  overflow: hidden;
+  background-color: #FDEDED;
+}
+
+.doctor-card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.doctor-card:hover .doctor-card-image-wrap img {
+  transform: scale(1.06);
+}
+
+.doctor-rating-floating {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #481F72;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 4px 14px rgba(72, 31, 114, 0.07);
+}
+
+.doctor-rating-floating .star-icon {
+  color: #f59e0b;
+}
+
+.doctor-verified-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #481F72;
+  color: #FFFFFF;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 4px 14px rgba(72, 31, 114, 0.07);
+}
+
+.doctor-card-body {
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.doctor-name {
+  font-size: 1.45rem;
+  color: #481F72;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.doctor-subtitle {
+  font-size: 0.88rem;
+  color: #6e5e78;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.doctor-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.doctor-description {
+  font-size: 0.94rem;
+  color: #6e5e78;
+  line-height: 1.55;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.doctor-meta-details {
+  border-top: 1px solid #f8d5db;
+  padding-top: 14px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.88rem;
+}
+
+.meta-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6e5e78;
+}
+
+.meta-detail-row i {
+  color: #481F72;
+  width: 16px;
+  text-align: center;
+}
+
+.meta-detail-row a {
+  color: #481F72;
+  font-weight: 600;
+}
+
+.meta-detail-row a:hover {
+  color: #e0778c;
+  text-decoration: underline;
+}
+
+.doctor-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+
+
+.slots-container {
+  margin-top: 16px;
+  background: #fcf4f4;
+  border-radius: 16px;
+  padding: 14px;
+  border: 1px solid #f8d5db;
+}
+
+.slots-header {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #481F72;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.slot-chips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.slot-chip {
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+}
+
+
+.slot-chip.available {
+  background-color: #FEA3B6;
+  color: #481F72;
+  box-shadow: 0 2px 6px rgba(254, 163, 182, 0.35);
+}
+
+.slot-chip.available:hover {
+  transform: scale(1.06);
+  background-color: #fa8ea4;
+  box-shadow: 0 4px 10px rgba(254, 163, 182, 0.6);
+}
+
+
+.slot-chip.booked {
+  background-color: #4c4355;
+  color: #e2dde7;
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+.slot-chip.booked:hover {
+  opacity: 0.95;
+  background-color: #3b3342;
+}
+
+
+
+.appointments-filter-bar {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 4px 14px rgba(72, 31, 114, 0.07);
+  border: 1px solid rgba(72, 31, 114, 0.08);
+  margin-bottom: 36px;
+}
+
+.filter-row-top {
+  display: grid;
+  grid-template-columns: 1fr 220px 220px 180px;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input-wrapper i {
+  position: absolute;
+  left: 18px;
+  color: #481F72;
+  font-size: 1.1rem;
+}
+
+.search-input-wrapper input {
+  width: 100%;
+  padding: 13px 18px 13px 48px;
+  background: #FDEDED;
+  border: 1px solid #f8d5db;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  color: #2D1B36;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-input-wrapper input:focus {
+  background: #FFFFFF;
+  border-color: #FEA3B6;
+  box-shadow: 0 0 0 3px rgba(254, 163, 182, 0.3);
+}
+
+.filter-select {
+  padding: 13px 18px;
+  background: #FDEDED;
+  border: 1px solid #f8d5db;
+  border-radius: 9999px;
+  font-size: 0.92rem;
+  color: #481F72;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-select:focus {
+  background: #FFFFFF;
+  border-color: #FEA3B6;
+  box-shadow: 0 0 0 3px rgba(254, 163, 182, 0.3);
+}
+
+.filter-status-pills {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-pill-btn {
+  padding: 7px 18px;
+  border-radius: 9999px;
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  background: #FDEDED;
+  color: #481F72;
+  border: 1px solid #f8d5db;
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.filter-pill-btn.active,
+.filter-pill-btn:hover {
+  background: #481F72;
+  color: #FFFFFF;
+  border-color: #481F72;
+}
+
+
+.appointment-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.appointment-slot-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid rgba(72, 31, 114, 0.08);
+  padding: 22px;
+  box-shadow: 0 2px 6px rgba(72, 31, 114, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.appointment-slot-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(72, 31, 114, 0.10);
+  border-color: #FEA3B6;
+}
+
+.slot-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.slot-doc-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #FEA3B6;
+}
+
+.slot-doc-info h4 {
+  font-size: 1.1rem;
+  color: #481F72;
+  margin-bottom: 2px;
+}
+
+.slot-doc-info p {
+  font-size: 0.82rem;
+  color: #6e5e78;
+}
+
+.slot-datetime-badge {
+  background: #FDEDED;
+  border: 1px solid #f8d5db;
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #481F72;
+}
+
+.slot-datetime-badge .time-text {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.05rem;
+}
+
+.slot-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid rgba(72, 31, 114, 0.06);
+}
+
+
+.empty-state-box {
+  grid-column: 1 / -1;
+  background: #FDEDED;
+  border: 2px dashed #f8d5db;
+  border-radius: 24px;
+  padding: 60px 24px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.empty-state-icon {
+  width: 72px;
+  height: 72px;
+  background: #FFFFFF;
+  color: #481F72;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 18px auto;
+  box-shadow: 0 4px 14px rgba(72, 31, 114, 0.07);
+}
+
+
+
+.booking-view-wrapper {
+  display: none; 
+  padding: 60px 0 100px 0;
+  background: linear-gradient(180deg, #fcf4f4, #FFFFFF);
+  min-height: 100vh;
+}
+
+.booking-hero-card {
+  background: #481F72;
+  color: #FFFFFF;
+  border-radius: 24px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 40px;
+  box-shadow: 0 16px 40px rgba(72, 31, 114, 0.14);
+}
+
+.booking-hero-doc {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.booking-hero-doc-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #FEA3B6;
+}
+
+.booking-hero-doc-text h2 {
+  color: #FFFFFF;
+  font-size: 1.8rem;
+  margin-bottom: 4px;
+}
+
+.booking-hero-doc-text p {
+  color: #FEA3B6;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.booking-hero-slot-pill {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid #FEA3B6;
+  border-radius: 16px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.slot-pill-date, .slot-pill-time {
+  display: flex;
+  flex-direction: column;
+}
+
+.slot-pill-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #FEA3B6;
+  font-weight: 700;
+}
+
+.slot-pill-val {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+
+.wizard-progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  position: relative;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wizard-progress-bar::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  right: 30px;
+  height: 4px;
+  background: #f8d5db;
+  z-index: 1;
+}
+
+.wizard-step-item {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.step-bubble {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 3px solid #f8d5db;
+  color: #6e5e78;
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wizard-step-item.active .step-bubble {
+  background: #481F72;
+  border-color: #FEA3B6;
+  color: #FFFFFF;
+  box-shadow: 0 0 0 6px rgba(254, 163, 182, 0.35);
+}
+
+.wizard-step-item.completed .step-bubble {
+  background: #FEA3B6;
+  border-color: #481F72;
+  color: #481F72;
+}
+
+.step-label {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6e5e78;
+}
+
+.wizard-step-item.active .step-label {
+  color: #481F72;
+}
+
+
+.wizard-form-card {
+  background: #FFFFFF;
+  border-radius: 32px;
+  padding: 42px;
+  box-shadow: 0 16px 40px rgba(72, 31, 114, 0.14);
+  border: 1px solid rgba(72, 31, 114, 0.08);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.form-step-pane {
+  display: none;
+}
+
+.form-step-pane.active {
+  display: block;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.form-step-title {
+  font-size: 1.7rem;
+  color: #481F72;
+  margin-bottom: 6px;
+}
+
+.form-step-desc {
+  font-size: 0.95rem;
+  color: #6e5e78;
+  margin-bottom: 28px;
+}
+
+
+.autofill-banner {
+  background: #FDEDED;
+  border: 1px solid #FEA3B6;
+  border-radius: 16px;
+  padding: 12px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  color: #481F72;
+}
+
+.autofill-banner button {
+  background: none;
+  color: #e0778c;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #481F72;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 12px 18px;
+  background: #FDEDED;
+  border: 1px solid #f8d5db;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #2D1B36;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  background: #FFFFFF;
+  border-color: #FEA3B6;
+  box-shadow: 0 0 0 3px rgba(254, 163, 182, 0.3);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+
+.upload-dropzone {
+  border: 2.5px dashed #FEA3B6;
+  background: #FDEDED;
+  border-radius: 24px;
+  padding: 40px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.upload-dropzone:hover,
+.upload-dropzone.dragover {
+  background: #fce5e8;
+  border-color: #481F72;
+  transform: scale(1.01);
+}
+
+.upload-icon-circle {
+  width: 68px;
+  height: 68px;
+  background: #FFFFFF;
+  color: #481F72;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto 16px auto;
+  box-shadow: 0 4px 14px rgba(72, 31, 114, 0.07);
+}
+
+.upload-preview-area {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.preview-thumb {
+  width: 130px;
+  height: 130px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 3px solid #FEA3B6;
+  box-shadow: 0 8px 24px rgba(72, 31, 114, 0.10);
+}
+
+
+.summary-review-card {
+  background: #fcf4f4;
+  border-radius: 24px;
+  border: 1px solid #f8d5db;
+  padding: 28px;
+  margin-bottom: 30px;
+}
+
+.summary-section-block {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1.5px dashed #FEA3B6;
+}
+
+.summary-section-block:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.summary-section-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #481F72;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  font-size: 0.92rem;
+}
+
+.summary-item strong {
+  color: #481F72;
+}
+
+
+.wizard-footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #f8d5db;
+}
+
+
+
+.success-screen-wrapper {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.success-celebration-card {
+  background: #FFFFFF;
+  border-radius: 32px;
+  border: 2px solid #FEA3B6;
+  padding: 48px;
+  max-width: 720px;
+  margin: 0 auto;
+  box-shadow: 0 16px 40px rgba(72, 31, 114, 0.14);
+  position: relative;
+  overflow: hidden;
+}
+
+.success-icon-badge {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #481F72, #FEA3B6);
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 0 25px rgba(254, 163, 182, 0.45);
+  animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.success-title {
+  font-size: 2.2rem;
+  color: #481F72;
+  margin-bottom: 10px;
+}
+
+.success-subtitle {
+  font-size: 1.05rem;
+  color: #6e5e78;
+  margin-bottom: 30px;
+}
+
+.success-ticket-box {
+  background: #FDEDED;
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+
+
+.history-filter-strip {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 4px 14px rgba(72, 31, 114, 0.07);
+  border: 1px solid rgba(72, 31, 114, 0.08);
+  margin-bottom: 32px;
+}
+
+.history-filter-top {
+  display: grid;
+  grid-template-columns: 1fr 220px 220px;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.history-species-pills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.history-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(72, 31, 114, 0.07);
+  border: 1px solid rgba(72, 31, 114, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.history-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(72, 31, 114, 0.18);
+  border-color: #FEA3B6;
+}
+
+.history-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: #FDEDED;
+}
+
+.history-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.history-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+}
+
+.history-card-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.history-pet-title {
+  font-size: 1.35rem;
+  color: #481F72;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.history-pet-species {
+  font-size: 0.85rem;
+  color: #e0778c;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.history-condition-pill {
+  background: #FDEDED;
+  border: 1px solid #f8d5db;
+  color: #481F72;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+}
+
+.history-symptoms-snippet {
+  font-size: 0.9rem;
+  color: #6e5e78;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.history-card-meta {
+  border-top: 1px solid #f8d5db;
+  padding-top: 12px;
+  font-size: 0.84rem;
+  color: #6e5e78;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+
+
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.custom-toast {
+  pointer-events: auto;
+  width: 380px;
+  max-width: calc(100vw - 48px);
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 16px 36px rgba(72, 31, 114, 0.22);
+  border: 2px solid #FEA3B6;
+  overflow: hidden;
+  animation: slideInToast 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInToast {
+  from { transform: translateX(120%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.toast-header {
+  background: #481F72;
+  color: #FFFFFF;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.toast-header i.accent-icon {
+  color: #FEA3B6;
+}
+
+.toast-close-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.toast-body {
+  padding: 16px;
+  font-size: 0.92rem;
+  color: #2D1B36;
+  line-height: 1.5;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(45, 27, 54, 0.7);
+  backdrop-filter: blur(6px);
+  z-index: 8888;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-dialog {
+  background: #FFFFFF;
+  border-radius: 32px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 48px rgba(72, 31, 114, 0.18);
+  border: 2px solid #FEA3B6;
+  animation: modalPop 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalPop {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+  background: #481F72;
+  color: #FFFFFF;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-header h3 {
+  color: #FFFFFF;
+  font-size: 1.4rem;
+}
+
+.modal-close {
+  background: none;
+  color: #FFFFFF;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 28px;
+}
+
+
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+
+
+.site-footer {
+  background: #37155a;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 70px 0 30px 0;
+  border-top: 3px solid #FEA3B6;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-col h4 {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  margin-bottom: 18px;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a:hover {
+  color: #FEA3B6;
+  padding-left: 4px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+
+@media (max-width: 1200px) {
+  .doctors-grid,
+  .history-grid,
+  .appointment-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .appointment-body-grid {
+    grid-template-columns: 140px 1fr 1fr;
+  }
+  .appointment-actions {
+    grid-column: 1 / -1;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 900px) {
+  .filter-row-top,
+  .history-filter-top {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .booking-hero-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .doctors-grid,
+  .history-grid,
+  .appointment-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-title {
+    font-size: 2.4rem;
+  }
+  .hero-stats-strip {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .appointment-body-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .pet-avatar-wrapper {
+    margin: 0 auto;
+  }
+  .form-grid-2,
+  .form-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .wizard-form-card {
+    padding: 24px;
+  }
+  .filter-row-top,
+  .history-filter-top {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-hero-card { padding: 22px; }
+  .modal-header { padding: 16px 20px; }
+  .modal-body { padding: 20px; }
+  .doctor-card-image-wrap { height: 240px; }
+  .history-card-img-wrap { height: 180px; }
+  .success-celebration-card { padding: 34px 24px; }
+  .wizard-footer-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .wizard-footer-nav .btn { width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .wizard-progress-bar { margin-bottom: 26px; }
+  .wizard-progress-bar::before { top: 19px; left: 20px; right: 20px; }
+  .step-bubble { width: 38px; height: 38px; font-size: 0.95rem; }
+  .wizard-step-item { gap: 6px; }
+  .step-label { font-size: 0.62rem; }
+  .slot-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .slot-card-footer .btn { width: 100%; }
+  .slot-datetime-badge { flex-wrap: wrap; gap: 6px; }
+  .doctor-card-actions { grid-template-columns: 1fr; }
+  .upload-preview-area {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .upload-preview-area > div {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .preview-thumb { width: 110px; height: 110px; }
+  .upload-preview-area .btn { width: auto; }
+  .success-ticket-box { padding: 18px; }
+  .appointment-header-band { padding: 14px 16px; }
+}
+
+@media (max-width: 480px) {
+  h3 { font-size: 1.4rem; }
+  .section-title { font-size: 1.6rem; }
+  .form-step-title { font-size: 1.4rem; }
+  .success-title { font-size: 1.7rem; }
+  .hero-cover-container { aspect-ratio: 4 / 3; }
+  .hero-hotspot-btn-left { height: 13%; }
+  .hero-hotspot-btn-arrow { height: 18%; }
+  .booking-hero-card { padding: 20px; }
+  .booking-hero-doc { gap: 14px; }
+  .booking-hero-doc-img { width: 64px; height: 64px; }
+  .booking-hero-doc-text h2 { font-size: 1.45rem; }
+  .doctor-name { font-size: 1.3rem; }
+  .pet-info-block h4 { font-size: 1.28rem; }
+  .appointment-header-band h3 { font-size: 1.1rem; }
+  .history-pet-title { font-size: 1.2rem; }
+  .wizard-form-card { padding: 18px; }
+  .success-celebration-card { padding: 28px 18px; }
+  .summary-review-card { padding: 22px; }
+}
+
+@media (max-width: 360px) {
+  .step-bubble { width: 32px; height: 32px; font-size: 0.85rem; }
+  .step-label { display: none; }
+  .wizard-step-item { gap: 4px; }
+  .doctor-card-image-wrap { height: 210px; }
+  .history-card-img-wrap { height: 160px; }
+}
+
+</style>
+</head>
+
+<body>
+
+  <svg width="0" height="0" style="position:absolute;" aria-hidden="true">
+    <symbol id="brand-logo" viewBox="0 0 120 120">
+      <path d="M60 114 C60 114 6 76 6 40 C6 15 26 3 43 15 C51 21 56 29 60 38 C64 29 69 21 77 15 C94 3 114 15 114 40 C114 76 60 114 60 114 Z"
+        fill="#E8A400" stroke="#FFF6DF" stroke-width="4" stroke-linejoin="round"/>
+      <g fill="#FFF6DF">
+        <ellipse cx="60" cy="72" rx="15" ry="13"/>
+        <ellipse cx="42" cy="53" rx="6" ry="7.5" transform="rotate(-16 42 53)"/>
+        <ellipse cx="54" cy="47" rx="5.5" ry="7.5" transform="rotate(-5 54 47)"/>
+        <ellipse cx="66" cy="47" rx="5.5" ry="7.5" transform="rotate(5 66 47)"/>
+        <ellipse cx="78" cy="53" rx="6" ry="7.5" transform="rotate(16 78 53)"/>
+      </g>
+    </symbol>
+  </svg>
+
+  
+  <header class="site-header" id="site-header">
+    <div class="container nav-wrapper">
+      <a href="#hero" class="brand-logo">
+        <svg viewBox="0 0 120 120" width="48" height="48"><use href="#brand-logo"/></svg>
+        <span>FurEver<span class="accent">Care</span></span>
+      </a>
+
+      <nav id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="#vets-section" class="active">Our Veterinarians</a></li>
+          <li><a href="#appointments-section">Appointments</a></li>
+          <li><a href="#my-appointments-section" id="nav-my-booking-link">My Pet & Booking</a></li>
+          <li><a href="#history-section">Medical History</a></li>
+          <li class="nav-switch-role"><a href="role.html" class="btn-switch-role" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;background:#123C3A;color:#FFF6DF;font-family:'Fredoka',sans-serif;font-weight:600;font-size:13px;text-decoration:none;transition:transform .2s;"><i class="fa-solid fa-shuffle"></i> <span>Switch Role</span></a></li>
+        </ul>
+      </nav>
+
+        <a href="role.html" class="btn-switch-role" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;background:#123C3A;color:#FFF6DF;font-family:'Fredoka',sans-serif;font-weight:600;font-size:13px;text-decoration:none;transition:transform .2s;"><i class="fa-solid fa-shuffle"></i> <span>Switch Role</span></a>
+      <div class="nav-actions">
+        <a href="#appointments-section" class="btn-nav-book">
+          <i class="far fa-calendar-alt"></i>
+          <span>Book Appointment</span>
+          <span class="booking-badge-counter" id="nav-booking-badge" style="display:none;">0</span>
+        </a>
+        <button type="button" class="mobile-menu-toggle" id="nav-menu-toggle" aria-label="Toggle navigation menu"
+          aria-expanded="false" aria-controls="nav-menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  
+  <main id="main-view-wrapper">
+
+    
+    <section class="hero-section" id="hero">
+      <div class="hero-cover-container">
+        <img id="hero-cover-image" class="hero-cover-img" src="images/hero-cover.jpg"
+          alt="FurEver Care — Exceptional Healthcare For Your Beloved Pets">
+
+        
+        <a href="#vets-section" class="hero-hotspot-btn-left" id="btn-explore-service-left"
+          title="Explore Services &amp; Specialists" aria-label="Explore Services and Specialists"></a>
+
+        
+        <a href="#vets-section" class="hero-hotspot-btn-arrow" id="btn-explore-service-arrow"
+          title="Explore Services &amp; Appointments" aria-label="Explore Services and Appointments"></a>
+
+        
+        <label class="hero-uploader-control" id="btn-upload-hero" title="Change or upload custom hero photo">
+          <i class="fas fa-camera"></i>
+          <span class="upload-text">Change Cover</span>
+          <input type="file" id="hero-file-input" accept="image/*" style="display:none;">
+        </label>
+      </div>
+
+      
+      <div class="hero-highlights-container">
+        <a href="#vets-section" class="hero-highlight-chip" title="Meet our 6 specialist veterinarians">
+          <div class="highlight-icon"><i class="fas fa-user-md"></i></div>
+          <div class="highlight-text">
+            <strong>6 Specialist Vets</strong>
+            <span>Board-Certified Care</span>
+          </div>
+        </a>
+        <a href="#appointments-section" class="hero-highlight-chip" title="View 20 available appointment slots">
+          <div class="highlight-icon"><i class="fas fa-calendar-check"></i></div>
+          <div class="highlight-text">
+            <strong>20 Real-Time Slots</strong>
+            <span>12 Open Consultations</span>
+          </div>
+        </a>
+        <a href="#my-appointments-section" class="hero-highlight-chip" id="hero-chip-pass" title="Access digital pet medical records">
+          <div class="highlight-icon"><i class="fas fa-id-card"></i></div>
+          <div class="highlight-text">
+            <strong>Digital Intake Pass</strong>
+            <span>Printable Patient Card</span>
+          </div>
+        </a>
+        <a href="#appointments-section" class="hero-highlight-chip" title="Emergency pet wellness care">
+          <div class="highlight-icon"><i class="fas fa-heartbeat"></i></div>
+          <div class="highlight-text">
+            <strong>24/7 Pet Wellness</strong>
+            <span>Surgery, Cardio &amp; Exotics</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    
+    <div class="hero-ribbon-bar" id="hero-ribbon">
+      <div class="container hero-ribbon-content">
+        <div class="hero-ribbon-title">
+          <span class="ribbon-paw left"><i class="fas fa-paw"></i></span>
+          <span>Welcome to Our Pet Care Family!</span>
+          <span class="ribbon-paw right"><i class="fas fa-paw"></i></span>
+        </div>
+        <div class="hero-ribbon-subtitle">
+          Where Every Paw Gets the Love &amp; Care They Deserve
+        </div>
+      </div>
+    </div>
+
+    
+    
+    <section class="user-appointments-section" id="my-appointments-section">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 24px;">
+          <span class="section-tag"><i class="fas fa-paw"></i> Personal Patient Portal</span>
+          <h2 class="section-title">My Pet & Active Appointments</h2>
+          <p class="section-subtitle">Manage your reserved veterinary consultations, view medical intake passes, and
+            print clinical tickets.</p>
+        </div>
+
+        <div id="my-appointments-container">
+          
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="section section-blush" id="vets-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-stethoscope"></i> Clinical Excellence</span>
+          <h2 class="section-title">Our Board-Certified Veterinarians</h2>
+          <p class="section-subtitle">
+            Meet our dedicated team of 6 specialist practitioners across canine surgery, feline medicine, dermatology,
+            orthopedics, exotic pets, and dental wellness.
+          </p>
+        </div>
+
+        
+        <div class="doctors-grid" id="doctors-grid">
+          
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="section section-white" id="appointments-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="far fa-calendar-alt"></i> Real-Time Scheduling</span>
+          <h2 class="section-title">Available Appointment Slots (20 Total)</h2>
+          <p class="section-subtitle">
+            Browse our 20 appointment slots (12 Available &amp; 8 Reserved). Individual slots are clearly designated while each doctor remains accessible.
+          </p>
+        </div>
+
+        
+        <div class="appointments-filter-bar">
+          <div class="filter-row-top">
+            
+            <div class="search-input-wrapper">
+              <i class="fas fa-search"></i>
+              <input type="text" id="appt-search-input" placeholder="Search doctor or specialization...">
+            </div>
+
+            
+            <select class="filter-select" id="appt-doc-filter">
+              <option value="all">All Veterinarians</option>
+            </select>
+
+            
+            <select class="filter-select" id="appt-spec-filter">
+              <option value="all">All Specializations</option>
+              <option value="Canine">Canine Surgery</option>
+              <option value="Feline">Feline Cardiology</option>
+              <option value="Dermatology">Dermatology</option>
+              <option value="Orthopedic">Orthopedic Surgery</option>
+              <option value="Exotic">Exotic & Avian</option>
+              <option value="Dentistry">Dental Wellness</option>
+            </select>
+
+            
+            <input type="date" class="filter-select" id="appt-date-filter" title="Filter by date">
+          </div>
+
+          
+          <div class="filter-status-pills">
+            <span
+              style="font-family:'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif; font-size:0.9rem; color:#481F72; font-weight:700; margin-right:6px;">Status:</span>
+            <button class="filter-pill-btn appt-status-pill active" data-status="all">All Slots</button>
+            <button class="filter-pill-btn appt-status-pill" data-status="available"><i class="fas fa-check-circle"></i>
+              Available Only</button>
+            <button class="filter-pill-btn appt-status-pill" data-status="booked"><i class="fas fa-lock"></i> Booked
+              Only</button>
+          </div>
+        </div>
+
+        
+        <div class="appointment-cards-grid" id="appointments-grid">
+          
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="section section-blush" id="history-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-notes-medical"></i> Case Studies &amp; Archive</span>
+          <h2 class="section-title">Pet Medical History &amp; Clinical Cases (20 Records)</h2>
+          <p class="section-subtitle">
+            Explore 20 comprehensive veterinary clinical case records across dogs, cats, rabbits, birds, and other species. Newly confirmed appointments are automatically appended here in real-time.
+          </p>
+        </div>
+
+        
+        <div class="history-filter-strip">
+          <div class="history-filter-top">
+            
+            <div class="search-input-wrapper">
+              <i class="fas fa-search"></i>
+              <input type="text" id="history-search-input"
+                placeholder="Search pet, owner, breed, doctor or condition...">
+            </div>
+
+            
+            <select class="filter-select" id="history-doc-filter">
+              <option value="all">All Attending Doctors</option>
+            </select>
+
+            
+            <select class="filter-select" id="history-cond-filter">
+              <option value="all">All Medical Conditions</option>
+              <option value="Gastroenteritis">Gastroenteritis</option>
+              <option value="Cardiomyopathy">Cardiomyopathy (HCM)</option>
+              <option value="Cruciate">Orthopedic / CCL Tear</option>
+              <option value="Dermatitis">Dermatology / Allergy</option>
+              <option value="Periodontal">Dental / Periodontal</option>
+              <option value="Stasis">GI Stasis / Exotics</option>
+              <option value="General">Routine / Prevention</option>
+            </select>
+          </div>
+
+          
+          <div class="history-species-pills">
+            <span
+              style="font-family:'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif; font-size:0.9rem; color:#481F72; font-weight:700; margin-right:6px;">Species:</span>
+            <button class="filter-pill-btn history-species-pill active" data-species="all">All Animals</button>
+            <button class="filter-pill-btn history-species-pill" data-species="Dog"><i class="fas fa-dog"></i>
+              Dogs</button>
+            <button class="filter-pill-btn history-species-pill" data-species="Cat"><i class="fas fa-cat"></i>
+              Cats</button>
+            <button class="filter-pill-btn history-species-pill" data-species="Rabbit"><i class="fas fa-paw"></i>
+              Rabbits</button>
+            <button class="filter-pill-btn history-species-pill" data-species="Bird"><i class="fas fa-dove"></i>
+              Birds</button>
+            <button class="filter-pill-btn history-species-pill" data-species="Other"><i class="fas fa-dragon"></i>
+              Other Species</button>
+          </div>
+        </div>
+
+        
+        <div class="history-grid" id="medical-history-grid">
+          
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  
+  <div class="booking-view-wrapper" id="booking-view-wrapper">
+    <div class="container">
+
+      
+      <div style="margin-bottom: 24px; display:flex; justify-content:space-between; align-items:center;">
+        <button class="btn btn-sm btn-outline-primary" id="btn-cancel-booking">
+          <i class="fas fa-arrow-left"></i> Back to Veterinarian Page
+        </button>
+        <span class="badge badge-available"><i class="fas fa-lock-open"></i> Secure Patient Reservation</span>
+      </div>
+
+      
+      <div class="booking-hero-card">
+        <div class="booking-hero-doc">
+          <img id="booking-hero-doc-img" class="booking-hero-doc-img" src="" alt="Doctor">
+          <div class="booking-hero-doc-text">
+            <h2 id="booking-hero-doc-name">Doctor Name</h2>
+            <p id="booking-hero-doc-spec">Specialization</p>
+          </div>
+        </div>
+
+        <div class="booking-hero-slot-pill">
+          <div class="slot-pill-date">
+            <span class="slot-pill-label">Selected Date</span>
+            <span class="slot-pill-val" id="booking-hero-date">Monday, 25 Aug</span>
+          </div>
+          <div style="width:1px; height:32px; background:rgba(255,255,255,0.2);"></div>
+          <div class="slot-pill-time">
+            <span class="slot-pill-label">Time Slot</span>
+            <span class="slot-pill-val" id="booking-hero-time">11:00 AM</span>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="wizard-progress-bar">
+        <div class="wizard-step-item active" data-step="1">
+          <div class="step-bubble">1</div>
+          <span class="step-label">Owner Info</span>
+        </div>
+        <div class="wizard-step-item" data-step="2">
+          <div class="step-bubble">2</div>
+          <span class="step-label">Pet Details</span>
+        </div>
+        <div class="wizard-step-item" data-step="3">
+          <div class="step-bubble">3</div>
+          <span class="step-label">Medical Info</span>
+        </div>
+        <div class="wizard-step-item" data-step="4">
+          <div class="step-bubble">4</div>
+          <span class="step-label">Pet Photo</span>
+        </div>
+        <div class="wizard-step-item" data-step="5">
+          <div class="step-bubble">5</div>
+          <span class="step-label">Confirm</span>
+        </div>
+      </div>
+
+      
+      <div class="wizard-form-card" id="wizard-form-container">
+
+        
+        <div class="form-step-pane active" data-step-pane="1">
+          <h3 class="form-step-title"><i class="fas fa-user-circle"></i> Owner Contact Information</h3>
+          <p class="form-step-desc">Please provide your contact details so our medical team can reach you regarding
+            appointment updates.</p>
+
+          
+          <div class="autofill-banner" id="autofill-notification" style="display:none;">
+            <div><i class="fas fa-magic"></i> Reusing saved owner profile information.</div>
+            <button type="button" id="btn-clear-autofill">Not you? Clear</button>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="owner-name">Full Name *</label>
+              <input type="text" class="form-input" id="owner-name" placeholder="e.g. Ahmed Khan" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="owner-email">Email Address *</label>
+              <input type="email" class="form-input" id="owner-email" placeholder="e.g. ahmed.khan@example.com"
+                required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="owner-phone">Phone Number *</label>
+              <input type="tel" class="form-input" id="owner-phone" placeholder="e.g. +1 (555) 782-9912" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="owner-address">Residential Address</label>
+              <input type="text" class="form-input" id="owner-address"
+                placeholder="e.g. 742 Evergreen Terrace, Springfield">
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="form-step-pane" data-step-pane="2">
+          <h3 class="form-step-title"><i class="fas fa-paw"></i> Pet Patient Identification</h3>
+          <p class="form-step-desc">Provide exact biological details for your pet patient to ensure personalized
+            clinical care.</p>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="pet-name">Pet Name *</label>
+              <input type="text" class="form-input" id="pet-name" placeholder="e.g. Bruno" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="pet-type">Animal Type *</label>
+              <select class="form-select" id="pet-type" required>
+                <option value="">Select Type</option>
+                <option value="Dog">Dog / Canine</option>
+                <option value="Cat">Cat / Feline</option>
+                <option value="Rabbit">Rabbit / Lagomorph</option>
+                <option value="Bird">Bird / Avian</option>
+                <option value="Other">Other Exotic Species</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="pet-breed">Breed *</label>
+              <input type="text" class="form-input" id="pet-breed" placeholder="e.g. German Shepherd" required>
+            </div>
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="pet-gender">Gender</label>
+              <select class="form-select" id="pet-gender">
+                <option value="Male (Neutered)">Male (Neutered)</option>
+                <option value="Male (Intact)">Male (Intact)</option>
+                <option value="Female (Spayed)">Female (Spayed)</option>
+                <option value="Female (Intact)">Female (Intact)</option>
+                <option value="Unknown">Unknown</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="pet-age">Age *</label>
+              <input type="text" class="form-input" id="pet-age" placeholder="e.g. 3 Years" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="pet-dob">Date of Birth</label>
+              <input type="date" class="form-input" id="pet-dob">
+            </div>
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="pet-weight">Weight (kg)</label>
+              <input type="number" step="0.1" class="form-input" id="pet-weight" placeholder="e.g. 34.5">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="pet-color">Coat Color / Markings</label>
+              <input type="text" class="form-input" id="pet-color" placeholder="e.g. Black & Tan">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="vaccination-status">Vaccination Status</label>
+              <select class="form-select" id="vaccination-status">
+                <option value="Up to Date">Up to Date</option>
+                <option value="Partially Vaccinated">Partially Vaccinated</option>
+                <option value="Needs Boosters">Needs Boosters</option>
+                <option value="Not Vaccinated">Not Vaccinated</option>
+                <option value="Unknown">Unknown</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="last-vaccine-date">Last Vaccination Date (if known)</label>
+            <input type="date" class="form-input" id="last-vaccine-date">
+          </div>
+        </div>
+
+        
+        <div class="form-step-pane" data-step-pane="3">
+          <h3 class="form-step-title"><i class="fas fa-stethoscope"></i> Medical & Clinical Details</h3>
+          <p class="form-step-desc">Detail your pet's current symptoms, medical history, and reason for consultation.
+          </p>
+
+          <div class="form-group full-width">
+            <label class="form-label" for="visit-reason">Main Reason for Visit *</label>
+            <input type="text" class="form-input" id="visit-reason"
+              placeholder="e.g. Routine vaccination, vomiting, persistent scratching, limp in right leg..." required>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="current-condition">Current Health Condition</label>
+              <input type="text" class="form-input" id="current-condition"
+                placeholder="e.g. Acute Gastroenteritis, Stable, Post-operative">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="pet-symptoms">Observed Symptoms</label>
+              <input type="text" class="form-input" id="pet-symptoms"
+                placeholder="e.g. Lethargy, decreased appetite, sneezing">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="prev-medical-history">Previous Medical Conditions</label>
+              <textarea class="form-textarea" id="prev-medical-history"
+                placeholder="e.g. Past allergies, respiratory infection at 6 months..."></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="prev-surgeries">Previous Surgeries / Interventions</label>
+              <textarea class="form-textarea" id="prev-surgeries"
+                placeholder="e.g. Neutered at 8 months, dental scaling 2024..."></textarea>
+            </div>
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="current-meds">Current Medication</label>
+              <input type="text" class="form-input" id="current-meds" placeholder="e.g. None or Apoquel 5mg">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="known-allergies">Known Drug / Food Allergies</label>
+              <input type="text" class="form-input" id="known-allergies" placeholder="e.g. None or Chicken protein">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="prev-treatments">Previous Treatments Tried</label>
+              <input type="text" class="form-input" id="prev-treatments" placeholder="e.g. OTC soothing shampoo">
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label" for="additional-notes">Additional Notes for the Attending Doctor</label>
+            <textarea class="form-textarea" id="additional-notes"
+              placeholder="Any special behavioral notes (e.g. nervous around other dogs, requires gentle handling)..."></textarea>
+          </div>
+        </div>
+
+        
+        <div class="form-step-pane" data-step-pane="4">
+          <h3 class="form-step-title"><i class="fas fa-camera"></i> Pet Photograph Upload</h3>
+          <p class="form-step-desc">Upload a clear photo of your pet for their clinical chart and identification badge.
+          </p>
+
+          <div class="upload-dropzone" id="pet-image-dropzone">
+            <input type="file" id="pet-image-input" accept="image/*" style="display:none;">
+
+            <div id="dropzone-prompt">
+              <div class="upload-icon-circle">
+                <i class="fas fa-cloud-upload-alt"></i>
+              </div>
+              <h4 style="font-size:1.25rem; color:#481F72; margin-bottom:6px;">Drag & Drop Pet Photo Here
+              </h4>
+              <p style="font-size:0.9rem; color:#6e5e78; margin-bottom:14px;">or click to browse from
+                your device (PNG, JPG, WebP)</p>
+              <span class="btn btn-sm btn-outline-primary"><i class="fas fa-folder-open"></i> Select Photo</span>
+            </div>
+
+            <div class="upload-preview-area" id="pet-preview-wrap" style="display:none;">
+              <img id="pet-preview-img" class="preview-thumb" src="" alt="Pet Preview">
+              <div style="text-align:left;">
+                <h4 style="color:#481F72; font-size:1.15rem; margin-bottom:4px;">Photo Selected!</h4>
+                <p style="font-size:0.85rem; color:#6e5e78; margin-bottom:12px;">Image ready for
+                  clinical file</p>
+                <div style="display:flex; gap:10px;">
+                  <button type="button" class="btn btn-sm btn-primary"
+                    onclick="document.getElementById('pet-image-input').click()">Change</button>
+                  <button type="button" class="btn btn-sm btn-outline-primary" id="btn-remove-pet-photo">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="form-step-pane" data-step-pane="5">
+          <h3 class="form-step-title"><i class="fas fa-clipboard-check"></i> Review & Finalize Appointment</h3>
+          <p class="form-step-desc">Please verify all owner, pet, and scheduling details prior to confirmation.</p>
+
+          <div class="summary-review-card" id="summary-review-content">
+            
+          </div>
+
+          <div
+            style="background:#FDEDED; padding:16px 20px; border-radius:16px; font-size:0.9rem; color:#481F72; margin-bottom:24px; border:1px solid #FEA3B6;">
+            <i class="fas fa-info-circle"></i> <strong>Critical Notice:</strong> Upon clicking confirm, this specific
+            time slot will immediately convert from <strong>Available &rarr; Booked</strong>, and your pet's file will
+            be archived in the clinical system.
+          </div>
+        </div>
+
+        
+        <div class="wizard-footer-nav">
+          <button type="button" class="btn btn-outline-primary" id="btn-wizard-prev" data-wizard-nav="prev"
+            style="visibility:hidden;">
+            <i class="fas fa-chevron-left"></i> Previous Step
+          </button>
+
+          <button type="button" class="btn btn-primary" id="btn-wizard-next" data-wizard-nav="next">
+            Next Step <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <button type="button" class="btn btn-accent btn-lg" id="btn-confirm-booking" style="display:none;">
+            <i class="fas fa-check-circle"></i> Confirm Appointment
+          </button>
+        </div>
+
+      </div>
+
+      
+      <div class="success-screen-wrapper" id="success-screen-wrapper">
+        <div class="success-celebration-card">
+          <div class="success-icon-badge">
+            <i class="fas fa-check"></i>
+          </div>
+
+          <h2 class="success-title">Appointment Confirmed Successfully!</h2>
+          <p class="success-subtitle">
+            Your appointment has been registered in the FurEver Care clinical system. An official confirmation pass has
+            been created.
+          </p>
+
+          <div class="success-ticket-box">
+            <div
+              style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; border-bottom:1px solid #f8d5db; padding-bottom:10px;">
+              <span style="font-family:'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif; font-weight:700; color:#481F72;">Official
+                Booking Pass</span>
+              <span class="appointment-id-tag" id="success-appt-id">FEC-2026-000000</span>
+            </div>
+
+            <div style="display:flex; gap:20px; align-items:center; margin-bottom:16px;">
+              <img id="success-pet-img" src="" alt="Pet"
+                style="width:72px; height:72px; border-radius:16px; object-fit:cover; border:2px solid #FEA3B6;">
+              <div>
+                <h4 id="success-pet-name" style="color:#481F72; font-size:1.2rem;">Pet Name</h4>
+                <div style="font-size:0.88rem; color:#6e5e78;">Owner: <span
+                    id="success-owner-name"></span></div>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; font-size:0.92rem;">
+              <div><strong>Attending Doctor:</strong> <span id="success-doc-name"></span></div>
+              <div><strong>Schedule:</strong> <span id="success-date-time"></span></div>
+              <div><strong>Status:</strong> <span class="badge badge-available"><i class="fas fa-check-circle"></i>
+                  Confirmed</span></div>
+              <div><strong>Location:</strong> OakHaven Central Hospital</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+            <button class="btn btn-primary" id="btn-return-home">
+              <i class="fas fa-home"></i> Return to Veterinarian Page
+            </button>
+            <button class="btn btn-outline-primary" onclick="window.print()">
+              <i class="fas fa-print"></i> Print Confirmation
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  
+
+  
+  <div class="modal-overlay" id="doctor-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="doctor-modal-title">Veterinarian Profile</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-body" id="doctor-modal-body">
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="modal-overlay" id="history-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="history-modal-title">Medical Record File</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-body" id="history-modal-body">
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="toast-container" id="toast-container"></div>
+
+  
+  <canvas id="confetti-canvas"></canvas>
+
+  
+  <footer class="site-footer" style="position:relative;overflow:hidden;background:#0B2826;color:#FFF6DF;padding:clamp(46px,7vh,70px) clamp(20px,5vw,70px) 22px;">
+    <style>
+      @media (max-width: 1024px) {
+        .foot-grid { grid-template-columns: 1fr 1fr !important; }
+      }
+      @media (max-width: 560px) {
+        .foot-grid { grid-template-columns: 1fr !important; }
+        .foot-paw-bg { font-size: 200px !important; }
+      }
+    </style>
+    <i class="fa-solid fa-paw footer-paw-bg" style="position:absolute;font-size:340px;color:rgba(255,246,223,.04);right:-60px;bottom:-90px;transform:rotate(-18deg);pointer-events:none;"></i>
+    <div class="foot-grid" style="position:relative;z-index:1;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:34px;max-width:1180px;margin:0 auto;padding-bottom:36px;border-bottom:2px dashed rgba(255,246,223,.15);">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:21px;margin-bottom:12px;">
+          <svg viewBox="0 0 120 120" width="30" height="30"><use href="#brand-logo"/></svg>
+          FurEver Care
+        </div>
+        <p style="font-size:13.5px;line-height:1.7;color:rgba(255,246,223,.72);max-width:280px;margin-bottom:18px;">They deserve forever love — smart care, trusted vets and forever homes, all in one place.</p>
+        <div style="display:flex;gap:10px;">
+          <a href="https://facebook.com/" style="width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(255,246,223,.1);color:#FFF6DF;font-size:14px;"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com/" style="width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(255,246,223,.1);color:#FFF6DF;font-size:14px;"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://tiktok.com/" style="width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(255,246,223,.1);color:#FFF6DF;font-size:14px;"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://youtube.com/" style="width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(255,246,223,.1);color:#FFF6DF;font-size:14px;"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div style="font-family:'Fredoka',sans-serif;">
+        <h4 style="font-weight:600;font-size:14px;letter-spacing:.4px;text-transform:uppercase;color:#FFD43B;margin-bottom:14px;">Explore</h4>
+        <a href="pet-owner.html" style="display:block;font-size:13.5px;color:rgba(255,246,223,.78);margin-bottom:10px;">Home</a>
+        <a href="petcare.html" style="display:block;font-size:13.5px;color:rgba(255,246,223,.78);margin-bottom:10px;">Pet Care</a>
+        <a href="product.html" style="display:block;font-size:13.5px;color:rgba(255,246,223,.78);margin-bottom:10px;">Products</a>
+        <a href="vet.html" style="display:block;font-size:13.5px;color:rgba(255,246,223,.78);margin-bottom:10px;">Vet &amp; Emergency</a>
+      </div>
+      <div style="font-family:'Fredoka',sans-serif;">
+        <h4 style="font-weight:600;font-size:14px;letter-spacing:.4px;text-transform:uppercase;color:#FFD43B;margin-bottom:14px;">Company</h4>
+        <a href="about.html" style="display:block;font-size:13.5px;color:rgba(255,246,223,.78);margin-bottom:10px;">About Us</a>
+        <a href="feedback.html" style="display:block;font-size:13.5px;color:rgba(255,246,223,.78);margin-bottom:10px;">Feedback</a>
+        <a href="contact.html" style="display:block;font-size:13.5px;color:rgba(255,246,223,.78);margin-bottom:10px;">Contact Us</a>
+        <a href="role.html" style="display:block;font-size:13.5px;color:rgba(255,246,223,.78);margin-bottom:10px;">Switch Role</a>
+      </div>
+      <div style="font-family:'Fredoka',sans-serif;">
+        <h4 style="font-weight:600;font-size:14px;letter-spacing:.4px;text-transform:uppercase;color:#FFD43B;margin-bottom:14px;">Get in Touch</h4>
+        <a href="mailto:hello@furevercare.com" style="display:block;font-size:13.5px;color:rgba(255,246,223,.78);margin-bottom:10px;">hello@furevercare.com</a>
+        <a href="tel:+923001234567" style="display:block;font-size:13.5px;color:rgba(255,246,223,.78);margin-bottom:10px;">+92 300 1234567</a>
+        <a href="https://www.google.com/maps?q=Bahawalpur%2C%20Pakistan" target="_blank" rel="noopener" style="display:block;font-size:13.5px;color:rgba(255,246,223,.78);margin-bottom:10px;">Bahawalpur, Pakistan</a>
+      </div>
+    </div>
+    <div style="position:relative;z-index:1;max-width:1180px;margin:20px auto 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:rgba(255,246,223,.55);">
+      <span>&copy; 2026 FurEver Care. All rights reserved.</span>
+      <span>Made with <i class="fa-solid fa-heart" style="color:#F04B3E;margin:0 3px;"></i> for every paw out there</span>
+    </div>
+  </footer>
+  
+<script>
+const STORAGE_KEYS = {
+  DOCTORS: "furever_care_doctors_v4",
+  HISTORIES: "furever_care_medical_histories_v4",
+  APPOINTMENTS: "furever_care_user_appointments_v3",
+  OWNER: "furever_care_owner_profile_v3",
+  HERO_IMAGE: "furever_care_hero_image_v3"
+};
+
+const StorageManager = {
+  init() {
+    if (!localStorage.getItem(STORAGE_KEYS.DOCTORS)) {
+      localStorage.setItem(STORAGE_KEYS.DOCTORS, JSON.stringify(INITIAL_DOCTORS));
+    }
+    if (!localStorage.getItem(STORAGE_KEYS.HISTORIES)) {
+      localStorage.setItem(STORAGE_KEYS.HISTORIES, JSON.stringify(INITIAL_MEDICAL_HISTORIES));
+    }
+    if (!localStorage.getItem(STORAGE_KEYS.APPOINTMENTS)) {
+      localStorage.setItem(STORAGE_KEYS.APPOINTMENTS, JSON.stringify([]));
+    }
+  },
+
+  getDoctors() {
+    this.init();
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEYS.DOCTORS)) || INITIAL_DOCTORS;
+    } catch (e) {
+      return INITIAL_DOCTORS;
+    }
+  },
+
+  getDoctorById(id) {
+    const doctors = this.getDoctors();
+    return doctors.find(d => d.id === id) || null;
+  },
+
+  getMedicalHistories() {
+    this.init();
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEYS.HISTORIES)) || INITIAL_MEDICAL_HISTORIES;
+    } catch (e) {
+      return INITIAL_MEDICAL_HISTORIES;
+    }
+  },
+
+  getUserAppointments() {
+    this.init();
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEYS.APPOINTMENTS)) || [];
+    } catch (e) {
+      return [];
+    }
+  },
+
+  getOwnerProfile() {
+    try {
+      const data = localStorage.getItem(STORAGE_KEYS.OWNER);
+      return data ? JSON.parse(data) : null;
+    } catch (e) {
+      return null;
+    }
+  },
+
+  saveOwnerProfile(profile) {
+    try {
+      localStorage.setItem(STORAGE_KEYS.OWNER, JSON.stringify(profile));
+    } catch (e) {
+      console.error("Could not save owner profile", e);
+    }
+  },
+
+  clearOwnerProfile() {
+    localStorage.removeItem(STORAGE_KEYS.OWNER);
+  },
+
+  getHeroImage() {
+    return localStorage.getItem(STORAGE_KEYS.HERO_IMAGE) || null;
+  },
+
+  saveHeroImage(dataUrl) {
+    try {
+      localStorage.setItem(STORAGE_KEYS.HERO_IMAGE, dataUrl);
+    } catch (e) {
+      console.error("Could not save hero image to localStorage", e);
+    }
+  },
+
+  removeHeroImage() {
+    localStorage.removeItem(STORAGE_KEYS.HERO_IMAGE);
+  },
+
+  
+  bookAppointment(data) {
+    const doctors = this.getDoctors();
+    const docIndex = doctors.findIndex(d => d.id === data.doctorId);
+    
+    if (docIndex !== -1) {
+      const doctor = doctors[docIndex];
+      const slotIndex = doctor.slots.findIndex(s => s.id === data.slotId || (s.date === data.date && s.time === data.time));
+      
+      if (slotIndex !== -1) {
+        doctor.slots[slotIndex].status = "booked";
+        doctor.slots[slotIndex].bookedBy = data.ownerName;
+      }
+      
+      localStorage.setItem(STORAGE_KEYS.DOCTORS, JSON.stringify(doctors));
+    }
+
+    const appointmentId = "FEC-" + Math.floor(100000 + Math.random() * 900000);
+    const newAppointment = {
+      id: appointmentId,
+      createdAt: new Date().toISOString(),
+      doctorId: data.doctorId,
+      doctorName: data.doctorName,
+      doctorSpecialization: data.doctorSpecialization,
+      doctorClinic: data.doctorClinic,
+      doctorImage: data.doctorImage,
+      slotId: data.slotId,
+      date: data.date,
+      day: data.day,
+      time: data.time,
+      status: "CONFIRMED",
+      
+      ownerName: data.ownerName,
+      ownerEmail: data.ownerEmail,
+      ownerPhone: data.ownerPhone,
+      ownerAddress: data.ownerAddress,
+      
+      petName: data.petName,
+      animalType: data.animalType,
+      breed: data.breed,
+      gender: data.gender,
+      age: data.age,
+      dob: data.dob,
+      weight: data.weight,
+      color: data.color,
+      vaccinationStatus: data.vaccinationStatus,
+      lastVaccinationDate: data.lastVaccinationDate,
+      petImage: data.petImage || "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80",
+      
+      visitReason: data.visitReason,
+      currentCondition: data.currentCondition,
+      symptoms: data.symptoms,
+      previousHistory: data.previousHistory || "None reported",
+      previousSurgery: data.previousSurgery || "None",
+      currentMedication: data.currentMedication || "None",
+      allergies: data.allergies || "None known",
+      previousTreatment: data.previousTreatment || "None",
+      additionalNotes: data.additionalNotes || ""
+    };
+
+    
+    const appointments = this.getUserAppointments();
+    appointments.unshift(newAppointment);
+    localStorage.setItem(STORAGE_KEYS.APPOINTMENTS, JSON.stringify(appointments));
+
+    
+    this.saveOwnerProfile({
+      name: data.ownerName,
+      email: data.ownerEmail,
+      phone: data.ownerPhone,
+      address: data.ownerAddress
+    });
+
+    
+    const histories = this.getMedicalHistories();
+    const newHistoryRecord = {
+      id: "med-user-" + Date.now(),
+      petName: data.petName,
+      animalType: data.animalType,
+      breed: data.breed,
+      age: data.age,
+      gender: data.gender,
+      weight: data.weight ? `${data.weight} kg` : "N/A",
+      ownerName: data.ownerName,
+      ownerPhone: data.ownerPhone,
+      doctor: data.doctorName,
+      visitDate: data.date,
+      medicalCondition: data.currentCondition || data.visitReason || "General Examination",
+      symptoms: data.symptoms || "Scheduled Routine Consultation",
+      previousHistory: data.previousHistory || "None reported",
+      treatment: "Appointment Scheduled â€” Initial Evaluation Pending",
+      medication: data.currentMedication || "Pending Doctor Review",
+      vaccinationStatus: data.vaccinationStatus || "Provided by Owner",
+      notes: `Reason for visit: ${data.visitReason}. ${data.additionalNotes || ""}`.trim(),
+      image: newAppointment.petImage,
+      badge: "New Appointment",
+      isUserBooked: true,
+      appointmentId: appointmentId
+    };
+
+    histories.unshift(newHistoryRecord);
+    localStorage.setItem(STORAGE_KEYS.HISTORIES, JSON.stringify(histories));
+
+    return newAppointment;
+  },
+
+  resetAll() {
+    localStorage.removeItem(STORAGE_KEYS.DOCTORS);
+    localStorage.removeItem(STORAGE_KEYS.HISTORIES);
+    localStorage.removeItem(STORAGE_KEYS.APPOINTMENTS);
+    localStorage.removeItem(STORAGE_KEYS.OWNER);
+    this.init();
+  }
+};
+
+
+
+</script>
+<script>
+
+
+const BookingWizard = {
+  currentStep: 1,
+  totalSteps: 5,
+  selectedSlotData: null,
+  uploadedPetImageBase64: null,
+
+  init() {
+    this.bindEvents();
+  },
+
+  bindEvents() {
+    
+    document.querySelectorAll("[data-wizard-nav]").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const direction = btn.getAttribute("data-wizard-nav");
+        if (direction === "next") {
+          this.nextStep();
+        } else if (direction === "prev") {
+          this.prevStep();
+        }
+      });
+    });
+
+    
+    document.querySelectorAll(".wizard-step-item").forEach(item => {
+      item.addEventListener("click", () => {
+        const stepNum = parseInt(item.getAttribute("data-step"), 10);
+        if (stepNum < this.currentStep) {
+          this.goToStep(stepNum);
+        }
+      });
+    });
+
+    
+    const dropzone = document.getElementById("pet-image-dropzone");
+    const fileInput = document.getElementById("pet-image-input");
+    
+    if (dropzone && fileInput) {
+      dropzone.addEventListener("click", () => fileInput.click());
+      
+      dropzone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropzone.classList.add("dragover");
+      });
+
+      dropzone.addEventListener("dragleave", () => {
+        dropzone.classList.remove("dragover");
+      });
+
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropzone.classList.remove("dragover");
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+          this.handleImageFile(e.dataTransfer.files[0]);
+        }
+      });
+
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files && e.target.files[0]) {
+          this.handleImageFile(e.target.files[0]);
+        }
+      });
+    }
+
+    
+    const removePhotoBtn = document.getElementById("btn-remove-pet-photo");
+    if (removePhotoBtn) {
+      removePhotoBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        this.uploadedPetImageBase64 = null;
+        document.getElementById("pet-image-input").value = "";
+        document.getElementById("pet-preview-wrap").style.display = "none";
+        document.getElementById("dropzone-prompt").style.display = "block";
+      });
+    }
+
+    
+    const clearAutofillBtn = document.getElementById("btn-clear-autofill");
+    if (clearAutofillBtn) {
+      clearAutofillBtn.addEventListener("click", () => {
+        StorageManager.clearOwnerProfile();
+        document.getElementById("owner-name").value = "";
+        document.getElementById("owner-email").value = "";
+        document.getElementById("owner-phone").value = "";
+        document.getElementById("owner-address").value = "";
+        document.getElementById("autofill-notification").style.display = "none";
+        App.showToast("Owner info cleared for new entry.", "info");
+      });
+    }
+
+    
+    const confirmBtn = document.getElementById("btn-confirm-booking");
+    if (confirmBtn) {
+      confirmBtn.addEventListener("click", () => this.confirmBooking());
+    }
+
+    
+    const returnBtn = document.getElementById("btn-return-home");
+    if (returnBtn) {
+      returnBtn.addEventListener("click", () => {
+        this.closeBookingView();
+        App.renderAll();
+        
+        const myAppt = document.getElementById("my-appointments-section");
+        if (myAppt) {
+          myAppt.style.display = "block";
+          myAppt.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    }
+  },
+
+  
+  startBooking(slotData) {
+    this.selectedSlotData = slotData;
+    this.currentStep = 1;
+    this.uploadedPetImageBase64 = null;
+
+    
+    document.getElementById("booking-hero-doc-name").textContent = slotData.doctorName;
+    document.getElementById("booking-hero-doc-spec").textContent = slotData.doctorSpecialization;
+    document.getElementById("booking-hero-doc-img").src = slotData.doctorImage;
+    document.getElementById("booking-hero-date").textContent = `${slotData.day}, ${slotData.date}`;
+    document.getElementById("booking-hero-time").textContent = slotData.time;
+
+    
+    const savedOwner = StorageManager.getOwnerProfile();
+    const autofillBanner = document.getElementById("autofill-notification");
+    if (savedOwner && savedOwner.name) {
+      document.getElementById("owner-name").value = savedOwner.name || "";
+      document.getElementById("owner-email").value = savedOwner.email || "";
+      document.getElementById("owner-phone").value = savedOwner.phone || "";
+      document.getElementById("owner-address").value = savedOwner.address || "";
+      if (autofillBanner) autofillBanner.style.display = "flex";
+    } else {
+      if (autofillBanner) autofillBanner.style.display = "none";
+    }
+
+    
+    const previewWrap = document.getElementById("pet-preview-wrap");
+    const promptWrap = document.getElementById("dropzone-prompt");
+    if (previewWrap) previewWrap.style.display = "none";
+    if (promptWrap) promptWrap.style.display = "block";
+
+    
+    document.getElementById("main-view-wrapper").style.display = "none";
+    document.getElementById("booking-view-wrapper").style.display = "block";
+    document.getElementById("success-screen-wrapper").style.display = "none";
+    document.getElementById("wizard-form-container").style.display = "block";
+
+    this.updateStepUI();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  },
+
+  closeBookingView() {
+    document.getElementById("booking-view-wrapper").style.display = "none";
+    document.getElementById("main-view-wrapper").style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  },
+
+  handleImageFile(file) {
+    if (!file.type.startsWith("image/")) {
+      App.showToast("Please upload an image file (PNG, JPG, WebP)", "error");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.uploadedPetImageBase64 = e.target.result;
+      const previewImg = document.getElementById("pet-preview-img");
+      if (previewImg) previewImg.src = this.uploadedPetImageBase64;
+      document.getElementById("pet-preview-wrap").style.display = "flex";
+      document.getElementById("dropzone-prompt").style.display = "none";
+    };
+    reader.readAsDataURL(file);
+  },
+
+  validateStep(step) {
+    if (step === 1) {
+      const name = document.getElementById("owner-name").value.trim();
+      const email = document.getElementById("owner-email").value.trim();
+      const phone = document.getElementById("owner-phone").value.trim();
+      const address = document.getElementById("owner-address").value.trim();
+
+      if (!name) {
+        App.showToast("Please enter the owner's full name", "error");
+        document.getElementById("owner-name").focus();
+        return false;
+      }
+      if (!email || !email.includes("@")) {
+        App.showToast("Please enter a valid email address", "error");
+        document.getElementById("owner-email").focus();
+        return false;
+      }
+      if (!phone || phone.length < 7) {
+        App.showToast("Please enter a valid contact phone number", "error");
+        document.getElementById("owner-phone").focus();
+        return false;
+      }
+      return true;
+    }
+
+    if (step === 2) {
+      const petName = document.getElementById("pet-name").value.trim();
+      const animalType = document.getElementById("pet-type").value;
+      const breed = document.getElementById("pet-breed").value.trim();
+      const age = document.getElementById("pet-age").value.trim();
+
+      if (!petName) {
+        App.showToast("Please enter your pet's name", "error");
+        document.getElementById("pet-name").focus();
+        return false;
+      }
+      if (!animalType) {
+        App.showToast("Please select the animal type", "error");
+        document.getElementById("pet-type").focus();
+        return false;
+      }
+      if (!breed) {
+        App.showToast("Please specify the breed / species variety", "error");
+        document.getElementById("pet-breed").focus();
+        return false;
+      }
+      if (!age) {
+        App.showToast("Please enter your pet's approximate age", "error");
+        document.getElementById("pet-age").focus();
+        return false;
+      }
+      return true;
+    }
+
+    if (step === 3) {
+      const reason = document.getElementById("visit-reason").value.trim();
+      if (!reason) {
+        App.showToast("Please specify the main reason for this consultation", "error");
+        document.getElementById("visit-reason").focus();
+        return false;
+      }
+      return true;
+    }
+
+    return true;
+  },
+
+  nextStep() {
+    if (!this.validateStep(this.currentStep)) return;
+
+    if (this.currentStep < this.totalSteps) {
+      this.currentStep++;
+      if (this.currentStep === 5) {
+        this.populateSummaryCard();
+      }
+      this.updateStepUI();
+      window.scrollTo({ top: 120, behavior: "smooth" });
+    }
+  },
+
+  prevStep() {
+    if (this.currentStep > 1) {
+      this.currentStep--;
+      this.updateStepUI();
+      window.scrollTo({ top: 120, behavior: "smooth" });
+    }
+  },
+
+  goToStep(stepNum) {
+    this.currentStep = stepNum;
+    if (this.currentStep === 5) {
+      this.populateSummaryCard();
+    }
+    this.updateStepUI();
+  },
+
+  updateStepUI() {
+    
+    document.querySelectorAll(".wizard-step-item").forEach(item => {
+      const step = parseInt(item.getAttribute("data-step"), 10);
+      item.classList.remove("active", "completed");
+      if (step === this.currentStep) {
+        item.classList.add("active");
+      } else if (step < this.currentStep) {
+        item.classList.add("completed");
+      }
+    });
+
+    
+    document.querySelectorAll(".form-step-pane").forEach(pane => {
+      const step = parseInt(pane.getAttribute("data-step-pane"), 10);
+      pane.classList.toggle("active", step === this.currentStep);
+    });
+
+    
+    const prevBtn = document.getElementById("btn-wizard-prev");
+    const nextBtn = document.getElementById("btn-wizard-next");
+    const confirmBtn = document.getElementById("btn-confirm-booking");
+
+    if (prevBtn) {
+      prevBtn.style.visibility = this.currentStep === 1 ? "hidden" : "visible";
+    }
+    if (nextBtn) {
+      nextBtn.style.display = this.currentStep === 5 ? "none" : "inline-flex";
+    }
+    if (confirmBtn) {
+      confirmBtn.style.display = this.currentStep === 5 ? "inline-flex" : "none";
+    }
+  },
+
+  populateSummaryCard() {
+    const ownerName = document.getElementById("owner-name").value.trim();
+    const ownerEmail = document.getElementById("owner-email").value.trim();
+    const ownerPhone = document.getElementById("owner-phone").value.trim();
+    const petName = document.getElementById("pet-name").value.trim();
+    const animalType = document.getElementById("pet-type").value;
+    const breed = document.getElementById("pet-breed").value.trim();
+    const age = document.getElementById("pet-age").value.trim();
+    const gender = document.getElementById("pet-gender").value;
+    const reason = document.getElementById("visit-reason").value.trim();
+    const condition = document.getElementById("current-condition").value.trim() || "Normal / Routine Examination";
+
+    const summaryContainer = document.getElementById("summary-review-content");
+    if (!summaryContainer) return;
+
+    summaryContainer.innerHTML = `
+      
+      <div class="summary-section-block">
+        <div class="summary-section-title">
+          <i class="fas fa-user"></i> Owner Information
+        </div>
+        <div class="summary-grid">
+          <div class="summary-item"><strong>Name:</strong> ${ownerName}</div>
+          <div class="summary-item"><strong>Email:</strong> ${ownerEmail}</div>
+          <div class="summary-item"><strong>Phone:</strong> ${ownerPhone}</div>
+        </div>
+      </div>
+
+      
+      <div class="summary-section-block">
+        <div class="summary-section-title">
+          <i class="fas fa-paw"></i> Pet Patient Details
+        </div>
+        <div class="summary-grid">
+          <div class="summary-item"><strong>Pet Name:</strong> ${petName}</div>
+          <div class="summary-item"><strong>Species / Type:</strong> ${animalType}</div>
+          <div class="summary-item"><strong>Breed:</strong> ${breed}</div>
+          <div class="summary-item"><strong>Age & Gender:</strong> ${age} · ${gender}</div>
+        </div>
+      </div>
+
+      
+      <div class="summary-section-block">
+        <div class="summary-section-title">
+          <i class="fas fa-calendar-check"></i> Appointment Schedule
+        </div>
+        <div class="summary-grid">
+          <div class="summary-item"><strong>Doctor:</strong> ${this.selectedSlotData.doctorName}</div>
+          <div class="summary-item"><strong>Specialization:</strong> ${this.selectedSlotData.doctorSpecialization}</div>
+          <div class="summary-item"><strong>Date:</strong> ${this.selectedSlotData.day}, ${this.selectedSlotData.date}</div>
+          <div class="summary-item"><strong>Time:</strong> ${this.selectedSlotData.time}</div>
+          <div class="summary-item"><strong>Reason:</strong> ${reason}</div>
+          <div class="summary-item"><strong>Status:</strong> ${condition}</div>
+        </div>
+      </div>
+    `;
+  },
+
+  confirmBooking() {
+    const bookingPayload = {
+      doctorId: this.selectedSlotData.doctorId,
+      doctorName: this.selectedSlotData.doctorName,
+      doctorSpecialization: this.selectedSlotData.doctorSpecialization,
+      doctorClinic: this.selectedSlotData.doctorClinic,
+      doctorImage: this.selectedSlotData.doctorImage,
+      slotId: this.selectedSlotData.slotId,
+      day: this.selectedSlotData.day,
+      date: this.selectedSlotData.date,
+      time: this.selectedSlotData.time,
+
+      
+      ownerName: document.getElementById("owner-name").value.trim(),
+      ownerEmail: document.getElementById("owner-email").value.trim(),
+      ownerPhone: document.getElementById("owner-phone").value.trim(),
+      ownerAddress: document.getElementById("owner-address").value.trim(),
+
+      
+      petName: document.getElementById("pet-name").value.trim(),
+      animalType: document.getElementById("pet-type").value,
+      breed: document.getElementById("pet-breed").value.trim(),
+      gender: document.getElementById("pet-gender").value,
+      age: document.getElementById("pet-age").value.trim(),
+      dob: document.getElementById("pet-dob").value,
+      weight: document.getElementById("pet-weight").value.trim(),
+      color: document.getElementById("pet-color").value.trim(),
+      vaccinationStatus: document.getElementById("vaccination-status").value,
+      lastVaccinationDate: document.getElementById("last-vaccine-date").value,
+      petImage: this.uploadedPetImageBase64 || "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80",
+
+      
+      visitReason: document.getElementById("visit-reason").value.trim(),
+      currentCondition: document.getElementById("current-condition").value.trim(),
+      symptoms: document.getElementById("pet-symptoms").value.trim(),
+      previousHistory: document.getElementById("prev-medical-history").value.trim(),
+      previousSurgery: document.getElementById("prev-surgeries").value.trim(),
+      currentMedication: document.getElementById("current-meds").value.trim(),
+      allergies: document.getElementById("known-allergies").value.trim(),
+      previousTreatment: document.getElementById("prev-treatments").value.trim(),
+      additionalNotes: document.getElementById("additional-notes").value.trim()
+    };
+
+    
+    const confirmedAppt = StorageManager.bookAppointment(bookingPayload);
+
+    
+    document.getElementById("wizard-form-container").style.display = "none";
+    const successWrapper = document.getElementById("success-screen-wrapper");
+    successWrapper.style.display = "block";
+
+    
+    document.getElementById("success-appt-id").textContent = confirmedAppt.id;
+    document.getElementById("success-doc-name").textContent = confirmedAppt.doctorName;
+    document.getElementById("success-date-time").textContent = `${confirmedAppt.day}, ${confirmedAppt.date} at ${confirmedAppt.time}`;
+    document.getElementById("success-pet-name").textContent = `${confirmedAppt.petName} (${confirmedAppt.animalType} - ${confirmedAppt.breed})`;
+    document.getElementById("success-pet-img").src = confirmedAppt.petImage;
+    document.getElementById("success-owner-name").textContent = confirmedAppt.ownerName;
+
+    
+    App.launchConfetti();
+    App.showToast("Appointment Confirmed Successfully! Welcome to FurEver Care.", "success");
+  }
+};
+
+</script>
+<script>
+
+
+const App = {
+  activeAppointmentFilter: "all",
+  activeHistorySpecies: "all",
+
+  init() {
+    StorageManager.init();
+    BookingWizard.init();
+    this.initHeroImage();
+    this.bindEvents();
+    this.renderAll();
+  },
+
+  bindEvents() {
+    
+    const apptSearch = document.getElementById("appt-search-input");
+    const apptDocFilter = document.getElementById("appt-doc-filter");
+    const apptSpecFilter = document.getElementById("appt-spec-filter");
+    const apptDateFilter = document.getElementById("appt-date-filter");
+
+    if (apptSearch) apptSearch.addEventListener("input", () => this.renderAppointmentsExplorer());
+    if (apptDocFilter) apptDocFilter.addEventListener("change", () => this.renderAppointmentsExplorer());
+    if (apptSpecFilter) apptSpecFilter.addEventListener("change", () => this.renderAppointmentsExplorer());
+    if (apptDateFilter) apptDateFilter.addEventListener("change", () => this.renderAppointmentsExplorer());
+
+    
+    document.querySelectorAll(".appt-status-pill").forEach(pill => {
+      pill.addEventListener("click", (e) => {
+        document.querySelectorAll(".appt-status-pill").forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        this.activeAppointmentFilter = pill.getAttribute("data-status");
+        this.renderAppointmentsExplorer();
+      });
+    });
+
+    
+    const historySearch = document.getElementById("history-search-input");
+    const historyDocFilter = document.getElementById("history-doc-filter");
+    const historyCondFilter = document.getElementById("history-cond-filter");
+
+    if (historySearch) historySearch.addEventListener("input", () => this.renderMedicalHistories());
+    if (historyDocFilter) historyDocFilter.addEventListener("change", () => this.renderMedicalHistories());
+    if (historyCondFilter) historyCondFilter.addEventListener("change", () => this.renderMedicalHistories());
+
+    
+    document.querySelectorAll(".history-species-pill").forEach(pill => {
+      pill.addEventListener("click", () => {
+        document.querySelectorAll(".history-species-pill").forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        this.activeHistorySpecies = pill.getAttribute("data-species");
+        this.renderMedicalHistories();
+      });
+    });
+
+    
+    document.querySelectorAll(".explore-services-btn, .hero-hotspot-btn-left, .hero-hotspot-btn-arrow").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.getElementById("vets-section");
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+          App.showToast(" Welcome to FurEver Care Services! Meet our 6 specialist doctors and 20 real-time appointment slots.", "info");
+        }
+      });
+    });
+
+    
+    const heroFileInput = document.getElementById("hero-file-input");
+    const heroUploadBtn = document.getElementById("btn-upload-hero");
+    if (heroUploadBtn && heroFileInput) {
+      heroUploadBtn.addEventListener("click", () => heroFileInput.click());
+      heroFileInput.addEventListener("change", (e) => {
+        if (e.target.files && e.target.files[0]) {
+          const file = e.target.files[0];
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            StorageManager.saveHeroImage(event.target.result);
+            this.initHeroImage();
+            this.showToast("Hero cover image updated and saved!", "success");
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+
+    
+    document.querySelectorAll("[data-close-modal]").forEach(btn => {
+      btn.addEventListener("click", () => this.closeModals());
+    });
+
+    
+    document.querySelectorAll("#nav-my-booking-link, #hero-chip-pass").forEach(link => {
+      link.addEventListener("click", (e) => {
+        const appts = StorageManager.getUserAppointments();
+        const myApptSection = document.getElementById("my-appointments-section");
+        if (appts.length > 0 && myApptSection) {
+          e.preventDefault();
+          myApptSection.scrollIntoView({ behavior: "smooth" });
+        } else {
+          e.preventDefault();
+          const target = document.getElementById("appointments-section");
+          if (target) target.scrollIntoView({ behavior: "smooth" });
+          App.showToast(" No active bookings yet! Select a doctor or slot below to reserve your pet's appointment.", "info");
+        }
+      });
+    });
+
+    
+    const btnCancelBooking = document.getElementById("btn-cancel-booking");
+    if (btnCancelBooking) {
+      btnCancelBooking.addEventListener("click", () => BookingWizard.closeBookingView());
+    }
+  },
+
+  initHeroImage() {
+    const savedHero = StorageManager.getHeroImage();
+    const heroCoverImg = document.getElementById("hero-cover-image");
+    const heroBgImg = document.getElementById("hero-bg-image");
+
+    const activeSrc = savedHero || "images/hero-cover.jpg";
+
+    if (heroCoverImg) {
+      heroCoverImg.src = activeSrc;
+    }
+    if (heroBgImg) {
+      heroBgImg.src = activeSrc;
+    }
+  },
+
+  renderAll() {
+    this.renderUserAppointments();
+    this.renderDoctors();
+    this.renderAppointmentsExplorer();
+    this.renderMedicalHistories();
+    this.populateDropdownFilters();
+  },
+
+  
+  renderUserAppointments() {
+    const section = document.getElementById("my-appointments-section");
+    const container = document.getElementById("my-appointments-container");
+    const navBadge = document.getElementById("nav-booking-badge");
+    if (!section || !container) return;
+
+    const appointments = StorageManager.getUserAppointments();
+
+    if (navBadge) {
+      navBadge.textContent = appointments.length;
+      navBadge.style.display = appointments.length > 0 ? "inline-block" : "none";
+    }
+
+    if (appointments.length === 0) {
+      section.style.display = "none";
+      return;
+    }
+
+    section.style.display = "block";
+    container.innerHTML = appointments.map(appt => `
+      <div class="user-appointment-card animate-fade-in-up">
+        <div class="appointment-header-band">
+          <h3>
+            <i class="fas fa-paw" style="color: #FEA3B6;"></i>
+            My Pet & Appointment: ${appt.petName}
+          </h3>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span class="appointment-id-tag">ID: ${appt.id}</span>
+            <span class="badge badge-available"><i class="fas fa-check-circle"></i> ${appt.status}</span>
+          </div>
+        </div>
+
+        <div class="appointment-body-grid">
+          
+          <div class="pet-avatar-wrapper">
+            <img src="${appt.petImage}" alt="${appt.petName}" onerror="this.src='https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80'">
+          </div>
+
+          
+          <div class="pet-info-block">
+            <h4>${appt.petName} <span style="font-size:0.85rem; color:#e0778c; font-weight:600;">(${appt.animalType})</span></h4>
+            <ul class="pet-meta-list">
+              <li><strong>Breed:</strong> ${appt.breed || "Mixed"}</li>
+              <li><strong>Age & Gender:</strong> ${appt.age || "N/A"} · ${appt.gender || "Unknown"}</li>
+              <li><strong>Weight:</strong> ${appt.weight ? appt.weight + " kg" : "N/A"}</li>
+              <li><strong>Vaccination:</strong> ${appt.vaccinationStatus || "Up to Date"}</li>
+            </ul>
+          </div>
+
+          
+          <div class="doctor-booked-summary">
+            <div class="doc-heading"><i class="fas fa-user-md"></i> ${appt.doctorName}</div>
+            <div style="font-size:0.85rem; color:#6e5e78;">${appt.doctorSpecialization}</div>
+            <div class="slot-highlight"><i class="far fa-calendar-alt"></i> ${appt.day}, ${appt.date} at ${appt.time}</div>
+            <div style="font-size:0.82rem; margin-top:4px; color:#481F72;"><i class="fas fa-map-marker-alt"></i> ${appt.doctorClinic || "OakHaven Central Hospital"}</div>
+          </div>
+
+          
+          <div class="appointment-actions">
+            <button class="btn btn-sm btn-primary" onclick="App.viewTicket('${appt.id}')">
+              <i class="fas fa-file-medical-alt"></i> Clinical Ticket
+            </button>
+            <button class="btn btn-sm btn-accent" onclick="window.print()">
+              <i class="fas fa-print"></i> Print Pass
+            </button>
+          </div>
+        </div>
+      </div>
+    `).join("");
+  },
+
+  
+  renderDoctors() {
+    const grid = document.getElementById("doctors-grid");
+    if (!grid) return;
+
+    const doctors = StorageManager.getDoctors();
+
+    grid.innerHTML = doctors.map(doc => {
+      
+      const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      const slotsByDay = {};
+      days.forEach(day => {
+        const matching = doc.slots.filter(s => s.day === day);
+        if (matching.length > 0) {
+          slotsByDay[day] = matching;
+        }
+      });
+
+      return `
+        <div class="doctor-card animate-fade-in-up">
+          
+          <div class="doctor-card-image-wrap">
+            <img src="${doc.image}" alt="${doc.name}" onerror="this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80'">
+            <div class="doctor-verified-tag">
+              <i class="fas fa-shield-alt"></i> Verified Specialist
+            </div>
+            <div class="doctor-rating-floating">
+              <i class="fas fa-star star-icon"></i> ${doc.rating} <span style="font-size:0.75rem; color:#6e5e78;">(${doc.reviewsCount})</span>
+            </div>
+          </div>
+
+          
+          <div class="doctor-card-body">
+            <h3 class="doctor-name">${doc.name}</h3>
+            <div class="doctor-subtitle">${doc.title}</div>
+            
+            <div class="doctor-pill-row">
+              <span class="badge badge-specialization"><i class="fas fa-stethoscope"></i> ${doc.specialization}</span>
+              <span class="badge" style="background:rgba(72, 31, 114, 0.08); color:#481F72;"><i class="fas fa-award"></i> ${doc.experience}</span>
+            </div>
+
+            
+
+            
+            <div class="doctor-meta-details">
+              <div class="meta-detail-row">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:${doc.email}">${doc.email}</a>
+              </div>
+              <div class="meta-detail-row">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:${doc.phone}">${doc.phone}</a>
+              </div>
+              <div class="meta-detail-row">
+                <i class="fas fa-hospital-alt"></i>
+                <span>${doc.clinic}</span>
+              </div>
+            </div>
+
+            
+            <div class="slots-container">
+              <div class="slots-header">
+                <span><i class="far fa-clock"></i> Weekly Time Slots</span>
+                <span style="font-size:0.78rem; color:#481F72; font-weight:700;">Pink = Available</span>
+              </div>
+              <div class="slot-chips-grid">
+                ${doc.slots.slice(0, 7).map(slot => `
+                  <button class="slot-chip ${slot.status}" 
+                          title="${slot.day} ${slot.time} (${slot.status})"
+                          onclick="App.handleSlotClick('${doc.id}', '${slot.id}')">
+                    <i class="fas ${slot.status === 'available' ? 'fa-check' : 'fa-lock'}"></i>
+                    ${slot.day.substring(0,3)} ${slot.time}
+                  </button>
+                `).join("")}
+                ${doc.slots.length > 7 ? `
+                  <button class="slot-chip" style="background:#FDEDED; color:#481F72; border:1px solid #FEA3B6;" onclick="App.openDoctorModal('${doc.id}')">
+                    +${doc.slots.length - 7} More
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+
+            
+            <div class="doctor-card-actions" style="margin-top:20px;">
+              <button class="btn btn-primary btn-sm" onclick="App.openDoctorModal('${doc.id}')">
+                <i class="fas fa-user-md"></i> View Profile
+              </button>
+              <button class="btn btn-accent btn-sm" onclick="App.scrollToDoctorSlots('${doc.id}')">
+                <i class="far fa-calendar-check"></i> Available Slots
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join("");
+  },
+
+  
+  handleSlotClick(doctorId, slotId) {
+    const doctor = StorageManager.getDoctorById(doctorId);
+    if (!doctor) return;
+
+    const slot = doctor.slots.find(s => s.id === slotId);
+    if (!slot) return;
+
+    if (slot.status === "booked") {
+      this.showToast("This appointment slot is already booked. Please select another available time.", "booked");
+      return;
+    }
+
+    
+    BookingWizard.startBooking({
+      doctorId: doctor.id,
+      doctorName: doctor.name,
+      doctorSpecialization: doctor.specialization,
+      doctorClinic: doctor.clinic,
+      doctorImage: doctor.image,
+      slotId: slot.id,
+      day: slot.day,
+      date: slot.date,
+      time: slot.time
+    });
+  },
+
+  
+  renderAppointmentsExplorer() {
+    const container = document.getElementById("appointments-grid");
+    if (!container) return;
+
+    const doctors = StorageManager.getDoctors();
+    const searchVal = (document.getElementById("appt-search-input")?.value || "").toLowerCase().trim();
+    const selectedDoc = document.getElementById("appt-doc-filter")?.value || "all";
+    const selectedSpec = document.getElementById("appt-spec-filter")?.value || "all";
+    const selectedDate = document.getElementById("appt-date-filter")?.value || "";
+
+    let allSlots = [];
+    doctors.forEach(doc => {
+      doc.slots.forEach(slot => {
+        allSlots.push({
+          ...slot,
+          doctorId: doc.id,
+          doctorName: doc.name,
+          doctorTitle: doc.title,
+          doctorSpecialization: doc.specialization,
+          doctorClinic: doc.clinic,
+          doctorImage: doc.image
+        });
+      });
+    });
+
+    
+    if (this.activeAppointmentFilter === "available") {
+      allSlots = allSlots.filter(s => s.status === "available");
+    } else if (this.activeAppointmentFilter === "booked") {
+      allSlots = allSlots.filter(s => s.status === "booked");
+    }
+
+    
+    if (selectedDoc !== "all") {
+      allSlots = allSlots.filter(s => s.doctorId === selectedDoc);
+    }
+
+    
+    if (selectedSpec !== "all") {
+      allSlots = allSlots.filter(s => s.doctorSpecialization.includes(selectedSpec));
+    }
+
+    
+    if (selectedDate) {
+      allSlots = allSlots.filter(s => s.date === selectedDate);
+    }
+
+    
+    if (searchVal) {
+      allSlots = allSlots.filter(s => 
+        s.doctorName.toLowerCase().includes(searchVal) ||
+        s.doctorSpecialization.toLowerCase().includes(searchVal) ||
+        s.day.toLowerCase().includes(searchVal)
+      );
+    }
+
+    if (allSlots.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state-box">
+          <div class="empty-state-icon"><i class="fas fa-calendar-times"></i></div>
+          <h4 style="color:#481F72; font-size:1.3rem; margin-bottom:8px;">No Appointment Slots Match Your Filter</h4>
+          <p style="color:#6e5e78; margin-bottom:18px;">Try adjusting your search criteria, clearing the date, or selecting another veterinarian.</p>
+          <button class="btn btn-sm btn-primary" onclick="App.resetAppointmentFilters()">
+            <i class="fas fa-redo"></i> Reset All Filters
+          </button>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = allSlots.map(slot => `
+      <div class="appointment-slot-card animate-fade-in-up">
+        <div class="slot-card-header">
+          <img class="slot-doc-avatar" src="${slot.doctorImage}" alt="${slot.doctorName}">
+          <div class="slot-doc-info">
+            <h4>${slot.doctorName}</h4>
+            <p>${slot.doctorSpecialization}</p>
+          </div>
+        </div>
+
+        <div class="slot-datetime-badge">
+          <span><i class="far fa-calendar-alt"></i> ${slot.day}, ${slot.date}</span>
+          <span class="time-text"><i class="far fa-clock"></i> ${slot.time}</span>
+        </div>
+
+        <div class="slot-card-footer">
+          <span class="badge ${slot.status === 'available' ? 'badge-available' : 'badge-booked'}">
+            <i class="fas ${slot.status === 'available' ? 'fa-check-circle' : 'fa-lock'}"></i>
+            ${slot.status === 'available' ? 'Available' : 'Booked'}
+          </span>
+
+          <button class="btn btn-sm ${slot.status === 'available' ? 'btn-primary' : 'btn-outline-primary'}"
+                  ${slot.status === 'booked' ? 'style="opacity:0.6; cursor:not-allowed;"' : ''}
+                  onclick="App.handleSlotClick('${slot.doctorId}', '${slot.id}')">
+            ${slot.status === 'available' ? '<i class="fas fa-calendar-plus"></i> Book Now' : '<i class="fas fa-lock"></i> Reserved'}
+          </button>
+        </div>
+      </div>
+    `).join("");
+  },
+
+  resetAppointmentFilters() {
+    if (document.getElementById("appt-search-input")) document.getElementById("appt-search-input").value = "";
+    if (document.getElementById("appt-doc-filter")) document.getElementById("appt-doc-filter").value = "all";
+    if (document.getElementById("appt-spec-filter")) document.getElementById("appt-spec-filter").value = "all";
+    if (document.getElementById("appt-date-filter")) document.getElementById("appt-date-filter").value = "";
+    this.activeAppointmentFilter = "all";
+    document.querySelectorAll(".appt-status-pill").forEach(p => p.classList.remove("active"));
+    document.querySelector(".appt-status-pill[data-status='all']")?.classList.add("active");
+    this.renderAppointmentsExplorer();
+  },
+
+  
+  renderMedicalHistories() {
+    const grid = document.getElementById("medical-history-grid");
+    if (!grid) return;
+
+    let histories = StorageManager.getMedicalHistories();
+    const searchVal = (document.getElementById("history-search-input")?.value || "").toLowerCase().trim();
+    const selectedDoc = document.getElementById("history-doc-filter")?.value || "all";
+    const selectedCond = document.getElementById("history-cond-filter")?.value || "all";
+
+    
+    if (this.activeHistorySpecies !== "all") {
+      histories = histories.filter(h => h.animalType.toLowerCase() === this.activeHistorySpecies.toLowerCase());
+    }
+
+    
+    if (selectedDoc !== "all") {
+      histories = histories.filter(h => h.doctor.toLowerCase().includes(selectedDoc.toLowerCase()));
+    }
+
+    
+    if (selectedCond !== "all") {
+      histories = histories.filter(h => h.medicalCondition.toLowerCase().includes(selectedCond.toLowerCase()));
+    }
+
+    
+    if (searchVal) {
+      histories = histories.filter(h => 
+        h.petName.toLowerCase().includes(searchVal) ||
+        h.ownerName.toLowerCase().includes(searchVal) ||
+        h.breed.toLowerCase().includes(searchVal) ||
+        h.animalType.toLowerCase().includes(searchVal) ||
+        h.doctor.toLowerCase().includes(searchVal) ||
+        h.medicalCondition.toLowerCase().includes(searchVal) ||
+        h.symptoms.toLowerCase().includes(searchVal)
+      );
+    }
+
+    if (histories.length === 0) {
+      grid.innerHTML = `
+        <div class="empty-state-box">
+          <div class="empty-state-icon"><i class="fas fa-folder-open"></i></div>
+          <h4 style="color:#481F72; font-size:1.3rem; margin-bottom:8px;">No Medical Records Match Your Query</h4>
+          <p style="color:#6e5e78; margin-bottom:18px;">Try searching by pet name, breed, clinical condition, or attending doctor.</p>
+          <button class="btn btn-sm btn-primary" onclick="App.resetHistoryFilters()">
+            <i class="fas fa-redo"></i> Reset Medical Filters
+          </button>
+        </div>
+      `;
+      return;
+    }
+
+    grid.innerHTML = histories.map(rec => `
+      <div class="history-card animate-fade-in-up">
+        <div class="history-card-img-wrap">
+          <img src="${rec.image}" alt="${rec.petName}" onerror="this.src='https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80'">
+          ${rec.badge ? `<span class="badge badge-new-appointment history-card-badge"><i class="fas fa-sparkles"></i> ${rec.badge}</span>` : ''}
+        </div>
+
+        <div class="history-card-body">
+          <div class="history-pet-title">
+            <span>${rec.petName}</span>
+            <span style="font-size:0.85rem; color:#6e5e78;">${rec.age}</span>
+          </div>
+          <div class="history-pet-species">
+            <i class="fas fa-paw"></i> ${rec.animalType} — ${rec.breed} (${rec.gender || 'N/A'})
+          </div>
+
+          <div class="history-condition-pill">
+            <i class="fas fa-notes-medical"></i> ${rec.medicalCondition}
+          </div>
+
+          <div class="history-symptoms-snippet">
+            <strong>Symptoms:</strong> ${rec.symptoms}
+          </div>
+
+          <div class="history-card-meta">
+            <div><i class="fas fa-user-md" style="color:#481F72;"></i> <strong>Doctor:</strong> ${rec.doctor}</div>
+            <div><i class="fas fa-user" style="color:#481F72;"></i> <strong>Owner:</strong> ${rec.ownerName}</div>
+            <div><i class="far fa-calendar-alt" style="color:#481F72;"></i> <strong>Visit Date:</strong> ${rec.visitDate}</div>
+          </div>
+
+          <button class="btn btn-sm btn-outline-primary" style="margin-top:auto;" onclick="App.openHistoryModal('${rec.id}')">
+            <i class="fas fa-file-alt"></i> View Case Study
+          </button>
+        </div>
+      </div>
+    `).join("");
+  },
+
+  resetHistoryFilters() {
+    if (document.getElementById("history-search-input")) document.getElementById("history-search-input").value = "";
+    if (document.getElementById("history-doc-filter")) document.getElementById("history-doc-filter").value = "all";
+    if (document.getElementById("history-cond-filter")) document.getElementById("history-cond-filter").value = "all";
+    this.activeHistorySpecies = "all";
+    document.querySelectorAll(".history-species-pill").forEach(p => p.classList.remove("active"));
+    document.querySelector(".history-species-pill[data-species='all']")?.classList.add("active");
+    this.renderMedicalHistories();
+  },
+
+  populateDropdownFilters() {
+    const doctors = StorageManager.getDoctors();
+    const apptDocSelect = document.getElementById("appt-doc-filter");
+    const historyDocSelect = document.getElementById("history-doc-filter");
+
+    if (apptDocSelect && apptDocSelect.children.length <= 1) {
+      doctors.forEach(doc => {
+        const opt = document.createElement("option");
+        opt.value = doc.id;
+        opt.textContent = doc.name;
+        apptDocSelect.appendChild(opt);
+      });
+    }
+
+    if (historyDocSelect && historyDocSelect.children.length <= 1) {
+      doctors.forEach(doc => {
+        const opt = document.createElement("option");
+        opt.value = doc.name;
+        opt.textContent = doc.name;
+        historyDocSelect.appendChild(opt);
+      });
+    }
+  },
+
+  scrollToDoctorSlots(doctorId) {
+    const select = document.getElementById("appt-doc-filter");
+    if (select) {
+      select.value = doctorId;
+      this.renderAppointmentsExplorer();
+    }
+    const target = document.getElementById("appointments-section");
+    if (target) target.scrollIntoView({ behavior: "smooth" });
+  },
+
+  
+  openDoctorModal(doctorId) {
+    const doctor = StorageManager.getDoctorById(doctorId);
+    if (!doctor) return;
+
+    const modalBody = document.getElementById("doctor-modal-body");
+    const modalTitle = document.getElementById("doctor-modal-title");
+    if (!modalBody || !modalTitle) return;
+
+    modalTitle.textContent = `${doctor.name} — Profile & Schedule`;
+
+    modalBody.innerHTML = `
+      <div style="display:flex; gap:24px; align-items:center; margin-bottom:24px; flex-wrap:wrap;">
+        <img src="${doctor.image}" alt="${doctor.name}" style="width:110px; height:110px; border-radius:50%; object-fit:cover; border:3px solid #FEA3B6;">
+        <div>
+          <h3 style="font-size:1.6rem; color:#481F72; margin-bottom:4px;">${doctor.name}</h3>
+          <div style="color:#e0778c; font-weight:700; margin-bottom:8px;">${doctor.specialization}</div>
+          <div style="font-size:0.92rem; color:#6e5e78;"><i class="fas fa-university"></i> ${doctor.education}</div>
+        </div>
+      </div>
+
+      <div style="background:#FDEDED; padding:18px; border-radius:16px; margin-bottom:20px; font-size:0.95rem; line-height:1.6;">
+        <h4 style="margin-bottom:6px; color:#481F72; font-size:1.1rem;"><i class="fas fa-info-circle"></i> Clinical Biography</h4>
+        ${doctor.bio}
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px; font-size:0.92rem;">
+        <div><strong>Experience:</strong> ${doctor.experience}</div>
+        <div><strong>Consultation Fee:</strong> ${doctor.consultationFee}</div>
+        <div><strong>Certifications:</strong> ${doctor.certifications.join(", ")}</div>
+        <div><strong>Languages:</strong> ${doctor.languages.join(", ")}</div>
+        <div><strong>Email:</strong> <a href="mailto:${doctor.email}">${doctor.email}</a></div>
+        <div><strong>Phone:</strong> <a href="tel:${doctor.phone}">${doctor.phone}</a></div>
+      </div>
+
+      <h4 style="margin-bottom:12px; color:#481F72; font-size:1.15rem;"><i class="far fa-calendar-alt"></i> Available Appointment Slots</h4>
+      <div class="slot-chips-grid">
+        ${doctor.slots.map(slot => `
+          <button class="slot-chip ${slot.status}" 
+                  onclick="App.closeModals(); App.handleSlotClick('${doctor.id}', '${slot.id}')">
+            <i class="fas ${slot.status === 'available' ? 'fa-check' : 'fa-lock'}"></i>
+            ${slot.day} ${slot.time} (${slot.status})
+          </button>
+        `).join("")}
+      </div>
+    `;
+
+    document.getElementById("doctor-modal").classList.add("active");
+  },
+
+  
+  openHistoryModal(historyId) {
+    const histories = StorageManager.getMedicalHistories();
+    const record = histories.find(h => h.id === historyId);
+    if (!record) return;
+
+    const modalBody = document.getElementById("history-modal-body");
+    const modalTitle = document.getElementById("history-modal-title");
+    if (!modalBody || !modalTitle) return;
+
+    modalTitle.textContent = `Medical File: ${record.petName} (${record.animalType})`;
+
+    modalBody.innerHTML = `
+      <div style="display:flex; gap:20px; align-items:center; margin-bottom:20px; flex-wrap:wrap;">
+        <img src="${record.image}" alt="${record.petName}" style="width:100px; height:100px; border-radius:16px; object-fit:cover; border:2px solid #FEA3B6;">
+        <div>
+          <h3 style="font-size:1.5rem; color:#481F72;">${record.petName} ${record.badge ? `<span class="badge badge-new-appointment">${record.badge}</span>` : ''}</h3>
+          <div style="font-weight:700; color:#e0778c;">${record.breed} · ${record.age} · ${record.gender} · ${record.weight}</div>
+          <div style="font-size:0.88rem; color:#6e5e78; margin-top:4px;">Owner: ${record.ownerName} (${record.ownerPhone || 'Registered'})</div>
+        </div>
+      </div>
+
+      <div style="background:#FDEDED; padding:16px; border-radius:16px; margin-bottom:16px;">
+        <div style="font-weight:700; color:#481F72; margin-bottom:4px;"><i class="fas fa-stethoscope"></i> Primary Diagnosis / Condition</div>
+        <div style="font-size:1.05rem; font-weight:600;">${record.medicalCondition}</div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr; gap:12px; font-size:0.92rem; line-height:1.55;">
+        <div><strong>Reported Symptoms:</strong> ${record.symptoms}</div>
+        <div><strong>Previous History:</strong> ${record.previousHistory || "None"}</div>
+        <div><strong>Administered Treatment:</strong> ${record.treatment}</div>
+        <div><strong>Prescribed Medication:</strong> ${record.medication}</div>
+        <div><strong>Vaccination Record:</strong> ${record.vaccinationStatus}</div>
+        <div><strong>Attending Doctor:</strong> ${record.doctor}</div>
+        <div><strong>Clinical Notes:</strong> ${record.notes}</div>
+      </div>
+    `;
+
+    document.getElementById("history-modal").classList.add("active");
+  },
+
+  viewTicket(appointmentId) {
+    const appointments = StorageManager.getUserAppointments();
+    const appt = appointments.find(a => a.id === appointmentId);
+    if (!appt) return;
+
+    const modalBody = document.getElementById("history-modal-body");
+    const modalTitle = document.getElementById("history-modal-title");
+    if (!modalBody || !modalTitle) return;
+
+    modalTitle.textContent = `FurEver Care — Clinical Pass: ${appt.id}`;
+
+    modalBody.innerHTML = `
+      <div style="text-align:center; margin-bottom:20px;">
+        <div style="display:inline-block; background:#FDEDED; padding:10px 24px; border-radius:9999px; border:1px solid #FEA3B6; font-family:'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif; font-size:1.1rem; color:#481F72; font-weight:700;">
+          CONFIRMED VETERINARY APPOINTMENT
+        </div>
+      </div>
+
+      <div style="display:flex; gap:20px; align-items:center; margin-bottom:20px;">
+        <img src="${appt.petImage}" alt="${appt.petName}" style="width:90px; height:90px; border-radius:16px; object-fit:cover; border:2px solid #FEA3B6;">
+        <div>
+          <h3 style="color:#481F72; font-size:1.4rem;">Patient: ${appt.petName}</h3>
+          <div>${appt.animalType} · ${appt.breed} · ${appt.age}</div>
+          <div style="font-size:0.88rem; color:#6e5e78;">Owner: ${appt.ownerName} | ${appt.ownerPhone}</div>
+        </div>
+      </div>
+
+      <div style="background:#481F72; color:white; padding:18px; border-radius:16px; margin-bottom:20px;">
+        <div style="font-size:0.85rem; color:#FEA3B6; text-transform:uppercase; font-weight:700;">Scheduled Consultation</div>
+        <div style="font-family:'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif; font-size:1.3rem; margin:4px 0;">${appt.day}, ${appt.date} at ${appt.time}</div>
+        <div style="font-size:0.95rem;"><i class="fas fa-user-md"></i> ${appt.doctorName} (${appt.doctorSpecialization})</div>
+        <div style="font-size:0.85rem; color:rgba(255,255,255,0.8); margin-top:4px;"><i class="fas fa-hospital"></i> ${appt.doctorClinic}</div>
+      </div>
+
+      <div style="font-size:0.9rem; line-height:1.5;">
+        <div><strong>Reason for Visit:</strong> ${appt.visitReason}</div>
+        ${appt.currentCondition ? `<div><strong>Current Condition:</strong> ${appt.currentCondition}</div>` : ''}
+        ${appt.symptoms ? `<div><strong>Symptoms:</strong> ${appt.symptoms}</div>` : ''}
+      </div>
+
+      <div style="margin-top:24px; display:flex; gap:12px; justify-content:flex-end;">
+        <button class="btn btn-sm btn-primary" onclick="window.print()"><i class="fas fa-print"></i> Print Clinical Ticket</button>
+      </div>
+    `;
+
+    document.getElementById("history-modal").classList.add("active");
+  },
+
+  closeModals() {
+    document.querySelectorAll(".modal-overlay").forEach(m => m.classList.remove("active"));
+  },
+
+  
+  showToast(message, type = "info") {
+    const container = document.getElementById("toast-container");
+    if (!container) return;
+
+    const toast = document.createElement("div");
+    toast.className = "custom-toast";
+
+    let title = "FurEver Care Notice";
+    let iconClass = "fa-info-circle";
+
+    if (type === "booked") {
+      title = "Slot Unavailable";
+      iconClass = "fa-lock";
+    } else if (type === "success") {
+      title = "Booking Success";
+      iconClass = "fa-check-circle";
+    } else if (type === "error") {
+      title = "Attention Required";
+      iconClass = "fa-exclamation-circle";
+    }
+
+    toast.innerHTML = `
+      <div class="toast-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <i class="fas ${iconClass} accent-icon"></i>
+          <span>${title}</span>
+        </div>
+        <button class="toast-close-btn" title="Dismiss">&times;</button>
+      </div>
+      <div class="toast-body">
+        ${message}
+      </div>
+    `;
+
+    toast.querySelector(".toast-close-btn").addEventListener("click", () => {
+      toast.remove();
+    });
+
+    container.appendChild(toast);
+
+    
+    setTimeout(() => {
+      if (toast.parentNode) {
+        toast.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+        toast.style.opacity = "0";
+        toast.style.transform = "translateX(100%)";
+        setTimeout(() => toast.remove(), 400);
+      }
+    }, 4500);
+  },
+
+  
+  launchConfetti() {
+    const canvas = document.getElementById("confetti-canvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const colors = ["#481F72", "#FEA3B6", "#FDEDED", "#ffffff", "#e0778c", "#8442bd"];
+    const particles = [];
+    const particleCount = 120;
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * -canvas.height,
+        size: Math.random() * 9 + 5,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        speedY: Math.random() * 3 + 2,
+        speedX: (Math.random() - 0.5) * 2,
+        rotation: Math.random() * 360,
+        rotationSpeed: (Math.random() - 0.5) * 8
+      });
+    }
+
+    let animationFrame;
+    const startTime = Date.now();
+
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rotation * Math.PI) / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+        ctx.restore();
+
+        p.y += p.speedY;
+        p.x += p.speedX;
+        p.rotation += p.rotationSpeed;
+
+        if (p.y > canvas.height) {
+          p.y = -20;
+          p.x = Math.random() * canvas.width;
+        }
+      });
+
+      if (Date.now() - startTime < 4500) {
+        animationFrame = requestAnimationFrame(render);
+      } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        cancelAnimationFrame(animationFrame);
+      }
+    }
+
+    render();
+  }
+};
+
+
+</script>
+<script>
+
+(function bootVetApp(){
+  function startApp(){
+    StorageManager.init();
+    BookingWizard.init();
+    App.init();
+  }
+  fetch('veterinarian-data.json')
+    .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+    .then(function(data){
+      window.INITIAL_DOCTORS = data.doctors || [];
+      window.INITIAL_MEDICAL_HISTORIES = data.medicalHistories || [];
+    })
+    .catch(function(e){ console.warn('veterinarian-data.json load failed; using fallback', e); })
+    .then(startApp);
+})();
+
+</script>
+<script>
+(function initMobileNav() {
+  var header = document.getElementById('site-header');
+  var toggle = document.getElementById('nav-menu-toggle');
+  if (!header || !toggle) return;
+  function close() { header.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
+  function open() { header.classList.add('is-open'); toggle.setAttribute('aria-expanded', 'true'); }
+  toggle.addEventListener('click', function () {
+    if (header.classList.contains('is-open')) { close(); } else { open(); }
+  });
+  document.querySelectorAll('.nav-links a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (window.innerWidth <= 992) close();
+    });
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 992) close();
+  });
+})();
+</script>
+</body>
+
+</html>

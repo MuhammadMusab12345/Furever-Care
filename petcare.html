@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Pet Care </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { width: 100%; max-width: 100%; overflow-x: hidden; scroll-behavior: smooth; }
+body {
+    width: 100%; max-width: 100%; min-height: 100vh;
+    font-family: 'Nunito', sans-serif;
+    background: #FFF6DF;
+    color: #123C3A;
+    overflow-x: hidden;
+}
+button, a { text-decoration: none; border: none; background: none; cursor: pointer; font-family: inherit; }
+img { max-width: 100%; }
+
+.navbar {
+    position: sticky; top: 0; z-index: 40;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 10px clamp(16px, 3.5vw, 42px);
+    background: rgba(255, 246, 223, 0.96);
+    backdrop-filter: blur(14px);
+    border-bottom: 3px solid rgba(18, 60, 58, 0.08);
+    flex-wrap: wrap;
+}
+.nav-brand {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(18px, 1.8vw, 24px); color: #123C3A; white-space: nowrap;
+}
+.nav-brand svg { width: 32px; height: 32px; fill: #F04B3E; filter: drop-shadow(0 3px 6px rgba(240, 75, 62, 0.3)); }
+.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; }
+.nav-link {
+    padding: 8px 14px; border-radius: 10px;
+    font-family: 'Fredoka', sans-serif; font-weight: 600;
+    font-size: clamp(12px, 0.95vw, 14px); color: #123C3A; white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease; position: relative;
+}
+.nav-link:hover, .nav-link.active { background: rgba(18, 60, 58, 0.08); color: #FF7A33; }
+.nav-dropdown { position: relative; display: inline-block; }
+.nav-dropdown-content {
+    display: none; position: absolute; top: 100%; left: 0; min-width: 200px;
+    background: #fff; border-radius: 14px; box-shadow: 0 14px 32px rgba(36, 21, 66, 0.18);
+    border: 2px solid rgba(18, 60, 58, 0.06); padding: 6px 0; z-index: 50; margin-top: 4px;
+}
+.nav-dropdown-content a {
+    display: block; padding: 10px 18px; font-family: 'Fredoka', sans-serif;
+    font-weight: 500; font-size: 13px; color: #123C3A;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.nav-dropdown-content a:hover { background: #FFF6DF; color: #FF7A33; }
+.nav-dropdown:hover .nav-dropdown-content { display: block; }
+.nav-link .fa-chevron-down { font-size: 9px; margin-left: 4px; opacity: 0.6; }
+.nav-right { display: flex; align-items: center; gap: 14px; }
+.pet-profile-btn {
+    display: flex; align-items: center; gap: 10px; cursor: pointer;
+    padding: 5px 16px 5px 5px; border-radius: 999px; background: #123C3A;
+    box-shadow: 0 6px 14px rgba(18, 60, 58, 0.25);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+.pet-profile-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(18, 60, 58, 0.32); }
+.pphoto {
+    width: 36px; height: 36px; border-radius: 50%; background: #FFD43B;
+    display: grid; place-items: center; overflow: hidden; border: 2px solid #FFF6DF; flex: none;
+}
+.pphoto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pphoto i { color: #123C3A; font-size: 15px; }
+.ppname { font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: clamp(12px, 0.9vw, 14px); color: #FFF6DF; white-space: nowrap; }
+.pchevron { color: rgba(255, 246, 223, 0.5); font-size: 10px; transition: transform 0.3s ease; }
+.pet-profile-btn.open .pchevron { transform: rotate(180deg); }
+.profile-popup {
+    position: absolute; top: calc(100% + 12px); right: 0; min-width: 280px; max-width: 320px;
+    background: #fff; border-radius: 20px; border: 2.5px solid #E7DCF7;
+    box-shadow: 0 22px 48px rgba(36, 21, 66, 0.22); opacity: 0;
+    transform: translateY(-10px) scale(0.95); pointer-events: none;
+    transition: 0.32s cubic-bezier(0.22, 1, 0.3, 1); transform-origin: top right; z-index: 50;
+}
+.profile-popup.open { opacity: 1; transform: none; pointer-events: auto; }
+.pp-header { display: flex; align-items: center; gap: 14px; padding: 16px 16px 12px; border-bottom: 2px dashed rgba(18, 60, 58, 0.08); }
+.pp-big-avatar {
+    width: 56px; height: 56px; border-radius: 50%; flex: none;
+    background: linear-gradient(135deg, #FFF0E6, #F3EEFF);
+    display: grid; place-items: center; overflow: hidden; border: 3px solid #FFD43B;
+    box-shadow: 0 6px 14px rgba(255, 212, 59, 0.35);
+}
+.pp-big-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.pp-big-avatar i { font-size: 24px; color: #FF7A33; }
+.pp-header-text b { font-family: 'Fredoka', sans-serif; font-size: 17px; display: block; }
+.pp-header-text small { font-size: 12px; color: rgba(18, 60, 58, 0.55); font-weight: 700; }
+.pp-vac { display: inline-flex; align-items: center; gap: 6px; padding: 3px 12px; border-radius: 999px; font-size: 11px; font-weight: 800; margin-top: 4px; }
+.vac-ok { background: rgba(47, 217, 174, 0.15); color: #17806c; }
+.vac-pending { background: rgba(255, 212, 59, 0.25); color: #9a7508; }
+.vac-no { background: rgba(240, 75, 62, 0.12); color: #b9322a; }
+.pp-details { padding: 12px 16px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pp-det-item { background: #FFF6DF; border-radius: 12px; padding: 8px 12px; border: 1.5px solid rgba(18, 60, 58, 0.06); }
+.pp-det-item small { display: block; font-size: 9px; letter-spacing: 0.8px; font-weight: 800; color: rgba(18, 60, 58, 0.45); text-transform: uppercase; margin-bottom: 1px; }
+.pp-det-item b { font-size: 13px; font-family: 'Fredoka', sans-serif; }
+.switch-role-btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 999px;
+    background: linear-gradient(120deg, #8B5CF6, #6d3fd0); color: #fff;
+    font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: clamp(11px, 0.9vw, 13px);
+    box-shadow: 0 8px 18px rgba(139, 92, 246, 0.35);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+.switch-role-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(139, 92, 246, 0.45); text-decoration:none; }
+.nav-hamburger {
+    display: none; flex-direction: column; justify-content: center; gap: 5px;
+    width: 40px; height: 40px; padding: 8px; border-radius: 10px; background: transparent;
+    cursor: pointer; z-index: 60; transition: background .2s ease;
+}
+.nav-hamburger:hover { background: rgba(18,60,58,.06); }
+.nav-hamburger .bar { display: block; width: 100%; height: 3px; border-radius: 3px; background: #123C3A; transition: transform .3s ease, opacity .3s ease; transform-origin: center; }
+.nav-hamburger.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-hamburger.open .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+
+.page-intro {
+    position: relative; overflow: hidden;
+    padding: clamp(40px, 6vh, 60px) clamp(20px, 5vw, 70px) clamp(70px, 9vh, 100px);
+    background: linear-gradient(160deg, #0B7A6E 0%, #0E9E8E 55%, #12B5A0 100%);
+    text-align: center;
+}
+.page-intro::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 12% 20%, rgba(255,212,59,.22), transparent 32%),
+                radial-gradient(circle at 88% 80%, rgba(139,92,246,.18), transparent 30%);
+    pointer-events: none;
+}
+.pi-paws { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.pi-paw { position: absolute; color: rgba(255,255,255,.14); animation: floatShape 8s ease-in-out infinite; }
+.pi-paw:nth-child(1) { font-size: 80px; top: 10%; left: 6%; }
+.pi-paw:nth-child(2) { font-size: 50px; bottom: 12%; right: 10%; animation-delay: 1.5s; }
+.pi-paw:nth-child(3) { font-size: 36px; top: 60%; left: 20%; animation-delay: 3s; color: rgba(255,212,59,.18); }
+.pi-paw:nth-child(4) { font-size: 60px; top: 15%; right: 18%; animation-delay: 2s; color: rgba(47,217,174,.16); }
+@keyframes floatShape { 0%,100%{ transform: translateY(0) rotate(0deg); } 50%{ transform: translateY(-18px) rotate(10deg); } }
+.pi-ribbon {
+    position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.2); backdrop-filter: blur(6px); border: 1.5px solid rgba(255,255,255,.28);
+    color: #fff; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: clamp(11px,.9vw,13px);
+    letter-spacing: .8px; padding: 6px 18px; border-radius: 999px; margin-bottom: 16px;
+}
+.pi-ribbon i { color: #FFD43B; font-size: 12px; }
+.page-intro h1 {
+    position: relative; z-index: 1;
+    font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: clamp(32px, 4.4vw, 54px);
+    line-height: 1.1; color: #fff; filter: drop-shadow(0 4px 14px rgba(36,21,66,.25)); margin-bottom: 14px;
+}
+.page-intro h1 span { background: linear-gradient(90deg, #FFD43B, #2FD9AE); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.page-intro p {
+    position: relative; z-index: 1; max-width: 560px; margin: 0 auto;
+    color: rgba(255,255,255,.92); font-weight: 600; font-size: clamp(14px, 1.1vw, 17px); line-height: 1.6;
+}
+.pi-jump { position: relative; z-index: 1; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.pi-jump a {
+    display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px;
+    font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 13px; color: #241542;
+    background: #FFF6DF; box-shadow: 0 8px 0 rgba(36,21,66,.18), 0 12px 18px rgba(36,21,66,.2);
+    transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease;
+}
+.pi-jump a:hover { transform: translateY(-3px); box-shadow: 0 11px 0 rgba(36,21,66,.2), 0 18px 24px rgba(36,21,66,.24); }
+.pi-jump a.j-groom { background: #0B2826; color: #FFF6DF; }
+.pi-jump a.j-health { background: #C9B6F2; color: #241542; }
+.pi-jump a.j-train { background: #FF8F81; color: #241542; }
+.wave-divider { position: relative; line-height: 0; }
+.wave-divider svg { display: block; width: 100%; }
+
+
+.feeding-section {
+    position: relative; overflow: hidden;
+    background: linear-gradient(180deg, #FFF0E6 0%, #FFF6DF 100%);
+    padding: clamp(10px, 2vh, 20px) clamp(20px, 5vw, 70px) clamp(60px, 8vh, 90px);
+}
+.fs-bg-shape { position: absolute; border-radius: 50%; opacity: .5; pointer-events: none; }
+.fs-bg1 { width: 220px; height: 220px; background: #FFD65C; opacity: .3; top: -60px; right: 6%; }
+.fs-bg2 { width: 140px; height: 140px; background: #5FE2C6; opacity: .25; bottom: 10%; left: 2%; }
+.section-heading { position: relative; z-index: 1; text-align: center; margin-bottom: clamp(30px, 5vh, 46px); }
+.section-heading .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px; font-family: 'Fredoka', sans-serif; font-weight: 600;
+    font-size: 12.5px; letter-spacing: 1.2px; padding: 6px 18px; border-radius: 999px; margin-bottom: 12px;
+}
+.section-heading h2 { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); }
+.section-heading p.lead { max-width: 520px; margin: 10px auto 0; font-weight: 700; font-size: 14px; opacity: .75; }
+.eyebrow.eb-feed { color: #FF6B1A; background: #FFF0E6; }
+.eyebrow.eb-groom { color: #2FD9AE; background: rgba(47,217,174,.12); }
+.eyebrow.eb-health { color: #7A1440; background: #FFE1EA; }
+.eyebrow.eb-train { color: #FFF6DF; background: rgba(36,21,66,.55); }
+
+.feed-tabbar {
+    position: relative; z-index: 1; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
+    max-width: 720px; margin: 0 auto 30px;
+}
+.feed-tab {
+    display: flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 999px;
+    font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 14px; color: #123C3A;
+    background: #FFFFFF00; border: 2.5px solid rgba(18,60,58,.14);
+    background: #FFF6DF;
+    transition: all .25s cubic-bezier(.34,1.56,.64,1);
+}
+.feed-tab i { font-size: 15px; }
+.feed-tab:hover { transform: translateY(-2px); border-color: #FF7A33; }
+.feed-tab.active {
+    background: linear-gradient(120deg, #FF7A33, #F04B3E);
+    color: #fff; border-color: transparent;
+    box-shadow: 0 8px 0 rgba(160,40,20,.28), 0 14px 20px rgba(240,75,62,.28);
+    transform: translateY(-2px);
+}
+
+.feed-panel {
+    position: relative; z-index: 1; max-width: 1000px; margin: 0 auto;
+    display: none; grid-template-columns: 1.05fr 1fr; gap: 30px; align-items: stretch;
+}
+.feed-panel.active { display: grid; animation: fadeUp .5s cubic-bezier(.22,1,.3,1) both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+.feed-card-info {
+    border-radius: 30px; padding: clamp(22px,3vw,32px); position: relative; overflow: hidden;
+    box-shadow: 0 16px 34px rgba(36,21,66,.16);
+}
+.feed-card-info .fci-icon {
+    width: 56px; height: 56px; border-radius: 18px; display: grid; place-items: center;
+    background: rgba(255,255,255,.4); font-size: 24px; margin-bottom: 14px;
+}
+.feed-card-info h3 { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 22px; margin-bottom: 8px; }
+.feed-card-info p { font-weight: 700; font-size: 13.5px; line-height: 1.6; opacity: .85; margin-bottom: 18px; }
+.feed-meta { display: flex; flex-wrap: wrap; gap: 10px; }
+.feed-meta span {
+    display: flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 999px;
+    background: rgba(255,255,255,.45); font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 12px;
+}
+.feed-bowl-wrap { display: flex; flex-direction: column; align-items: center; margin-top: 20px; gap: 8px; }
+.feed-bowl {
+    width: 92px; height: 62px; border-radius: 0 0 46px 46px; border: 5px solid #241542;
+    border-top: none; position: relative; overflow: hidden; background: rgba(255,255,255,.35);
+}
+.feed-bowl-fill {
+    position: absolute; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, #FFD43B, #FF7A33);
+    transition: height 1s cubic-bezier(.22,1,.3,1); height: 0%;
+}
+.feed-bowl-label { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 12px; }
+
+.feed-tab1 .feed-card-info { background: #FFD65C; }
+.feed-tab2 .feed-card-info { background: #FFA467; }
+.feed-tab3 .feed-card-info { background: #5FE2C6; color: #0d3a30; }
+.feed-tab4 .feed-card-info { background: #F4A8CE; color: #3a1030; }
+
+.feed-chart {
+    border-radius: 30px; background: #123C3A; color: #FFF6DF;
+    padding: clamp(20px,3vw,28px); box-shadow: 0 16px 34px rgba(18,60,58,.22);
+}
+.feed-chart h4 { font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: .6px; text-transform: uppercase; color: #2FD9AE; margin-bottom: 14px; }
+.feed-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1.5px dashed rgba(255,246,223,.14); }
+.feed-row:last-child { border-bottom: none; }
+.feed-row .fr-label { font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 13.5px; display: flex; align-items: center; gap: 8px; }
+.feed-row .fr-label i { color: #FFD43B; font-size: 13px; width: 16px; }
+.feed-row .fr-val { font-weight: 800; font-size: 13px; color: #2FD9AE; text-align: right; }
+
+
+.grooming-section {
+    position: relative; overflow: hidden; background: #0B2826; color: #FFF6DF;
+    padding: clamp(60px,8vh,90px) clamp(20px,5vw,70px) clamp(80px,10vh,110px);
+}
+.gr-top-cut { position: relative; }
+.gr-top-cut svg { display: block; width: 100%; }
+.gr-bubbles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.gr-bubble {
+    position: absolute; bottom: -60px; border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%, rgba(255,255,255,.55), rgba(95,226,198,.12) 70%);
+    border: 1.5px solid rgba(95,226,198,.35);
+    animation: bubbleUp linear infinite;
+}
+@keyframes bubbleUp {
+    0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+    10% { opacity: .8; }
+    90% { opacity: .6; }
+    100% { transform: translateY(-780px) translateX(30px) scale(1.15); opacity: 0; }
+}
+.grooming-section .section-heading { color: #FFF6DF; }
+.grooming-section .section-heading h2 { color: #FFF6DF; }
+.grooming-section .section-heading p.lead { color: rgba(255,246,223,.7); }
+
+.groom-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1080px; margin: 0 auto; }
+.groom-card {
+    border-radius: 26px; overflow: hidden; background: #0f322f; border: 2px solid rgba(95,226,198,.16);
+    box-shadow: 0 18px 36px rgba(0,0,0,.3); transition: transform .3s cubic-bezier(.34,1.56,.64,1), border-color .3s ease;
+}
+.groom-card:hover { transform: translateY(-6px); border-color: #2FD9AE; }
+.groom-screen {
+    position: relative; aspect-ratio: 16/10; display: grid; place-items: center; overflow: hidden;
+}
+.gc1 .groom-screen { background: linear-gradient(145deg, #1c5850, #0b2826); }
+.gc2 .groom-screen { background: linear-gradient(145deg, #2b4d7a, #0b2826); }
+.gc3 .groom-screen { background: linear-gradient(145deg, #5c3a7a, #0b2826); }
+.groom-screen .gs-icon-bg { font-size: 90px; color: rgba(255,255,255,.06); position: absolute; }
+.groom-play-btn {
+    position: relative; z-index: 2; width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(255,255,255,.14); backdrop-filter: blur(4px); display: grid; place-items: center;
+    color: #FFF6DF; font-size: 19px; border: 2px solid rgba(255,246,223,.4);
+    transition: transform .25s cubic-bezier(.34,1.56,.64,1), background .2s ease;
+}
+.groom-play-btn:hover { transform: scale(1.1); background: rgba(95,226,198,.3); }
+.groom-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,.15); z-index: 2; }
+.groom-progress-fill { height: 100%; width: 0%; background: #2FD9AE; transition: width .3s linear; }
+.groom-progress-fill.running { animation: gpFill 6s linear forwards; }
+@keyframes gpFill { to { width: 100%; } }
+.groom-duration { position: absolute; top: 12px; right: 12px; z-index: 2; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 11px; background: rgba(0,0,0,.4); padding: 3px 9px; border-radius: 999px; }
+.groom-body { padding: 18px 20px 22px; }
+.groom-body h3 { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 17px; margin-bottom: 6px; }
+.groom-body p { font-size: 13px; line-height: 1.6; color: rgba(255,246,223,.68); font-weight: 700; margin-bottom: 12px; }
+.groom-tips { display: flex; flex-wrap: wrap; gap: 7px; }
+.groom-tips span { font-family: 'Fredoka', sans-serif; font-size: 10.5px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(95,226,198,.12); color: #2FD9AE; }
+
+
+.health-section {
+    position: relative; overflow: hidden;
+    background: linear-gradient(165deg, #FFE1EA 0%, #FFF6DF 55%, #E8FCF6 100%);
+    padding: clamp(60px,8vh,90px) clamp(20px,5vw,70px) clamp(70px,9vh,100px);
+}
+.hs-blob { position: absolute; border-radius: 50%; opacity: .3; pointer-events: none; animation: floatShape 9s ease-in-out infinite; }
+.hs-b1 { width: 260px; height: 260px; background: #FF7FA6; top: -90px; left: -70px; }
+.hs-b2 { width: 170px; height: 170px; background: #5FE2C6; bottom: -50px; right: -40px; opacity: .28; animation-delay: 1.5s; }
+.hs-b3 { width: 110px; height: 110px; background: #FFD65C; top: 40%; right: 4%; opacity: .3; animation-delay: 3s; }
+.hs-shapes { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.hs-icon { position: absolute; color: rgba(122,20,64,.12); animation: hsDrift ease-in-out infinite; }
+.hs-icon.mint { color: rgba(23,168,132,.16); }
+.hs-icon.gold { color: rgba(184,130,10,.16); }
+@keyframes hsDrift { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-16px) rotate(10deg); } }
+.hs-pulse { position: absolute; border-radius: 50%; border: 2px solid rgba(255,127,166,.35); pointer-events: none; animation: hsPulse 3.4s ease-out infinite; }
+@keyframes hsPulse { 0% { transform: scale(.6); opacity: .7; } 100% { transform: scale(1.8); opacity: 0; } }
+.health-connector { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto 8px; display: flex; justify-content: center; }
+.health-connector svg { width: 100%; max-width: 700px; opacity: .6; }
+
+.health-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1080px; margin: 0 auto; }
+.health-card {
+    position: relative; overflow: hidden;
+    border-radius: 30px 30px 30px 8px; padding: 24px 22px 22px;
+    box-shadow: 0 14px 30px rgba(122,20,64,.14);
+    transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+}
+.health-card:hover { transform: translateY(-6px) rotate(-.6deg); }
+.health-card::after {
+    content: ""; position: absolute; width: 90px; height: 90px; border-radius: 50%;
+    background: rgba(255,255,255,.18); top: -30px; right: -30px; pointer-events: none;
+}
+.hc1 { background: #FF7FA6; color: #fff; }
+.hc1:hover { box-shadow: 0 20px 38px rgba(255,127,166,.32); }
+.hc2 { background: #5FE2C6; color: #0d3a30; }
+.hc2:hover { box-shadow: 0 20px 38px rgba(23,168,132,.28); }
+.hc3 { background: #FFD65C; color: #4a3300; }
+.hc3:hover { box-shadow: 0 20px 38px rgba(184,130,10,.28); }
+.health-icon {
+    width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; font-size: 22px;
+    margin-bottom: 14px; background: rgba(255,255,255,.32); position: relative; z-index: 1;
+}
+.health-card h3 { position: relative; z-index: 1; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 6px; }
+.health-card p { position: relative; z-index: 1; font-size: 13px; line-height: 1.6; font-weight: 700; opacity: .85; margin-bottom: 16px; }
+
+.audio-player { position: relative; z-index: 1; display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.32); border-radius: 16px; padding: 10px 14px; }
+.audio-btn {
+    width: 38px; height: 38px; border-radius: 50%; flex: none; display: grid; place-items: center;
+    background: rgba(36,21,66,.85); color: #fff; font-size: 13px;
+    transition: transform .2s cubic-bezier(.34,1.56,.64,1);
+}
+.audio-btn:hover { transform: scale(1.1); }
+.audio-wave { display: flex; align-items: center; gap: 3px; height: 22px; flex: 1; }
+.audio-wave span { width: 3px; border-radius: 3px; background: rgba(36,21,66,.85); opacity: .55; height: 30%; transition: height .2s ease; }
+.audio-wave.playing span { animation: waveBounce 0.9s ease-in-out infinite; opacity: 1; }
+.audio-wave span:nth-child(odd) { animation-delay: .15s !important; }
+.audio-wave span:nth-child(3n) { animation-delay: .3s !important; }
+@keyframes waveBounce { 0%,100% { height: 30%; } 50% { height: 95%; } }
+.audio-time { font-family: 'Fredoka', sans-serif; font-weight: 800; font-size: 10.5px; color: rgba(36,21,66,.75); flex: none; }
+
+
+.training-section {
+    position: relative; overflow: hidden;
+    background: linear-gradient(150deg, #FFC93C 0%, #FFA400 32%, #6C3CE9 78%, #4A22A8 100%);
+    padding: clamp(60px,8vh,90px) clamp(20px,5vw,70px) clamp(80px,10vh,110px);
+}
+.tp-paw-trail { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.tp-paw {
+    position: absolute; color: rgba(255,255,255,.16); font-size: 30px;
+    animation: pawFade 2.4s ease-in-out infinite;
+}
+@keyframes pawFade { 0%,100% { opacity: .14; transform: scale(1); } 50% { opacity: .34; transform: scale(1.15); } }
+.tp-ball {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%, #fff5, transparent 55%), #FFD65C;
+    box-shadow: inset 0 0 0 2px rgba(36,21,66,.18);
+    animation: tpBounce ease-in-out infinite;
+}
+.tp-ball::before, .tp-ball::after {
+    content: ""; position: absolute; inset: 8% 0; border-top: 2px solid rgba(36,21,66,.2); border-radius: 50%;
+}
+.tp-ball::after { inset: 0 8%; border-top: none; border-left: 2px solid rgba(36,21,66,.2); }
+@keyframes tpBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-26px); } }
+.tp-star { position: absolute; color: rgba(255,255,255,.4); animation: tpSpin ease-in-out infinite; }
+@keyframes tpSpin { 0%,100% { transform: rotate(-15deg) scale(1); } 50% { transform: rotate(15deg) scale(1.2); } }
+.tp-bone { position: absolute; color: rgba(36,21,66,.16); animation: pawFade ease-in-out infinite; }
+.training-section .section-heading h2 { color: #241542; }
+.training-section .section-heading p.lead { color: rgba(36,21,66,.7); }
+
+.train-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
+.flip-card { perspective: 1200px; height: 230px; }
+.flip-inner {
+    position: relative; width: 100%; height: 100%; transition: transform .6s cubic-bezier(.22,1,.3,1);
+    transform-style: preserve-3d; cursor: pointer;
+}
+.flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+.flip-face {
+    position: absolute; inset: 0; border-radius: 24px; backface-visibility: hidden;
+    padding: 20px; display: flex; flex-direction: column;
+    box-shadow: 0 14px 28px rgba(36,21,66,.2);
+}
+.flip-front { background: #6C3CE9; color: #FFF6DF; justify-content: space-between; }
+.flip-front .tc-icon { width: 46px; height: 46px; border-radius: 14px; background: rgba(255,246,223,.1); display: grid; place-items: center; font-size: 20px; color: #FFD43B; }
+.flip-front h3 { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 16px; line-height: 1.25; }
+.flip-front .tc-hint { font-size: 11px; font-weight: 700; opacity: .55; display: flex; align-items: center; gap: 6px; }
+.flip-back { background: #5FE2C6; color: #0B2826; transform: rotateY(180deg); justify-content: center; gap: 10px; border: 3px solid #0B2826; }
+.flip-back p { font-size: 12.5px; line-height: 1.55; font-weight: 700; }
+.flip-back .tc-back-label { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 12px; color: #F04B3E; text-transform: uppercase; letter-spacing: .5px; }
+
+.tc1 .flip-front .tc-icon { color: #2FD9AE; }
+.tc2 .flip-front .tc-icon { color: #FFD43B; }
+.tc3 .flip-front .tc-icon { color: #FF8F81; }
+.tc4 .flip-front .tc-icon { color: #B69CF7; }
+
+.train-progress {
+    position: relative; z-index: 1; max-width: 1100px; margin: 34px auto 0;
+    background: rgba(255,246,223,.55); border-radius: 999px; padding: 6px; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 10px 22px rgba(36,21,66,.18);
+}
+.train-progress-bar { flex: 1; height: 14px; border-radius: 999px; background: rgba(255,246,223,.6); overflow: hidden; }
+.train-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #241542, #4a2f7a); transition: width .5s cubic-bezier(.22,1,.3,1); border-radius: 999px; }
+.train-progress-label { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 12.5px; color: #241542; padding: 0 12px; white-space: nowrap; }
+
+
+.site-footer { position: relative; overflow: hidden; background: #0B2826; color: #FFF6DF; padding: clamp(46px, 7vh, 70px) clamp(20px, 5vw, 70px) 22px; }
+.footer-paw-bg { position: absolute; font-size: 340px; color: rgba(255, 246, 223, 0.04); right: -60px; bottom: -90px; transform: rotate(-18deg); pointer-events: none; }
+.footer-top { position: relative; z-index: 1; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 34px; max-width: 1180px; margin: 0 auto; padding-bottom: 36px; border-bottom: 2px dashed rgba(255, 246, 223, 0.15); }
+.footer-brand { display: flex; align-items: center; gap: 10px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 21px; margin-bottom: 12px; }
+.footer-brand svg { width: 30px; height: 30px; fill: #FFD43B; }
+.footer-tagline { font-size: 13.5px; line-height: 1.7; color: rgba(255, 246, 223, 0.72); max-width: 280px; margin-bottom: 18px; }
+.footer-social { display: flex; gap: 10px; }
+.footer-social a { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 246, 223, 0.1); color: #FFF6DF; font-size: 14px; transition: background .2s ease, transform .25s cubic-bezier(.34,1.56,.64,1), color .2s ease; }
+.footer-social a:nth-child(1):hover { background: #F04B3E; }
+.footer-social a:nth-child(2):hover { background: #8B5CF6; }
+.footer-social a:nth-child(3):hover { background: #2FD9AE; color: #0B2826; }
+.footer-social a:hover { transform: translateY(-3px); }
+.footer-col h4 { font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: .4px; text-transform: uppercase; color: #FFD43B; margin-bottom: 14px; }
+.footer-col a { display: block; font-size: 13.5px; color: rgba(255, 246, 223, 0.78); margin-bottom: 10px; transition: color .2s ease, transform .2s ease; }
+.footer-col a:hover { color: #2FD9AE; transform: translateX(3px); }
+.footer-bottom { position: relative; z-index: 1; max-width: 1180px; margin: 20px auto 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12px; color: rgba(255, 246, 223, 0.55); }
+.footer-bottom i { color: #F04B3E; margin: 0 3px; }
+
+
+.groom-screen { position: relative; }
+.groom-video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; display: none; cursor: pointer;
+    border-radius: 26px 26px 0 0;
+}
+.groom-video.visible { display: block; }
+.groom-play-btn { transition: transform .25s cubic-bezier(.34,1.56,.64,1), background .2s ease, opacity .3s ease; }
+.groom-play-btn.hidden { opacity: 0; pointer-events: none; }
+.groom-screen .gs-icon-bg { transition: opacity .3s ease; }
+.groom-screen.playing .gs-icon-bg { opacity: 0; }
+.groom-screen.playing .groom-duration { opacity: 0; }
+
+
+@media (max-width: 1024px) {
+    .navbar { flex-wrap: wrap; }
+    .nav-links { order: 3; flex-basis: 100%; justify-content: center; padding-top: 6px; border-top: 1.5px dashed rgba(18,60,58,.08); margin-top: 4px; }
+    .nav-link { padding: 7px 12px; font-size: 12.5px; }
+    .groom-grid, .health-grid { grid-template-columns: 1fr; }
+    .train-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+    .feed-panel { grid-template-columns: 1fr; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+        position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0;
+        background: rgba(255,246,223,.98); backdrop-filter: blur(14px); border-top: 2px dashed rgba(18,60,58,.1);
+        padding: 10px 16px 16px; max-height: 0; overflow: hidden; opacity: 0;
+        transition: max-height .35s ease, opacity .3s ease, padding .3s ease; z-index: 55;
+    }
+    .nav-links.mobile-open { max-height: 500px; opacity: 1; padding: 10px 16px 16px; }
+    .nav-link { padding: 11px 14px; border-radius: 10px; font-size: 14px; }
+    .nav-dropdown-content { position: static; transform: none; opacity: 1; pointer-events: auto; box-shadow: none; border: none; background: rgba(18,60,58,.04); border-radius: 10px; margin-top: 2px; padding: 4px 0; max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .nav-dropdown.mobile-open .nav-dropdown-content { max-height: 300px; }
+    .nav-dropdown-content a { padding: 9px 14px 9px 20px; font-size: 13px; border-radius: 8px; }
+    .nav-dropdown > a .fa-chevron-down { transition: transform .3s ease; }
+    .nav-dropdown.mobile-open > a .fa-chevron-down { transform: rotate(180deg); }
+    .profile-popup { right: 6px; }
+}
+@media (max-width: 600px) {
+    .navbar { padding: 10px 14px; }
+    .nav-brand { font-size: 16px; }
+    .nav-brand svg { width: 26px; height: 26px; }
+    .pet-profile-btn { padding: 5px 10px 5px 5px; }
+    .ppname { font-size: 12px; }
+    .pphoto { width: 32px; height: 32px; }
+    .switch-role-btn { padding: 7px 12px; font-size: 11px; }
+    .switch-role-btn span { display: none; }
+    .page-intro { padding: 30px 16px 50px; }
+    .page-intro h1 { font-size: clamp(24px, 7vw, 34px); }
+    .groom-grid { grid-template-columns: 1fr; }
+    .health-grid { grid-template-columns: 1fr; }
+    .train-grid { grid-template-columns: 1fr; }
+    .feed-tabbar { gap: 8px; }
+    .feed-tab { padding: 9px 16px; font-size: 12.5px; }
+    .profile-popup { width: min(280px, calc(100vw - 32px)); min-width: 0; right: 8px; max-width: 280px; }
+    .pp-details { grid-template-columns: 1fr; }
+    .pp-header { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+  <style>
+    .info-strip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 20px;padding:8px clamp(14px,3vw,42px);background:#0B2826;color:#FFF6DF;font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:700;position:relative;z-index:70;border-bottom:3px dashed rgba(255,246,223,.25)}
+    .info-strip .is-headline{font-family:'Fredoka',sans-serif;font-weight:600;font-size:13px;letter-spacing:.4px;color:#FFD43B;display:inline-flex;align-items:center;gap:7px}
+    .info-strip .is-headline i{color:#F04B3E}
+    .info-strip .is-item{display:inline-flex;align-items:center;gap:6px;color:rgba(255,246,223,.85)}
+    .info-strip .is-item i{color:#7FC8BC}
+    .info-strip .is-item b{color:#FFD43B}
+    @media(max-width:680px){.info-strip{gap:4px 14px;font-size:11px}.info-strip .is-headline{flex-basis:100%;justify-content:center}}
+    .profile-popup .pp-empty{padding:22px 18px;text-align:center;font-weight:700;font-size:13px;color:rgba(18,60,58,.75);line-height:1.55}
+    .profile-popup .pp-empty i{font-size:26px;color:#F04B3E;margin-bottom:8px;display:inline-block}
+    .profile-popup .pp-empty b{font-family:'Fredoka',sans-serif;color:#123C3A;display:block;margin-bottom:2px}
+    .profile-popup .pp-home-btn{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:9px 16px;border-radius:999px;background:linear-gradient(120deg,#F04B3E,#A3250F);color:#FFF6DF;border:2px solid #061716;box-shadow:0 3px 0 #061716;font-family:'Fredoka',sans-serif;font-weight:600;font-size:12.5px}
+  </style>
+
+  <div class="info-strip">
+    <span class="is-headline"><i class="fa-solid fa-shield-dog"></i>Complete Care Guide — Happy Pets, Healthy Lives</span>
+    <span class="is-item"><i class="fa-regular fa-clock"></i><span id="liveClock">—</span></span>
+    <span class="is-item"><i class="fa-solid fa-location-dot"></i><span id="userLocation">Locating…</span></span>
+    <span class="is-item"><i class="fa-solid fa-eye"></i>Visitors:&nbsp;<b id="visitorCount">0</b></span>
+  </div>
+
+  <script>
+    (function(){
+      var clockEl=document.getElementById('liveClock');
+      function tick(){try{clockEl.textContent=new Date().toLocaleString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});}catch(e){}}
+      tick();setInterval(tick,1000);
+      var vc=document.getElementById('visitorCount'),n=0;
+      try{n=parseInt(localStorage.getItem('fureverVisits')||'0',10)||0;}catch(e){}
+      var seen=false;try{seen=sessionStorage.getItem('fureverVisitDone')==='1';}catch(e){}
+      if(!seen){n++;try{localStorage.setItem('fureverVisits',String(n));sessionStorage.setItem('fureverVisitDone','1');}catch(e){}}
+      vc.textContent=n.toLocaleString();
+      var locEl=document.getElementById('userLocation');
+      function setLoc(t){locEl.textContent=t;}
+      function fallbackLoc(){var tz='';try{tz=(Intl.DateTimeFormat().resolvedOptions().timeZone||'').split('/').pop().replace(/_/g,' ');}catch(e){}setLoc(tz||'Your Area');}
+      fallbackLoc();
+      if(navigator.geolocation){navigator.geolocation.getCurrentPosition(function(pos){fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude='+pos.coords.latitude+'&longitude='+pos.coords.longitude+'&localityLanguage=en').then(function(r){return r.json();}).then(function(d){var city=d.city||d.locality||d.principalSubdivision||'';var c=d.countryName||'';setLoc(city&&c?city+', '+c:(c||city));}).catch(fallbackLoc);},fallbackLoc,{timeout:6000,maximumAge:600000});}
+    })();
+  </script>
+
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <symbol id="paw-shape" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="66" rx="29" ry="23"/>
+    <ellipse cx="18" cy="34" rx="13" ry="17" transform="rotate(-25 18 34)"/>
+    <ellipse cx="42" cy="16" rx="13" ry="17"/>
+    <ellipse cx="68" cy="17" rx="12.5" ry="16.5" transform="rotate(18 68 17)"/>
+    <ellipse cx="86" cy="40" rx="11" ry="14.5" transform="rotate(38 86 40)"/>
+  </symbol>
+  <symbol id="brand-logo" viewBox="0 0 120 120">
+      <path d="M60 114 C60 114 6 76 6 40 C6 15 26 3 43 15 C51 21 56 29 60 38 C64 29 69 21 77 15 C94 3 114 15 114 40 C114 76 60 114 60 114 Z"
+        fill="#E8A400" stroke="#FFF6DF" stroke-width="4" stroke-linejoin="round"/>
+      <g fill="#FFF6DF">
+        <ellipse cx="60" cy="72" rx="15" ry="13"/>
+        <ellipse cx="42" cy="53" rx="6" ry="7.5" transform="rotate(-16 42 53)"/>
+        <ellipse cx="54" cy="47" rx="5.5" ry="7.5" transform="rotate(-5 54 47)"/>
+        <ellipse cx="66" cy="47" rx="5.5" ry="7.5" transform="rotate(5 66 47)"/>
+        <ellipse cx="78" cy="53" rx="6" ry="7.5" transform="rotate(16 78 53)"/>
+      </g>
+    </symbol>
+</svg>
+
+<header class="navbar">
+  <a href="pet-owner.html" class="nav-brand">
+    <svg viewBox="0 0 120 120" width="48" height="48"><use href="#brand-logo"/></svg>
+    FurEver Care
+  </a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+  <nav class="nav-links" id="navLinks">
+    <a href="pet-owner.html" class="nav-link"><i class="fa-solid fa-house" style="margin-right:4px"></i> Home</a>
+    <div class="nav-dropdown">
+      <a href="petcare.html" class="nav-link active">Pet Care <i class="fa-solid fa-chevron-down"></i></a>
+      <div class="nav-dropdown-content">
+        <a href="#feeding"><i class="fa-solid fa-bowl-food" style="margin-right:8px"></i>Feeding Guide</a>
+        <a href="#grooming"><i class="fa-solid fa-scissors" style="margin-right:8px"></i>Grooming</a>
+        <a href="#health"><i class="fa-solid fa-heart-pulse" style="margin-right:8px"></i>Health Tips</a>
+        <a href="#training"><i class="fa-solid fa-graduation-cap" style="margin-right:8px"></i>Training Tips</a>
+      </div>
+    </div>
+    <a href="product.html" class="nav-link"><i class="fa-solid fa-bag-shopping" style="margin-right:4px"></i> Products</a>
+    <div class="nav-dropdown">
+      <a href="vet.html" class="nav-link"><i class="fa-solid fa-truck-medical" style="margin-right:4px"></i> Vet &amp; Emergency <i class="fa-solid fa-chevron-down"></i></a>
+      <div class="nav-dropdown-content">
+        <a href="vet.html#helplines"><i class="fa-solid fa-phone-volume" style="margin-right:8px"></i>Emergency Helplines</a>
+        <a href="vet.html#locator"><i class="fa-solid fa-location-crosshairs" style="margin-right:8px"></i>Find Nearby Vet</a>
+        <a href="vet.html#instructions"><i class="fa-solid fa-kit-medical" style="margin-right:8px"></i>First Aid Steps</a>
+        <a href="vet.html#symptoms"><i class="fa-solid fa-stethoscope" style="margin-right:8px"></i>Common Symptoms</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="about.html" class="nav-link">About <i class="fa-solid fa-chevron-down"></i></a>
+      <div class="nav-dropdown-content">
+        <a href="about.html"><i class="fa-solid fa-circle-info" style="margin-right:8px"></i>About Us</a>
+        <a href="feedback.html"><i class="fa-solid fa-comment" style="margin-right:8px"></i>Feedback</a>
+        <a href="contact.html"><i class="fa-solid fa-envelope" style="margin-right:8px"></i>Contact Us</a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-right">
+    <button class="pet-profile-btn" id="petProfileBtn">
+      <span class="pphoto" id="navAvatar"><i class="fa-solid fa-paw"></i></span>
+      <span class="ppname" id="navName">Your Pet</span>
+      <i class="fa-solid fa-chevron-down pchevron"></i>
+    </button>
+    <div class="profile-popup" id="profilePopup"></div>
+    <div style="position:relative">
+      <a href="role.html" class="switch-role-btn"><i class="fa-solid fa-shuffle"></i> <span>Switch Role</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="page-intro">
+  <div class="pi-paws">
+    <i class="fa-solid fa-paw pi-paw"></i>
+    <i class="fa-solid fa-bone pi-paw"></i>
+    <i class="fa-solid fa-paw pi-paw"></i>
+    <i class="fa-solid fa-heart pi-paw"></i>
+  </div>
+  <span class="pi-ribbon"><i class="fa-solid fa-shield-dog"></i> COMPLETE PET CARE GUIDE</span>
+  <h1>Four corners of care,<br><span>one very happy pet.</span></h1>
+  <p>From breakfast to bedtime — feeding, grooming, health and training tips, each with its own space to explore.</p>
+  <div class="pi-jump">
+    <a href="#feeding" class="j-feed"><i class="fa-solid fa-bowl-food"></i> Feeding Guide</a>
+    <a href="#grooming" class="j-groom"><i class="fa-solid fa-scissors"></i> Grooming Studio</a>
+    <a href="#health" class="j-health"><i class="fa-solid fa-heart-pulse"></i> Health Corner</a>
+    <a href="#training" class="j-train"><i class="fa-solid fa-graduation-cap"></i> Training Playground</a>
+  </div>
+</section>
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="height:40px">
+    <path d="M0,30 C360,70 720,0 1080,40 C1260,58 1380,20 1440,30 L1440,70 L0,70 Z" fill="#FFF0E6"/>
+  </svg>
+</div>
+
+
+<section class="feeding-section" id="feeding">
+  <span class="fs-bg-shape fs-bg1"></span>
+  <span class="fs-bg-shape fs-bg2"></span>
+
+  <div class="section-heading">
+    <span class="eyebrow eb-feed"><i class="fa-solid fa-bowl-food"></i> MEALTIME MATTERS</span>
+    <h2>Feeding Guide</h2>
+    <p class="lead">Pick a life stage to see the right portions, meal frequency and feeding tips.</p>
+  </div>
+
+  <div class="feed-tabbar">
+    <button class="feed-tab active" data-tab="1"><i class="fa-solid fa-dog"></i> Puppy</button>
+    <button class="feed-tab" data-tab="2"><i class="fa-solid fa-dog"></i> Adult Dog</button>
+    <button class="feed-tab" data-tab="3"><i class="fa-solid fa-cat"></i> Kitten</button>
+    <button class="feed-tab" data-tab="4"><i class="fa-solid fa-cat"></i> Cat</button>
+  </div>
+
+  <div class="feed-panel feed-tab1 active" data-panel="1">
+    <div class="feed-card-info">
+      <div class="fci-icon"><i class="fa-solid fa-dog"></i></div>
+      <h3>Puppy (up to 12 months)</h3>
+      <p>Growing bodies need small, frequent meals packed with protein and calcium to build strong bones and muscle.</p>
+      <div class="feed-meta">
+        <span><i class="fa-solid fa-utensils"></i> 3–4 meals/day</span>
+        <span><i class="fa-solid fa-fire"></i> High protein</span>
+      </div>
+      <div class="feed-bowl-wrap">
+        <div class="feed-bowl"><div class="feed-bowl-fill" data-fill="45"></div></div>
+        <span class="feed-bowl-label">~45g per meal (small breed)</span>
+      </div>
+    </div>
+    <div class="feed-chart">
+      <h4>Quick Feeding Chart</h4>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-clock"></i>7–8 weeks</span><span class="fr-val">4x daily</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-clock"></i>3–6 months</span><span class="fr-val">3x daily</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-clock"></i>6–12 months</span><span class="fr-val">2x daily</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-droplet"></i>Fresh water</span><span class="fr-val">Always available</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-triangle-exclamation"></i>Avoid</span><span class="fr-val">Adult kibble, table scraps</span></div>
+    </div>
+  </div>
+
+  <div class="feed-panel feed-tab2" data-panel="2">
+    <div class="feed-card-info">
+      <div class="fci-icon"><i class="fa-solid fa-bone"></i></div>
+      <h3>Adult Dog (1–7 years)</h3>
+      <p>Steady, balanced meals keep energy consistent — portion by weight and activity level, not by the bag's default.</p>
+      <div class="feed-meta">
+        <span><i class="fa-solid fa-utensils"></i> 2 meals/day</span>
+        <span><i class="fa-solid fa-scale-balanced"></i> Weight-based</span>
+      </div>
+      <div class="feed-bowl-wrap">
+        <div class="feed-bowl"><div class="feed-bowl-fill" data-fill="70"></div></div>
+        <span class="feed-bowl-label">~70g per meal (medium breed)</span>
+      </div>
+    </div>
+    <div class="feed-chart">
+      <h4>Quick Feeding Chart</h4>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-weight-scale"></i>Small (≤10kg)</span><span class="fr-val">120–200g/day</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-weight-scale"></i>Medium (10–25kg)</span><span class="fr-val">220–420g/day</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-weight-scale"></i>Large (25kg+)</span><span class="fr-val">450–700g/day</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-person-walking"></i>Active dogs</span><span class="fr-val">+10–15% portion</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-triangle-exclamation"></i>Avoid</span><span class="fr-val">Chocolate, grapes, onions</span></div>
+    </div>
+  </div>
+
+  <div class="feed-panel feed-tab3" data-panel="3">
+    <div class="feed-card-info">
+      <div class="fci-icon"><i class="fa-solid fa-cat"></i></div>
+      <h3>Kitten (up to 12 months)</h3>
+      <p>Tiny stomachs, big needs — frequent, calorie-dense meals fuel rapid growth in the first year.</p>
+      <div class="feed-meta">
+        <span><i class="fa-solid fa-utensils"></i> 4 meals/day</span>
+        <span><i class="fa-solid fa-fire"></i> Calorie dense</span>
+      </div>
+      <div class="feed-bowl-wrap">
+        <div class="feed-bowl"><div class="feed-bowl-fill" data-fill="30"></div></div>
+        <span class="feed-bowl-label">~30g per meal</span>
+      </div>
+    </div>
+    <div class="feed-chart">
+      <h4>Quick Feeding Chart</h4>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-clock"></i>8–12 weeks</span><span class="fr-val">4–5x daily</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-clock"></i>3–6 months</span><span class="fr-val">3–4x daily</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-clock"></i>6–12 months</span><span class="fr-val">2–3x daily</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-droplet"></i>Fresh water</span><span class="fr-val">Always available</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-triangle-exclamation"></i>Avoid</span><span class="fr-val">Cow's milk, adult cat food</span></div>
+    </div>
+  </div>
+
+  <div class="feed-panel feed-tab4" data-panel="4">
+    <div class="feed-card-info">
+      <div class="fci-icon"><i class="fa-solid fa-fish"></i></div>
+      <h3>Cat (1+ years)</h3>
+      <p>Cats thrive on routine and consistency — small measured meals prevent overeating and keep weight in check.</p>
+      <div class="feed-meta">
+        <span><i class="fa-solid fa-utensils"></i> 2 meals/day</span>
+        <span><i class="fa-solid fa-glass-water"></i> Wet + dry mix</span>
+      </div>
+      <div class="feed-bowl-wrap">
+        <div class="feed-bowl"><div class="feed-bowl-fill" data-fill="55"></div></div>
+        <span class="feed-bowl-label">~55g per meal</span>
+      </div>
+    </div>
+    <div class="feed-chart">
+      <h4>Quick Feeding Chart</h4>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-weight-scale"></i>Indoor / low activity</span><span class="fr-val">180–200 kcal/day</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-weight-scale"></i>Active / outdoor</span><span class="fr-val">220–260 kcal/day</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-bowl-rice"></i>Ratio</span><span class="fr-val">70% wet, 30% dry</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-droplet"></i>Fresh water</span><span class="fr-val">Always available</span></div>
+      <div class="feed-row"><span class="fr-label"><i class="fa-solid fa-triangle-exclamation"></i>Avoid</span><span class="fr-val">Onions, garlic, raw dough</span></div>
+    </div>
+  </div>
+</section>
+
+
+<div class="gr-top-cut">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none" style="height:60px">
+    <path d="M0,90 L0,20 L360,80 L760,10 L1120,70 L1440,25 L1440,90 Z" fill="#0B2826"/>
+  </svg>
+</div>
+<section class="grooming-section" id="grooming">
+  <div class="gr-bubbles" id="grBubbles"></div>
+
+  <div class="section-heading">
+    <span class="eyebrow eb-groom"><i class="fa-solid fa-soap"></i> SPA DAY</span>
+    <h2>Grooming Studio</h2>
+    <p class="lead">Tap play on a routine to see how long it takes and what to know before you start.</p>
+  </div>
+
+  <div class="groom-grid">
+    <div class="groom-card gc1">
+      <div class="groom-screen">
+        <video class="groom-video" data-groom="1" src="images/brushing.mp4" preload="metadata" playsinline></video>
+        <i class="fa-solid fa-brush gs-icon-bg"></i>
+        <span class="groom-duration">5–10 min</span>
+        <button class="groom-play-btn" data-groom="1"><i class="fa-solid fa-play"></i></button>
+        <div class="groom-progress"><div class="groom-progress-fill" id="gp1"></div></div>
+      </div>
+      <div class="groom-body">
+        <h3>Brushing</h3>
+        <p>Daily brushing removes loose fur, prevents mats and keeps the coat's natural oils spread evenly.</p>
+        <div class="groom-tips"><span>Slicker brush</span><span>Brush toward growth</span></div>
+      </div>
+    </div>
+
+    <div class="groom-card gc2">
+      <div class="groom-screen">
+        <video class="groom-video" data-groom="2" src="images/bathing.mp4" preload="metadata" playsinline></video>
+        <i class="fa-solid fa-bath gs-icon-bg"></i>
+        <span class="groom-duration">20–30 min</span>
+        <button class="groom-play-btn" data-groom="2"><i class="fa-solid fa-play"></i></button>
+        <div class="groom-progress"><div class="groom-progress-fill" id="gp2"></div></div>
+      </div>
+      <div class="groom-body">
+        <h3>Bathing</h3>
+        <p>Lukewarm water and pet-safe shampoo, once every 3–4 weeks, keeps skin clean without drying it out.</p>
+        <div class="groom-tips"><span>Pet shampoo only</span><span>Dry ears fully</span></div>
+      </div>
+    </div>
+
+    <div class="groom-card gc3">
+      <div class="groom-screen">
+        <video class="groom-video" data-groom="3" src="images/trimming.mp4" preload="metadata" playsinline></video>
+        <i class="fa-solid fa-scissors gs-icon-bg"></i>
+        <span class="groom-duration">15–20 min</span>
+        <button class="groom-play-btn" data-groom="3"><i class="fa-solid fa-play"></i></button>
+        <div class="groom-progress"><div class="groom-progress-fill" id="gp3"></div></div>
+      </div>
+      <div class="groom-body">
+        <h3>Trimming</h3>
+        <p>Nail and coat trims every 3–6 weeks prevent overgrowth, splitting and discomfort while walking.</p>
+        <div class="groom-tips"><span>Rounded-tip clippers</span><span>Trim past the quick</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="health-section" id="health">
+  <span class="hs-blob hs-b1"></span>
+  <span class="hs-blob hs-b2"></span>
+  <span class="hs-blob hs-b3"></span>
+  <span class="hs-pulse" style="width:70px;height:70px;top:14%;left:10%;"></span>
+  <span class="hs-pulse" style="width:50px;height:50px;bottom:18%;right:14%;animation-delay:1.2s;"></span>
+  <div class="hs-shapes">
+    <i class="fa-solid fa-heart-pulse hs-icon" style="top:8%; left:6%; font-size:52px; animation-duration:7s;"></i>
+    <i class="fa-solid fa-tooth hs-icon mint" style="top:14%; right:9%; font-size:38px; animation-duration:6s; animation-delay:.6s;"></i>
+    <i class="fa-solid fa-pills hs-icon gold" style="bottom:10%; left:14%; font-size:34px; animation-duration:8s; animation-delay:1.2s;"></i>
+    <i class="fa-solid fa-suitcase-medical hs-icon" style="bottom:6%; right:20%; font-size:42px; animation-duration:6.5s; animation-delay:1.8s;"></i>
+    <i class="fa-solid fa-bone hs-icon mint" style="top:45%; left:2%; font-size:30px; animation-duration:7.5s; animation-delay:.3s;"></i>
+    <i class="fa-solid fa-paw hs-icon gold" style="top:55%; right:3%; font-size:30px; animation-duration:6.8s; animation-delay:1s;"></i>
+  </div>
+
+  <div class="section-heading">
+    <span class="eyebrow eb-health"><i class="fa-solid fa-stethoscope"></i> CHECKUP TIME</span>
+    <h2>Health Corner</h2>
+    <p class="lead">Press play on a topic for a short audio briefing on what to watch for.</p>
+  </div>
+
+  <div class="health-connector">
+    <svg viewBox="0 0 700 40" preserveAspectRatio="none">
+      <path d="M10,20 Q175,-10 350,20 T690,20" fill="none" stroke="#7A1440" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round" opacity="0.45"/>
+    </svg>
+  </div>
+
+  <div class="health-grid">
+    <div class="health-card hc1">
+      <div class="health-icon"><i class="fa-solid fa-tooth"></i></div>
+      <h3>Oral Care</h3>
+      <p>Plaque builds up fast — brushing a few times a week prevents gum disease and bad breath long-term.</p>
+      <div class="audio-player">
+        <button class="audio-btn" data-audio="1"><i class="fa-solid fa-play"></i></button>
+        <div class="audio-wave" id="aw1">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <span class="audio-time">0:42</span>
+      </div>
+    </div>
+
+    <div class="health-card hc2">
+      <div class="health-icon"><i class="fa-solid fa-weight-scale"></i></div>
+      <h3>Weight Watch</h3>
+      <p>You should be able to feel — not see — the ribs. Regular weigh-ins catch changes before they become a problem.</p>
+      <div class="audio-player">
+        <button class="audio-btn" data-audio="2"><i class="fa-solid fa-play"></i></button>
+        <div class="audio-wave" id="aw2">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <span class="audio-time">0:38</span>
+      </div>
+    </div>
+
+    <div class="health-card hc3">
+      <div class="health-icon"><i class="fa-solid fa-notes-medical"></i></div>
+      <h3>Common Conditions</h3>
+      <p>Fleas, ear infections and allergies are among the most frequent vet visits — early signs are easy to miss.</p>
+      <div class="audio-player">
+        <button class="audio-btn" data-audio="3"><i class="fa-solid fa-play"></i></button>
+        <div class="audio-wave" id="aw3">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <span class="audio-time">0:55</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="training-section" id="training">
+  <div class="tp-paw-trail" id="tpTrail"></div>
+
+  <div class="section-heading">
+    <span class="eyebrow eb-train"><i class="fa-solid fa-graduation-cap"></i> PLAY &amp; LEARN</span>
+    <h2>Training Playground</h2>
+    <p class="lead">Tap a card to flip it and reveal the tip. Collect all four to complete the basics.</p>
+  </div>
+
+  <div class="train-grid" id="trainGrid">
+    <div class="flip-card tc1" data-card="1">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <div class="tc-icon"><i class="fa-solid fa-hand"></i></div>
+          <h3>Basic Commands</h3>
+          <span class="tc-hint"><i class="fa-solid fa-rotate"></i> Tap to flip</span>
+        </div>
+        <div class="flip-face flip-back">
+          <span class="tc-back-label">Tip</span>
+          <p>Start with "sit" — reward the instant the hips touch the ground, and keep sessions under 5 minutes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card tc2" data-card="2">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <div class="tc-icon"><i class="fa-solid fa-house-circle-check"></i></div>
+          <h3>Potty Training</h3>
+          <span class="tc-hint"><i class="fa-solid fa-rotate"></i> Tap to flip</span>
+        </div>
+        <div class="flip-face flip-back">
+          <span class="tc-back-label">Tip</span>
+          <p>Take them out right after meals and naps — same spot, same word, every single time builds the habit fast.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card tc3" data-card="3">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <div class="tc-icon"><i class="fa-solid fa-leaf"></i></div>
+          <h3>Leash Training</h3>
+          <span class="tc-hint"><i class="fa-solid fa-rotate"></i> Tap to flip</span>
+        </div>
+        <div class="flip-face flip-back">
+          <span class="tc-back-label">Tip</span>
+          <p>Stop walking the moment the leash goes tight — only move again once there's slack. Patience beats pulling back.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card tc4" data-card="4">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <div class="tc-icon"><i class="fa-solid fa-star"></i></div>
+          <h3>Positive Reinforcement</h3>
+          <span class="tc-hint"><i class="fa-solid fa-rotate"></i> Tap to flip</span>
+        </div>
+        <div class="flip-face flip-back">
+          <span class="tc-back-label">Tip</span>
+          <p>Reward within 2 seconds of the good behaviour — timing matters more than the size of the treat.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="train-progress">
+    <span class="train-progress-label" id="trainProgressLabel">0 / 4 learned</span>
+    <div class="train-progress-bar"><div class="train-progress-fill" id="trainProgressFill"></div></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <i class="fa-solid fa-paw footer-paw-bg"></i>
+  <div class="footer-top">
+    <div class="footer-brand-col">
+      <div class="footer-brand"><svg viewBox="0 0 120 120" width="48" height="48"><use href="#brand-logo"/></svg>FurEver Care</div>
+      <p class="footer-tagline">They deserve forever love — smart care, trusted vets and forever homes, all in one place.</p>
+      <div class="footer-social">
+        <a href="https://facebook.com/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://tiktok.com/" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://youtube.com/" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="pet-owner.html">Home</a>
+      <a href="petcare.html">Pet Care</a>
+      <a href="product.html">Products</a>
+      <a href="vet.html">Vet &amp; Emergency</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="role.html">Switch Role</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <a href="mailto:hello@furevercare.com">hello@furevercare.com</a>
+      <a href="tel:+923001234567">+92 300 1234567</a>
+      <a href="https://www.google.com/maps?q=Bahawalpur%2C%20Pakistan" target="_blank" rel="noopener">Bahawalpur, Pakistan</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 FurEver Care. All rights reserved.</span>
+    <span>Made with <i class="fa-solid fa-heart"></i> for every paw out there</span>
+  </div>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+
+(function initProfileMessage() {
+  const profilePopup = $('profilePopup');
+  profilePopup.innerHTML =
+    '<p class="pp-empty"><i class="fa-solid fa-paw"></i><b>No profile yet!</b>Pet profiles are made on the Home page.' +
+    '<br><a href="pet-owner.html" class="pp-home-btn"><i class="fa-solid fa-house"></i> Make one through Home</a></p>';
+})();
+
+
+const petProfileBtn = $('petProfileBtn'), profilePopup = $('profilePopup');
+const navHamburger = $('navHamburger'), navLinks = $('navLinks');
+
+function closeAll() {
+  profilePopup.classList.remove('open');
+  petProfileBtn.classList.remove('open');
+  navLinks.classList.remove('mobile-open');
+  navHamburger.classList.remove('open');
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('mobile-open'));
+}
+petProfileBtn.addEventListener('click', e => {
+  e.stopPropagation();
+  const w = profilePopup.classList.contains('open');
+  closeAll();
+  if (!w) { profilePopup.classList.add('open'); petProfileBtn.classList.add('open'); }
+});
+navHamburger.addEventListener('click', e => {
+  e.stopPropagation();
+  const wasOpen = navLinks.classList.contains('mobile-open');
+  closeAll();
+  if (!wasOpen) { navLinks.classList.toggle('mobile-open'); navHamburger.classList.toggle('open'); }
+});
+document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if (window.innerWidth > 900) return;
+    if (link.getAttribute('href') === '#' || link.closest('.nav-dropdown').querySelector('.nav-dropdown-content')) {
+      if (link.parentElement.querySelector('.nav-dropdown-content') && (link.getAttribute('href') === '#')) {
+        e.preventDefault(); e.stopPropagation(); link.parentElement.classList.toggle('mobile-open');
+      }
+    }
+  });
+});
+document.querySelectorAll('.nav-links .nav-link').forEach(link => {
+  link.addEventListener('click', () => { if (window.innerWidth <= 900) closeAll(); });
+});
+window.addEventListener('resize', () => { if (window.innerWidth > 900) closeAll(); });
+document.addEventListener('click', e => {
+  if (!profilePopup.contains(e.target) && !petProfileBtn.contains(e.target)) closeAll();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+
+
+const feedTabs = document.querySelectorAll('.feed-tab');
+const feedPanels = document.querySelectorAll('.feed-panel');
+function activateFeedTab(n) {
+  feedTabs.forEach(t => t.classList.toggle('active', t.dataset.tab === n));
+  feedPanels.forEach(p => {
+    const isActive = p.dataset.panel === n;
+    p.classList.toggle('active', isActive);
+    if (isActive) {
+      const fill = p.querySelector('.feed-bowl-fill');
+      fill.style.height = '0%';
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        fill.style.height = fill.dataset.fill + '%';
+      }));
+    }
+  });
+}
+feedTabs.forEach(t => t.addEventListener('click', () => activateFeedTab(t.dataset.tab)));
+activateFeedTab('1');
+
+
+const bubbleZone = $('grBubbles');
+for (let i = 0; i < 16; i++) {
+  const b = document.createElement('span');
+  b.className = 'gr-bubble';
+  const size = 8 + Math.random() * 22;
+  b.style.width = size + 'px';
+  b.style.height = size + 'px';
+  b.style.left = (Math.random() * 100) + '%';
+  b.style.animationDuration = (7 + Math.random() * 8) + 's';
+  b.style.animationDelay = (Math.random() * 10) + 's';
+  bubbleZone.appendChild(b);
+}
+
+document.querySelectorAll('.groom-play-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const n = btn.dataset.groom;
+    const screen = btn.closest('.groom-screen');
+    const video = screen.querySelector('.groom-video');
+    const icon = btn.querySelector('i');
+
+    document.querySelectorAll('.groom-video').forEach(v => {
+      if (v !== video) { v.pause(); v.currentTime = 0; v.classList.remove('visible'); }
+    });
+    document.querySelectorAll('.groom-screen').forEach(s => s.classList.remove('playing'));
+    document.querySelectorAll('.groom-play-btn i').forEach(ic => { ic.classList.remove('fa-pause'); ic.classList.add('fa-play'); });
+    document.querySelectorAll('.groom-play-btn').forEach(b => b.classList.remove('hidden'));
+
+    if (video.paused || video.ended) {
+      video.classList.add('visible');
+      screen.classList.add('playing');
+      icon.classList.remove('fa-play'); icon.classList.add('fa-pause');
+      btn.classList.remove('hidden');
+      video.play();
+    } else {
+      video.pause();
+      icon.classList.remove('fa-pause'); icon.classList.add('fa-play');
+      screen.classList.remove('playing');
+    }
+
+    video.onended = () => {
+      icon.classList.remove('fa-pause'); icon.classList.add('fa-play');
+      screen.classList.remove('playing');
+    };
+  });
+});
+
+document.querySelectorAll('.groom-video').forEach(video => {
+  video.addEventListener('click', () => {
+    if (video.requestFullscreen) video.requestFullscreen();
+    else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
+  });
+});
+
+
+const audioFiles = { '1': 'images/oral care.mp3', '2': 'images/weight watch.mp3', '3': 'images/common conditions.mp3' };
+let currentAudio = null;
+
+document.querySelectorAll('.audio-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const n = btn.dataset.audio;
+    const icon = btn.querySelector('i');
+    const wave = $('aw' + n);
+    const isPlaying = icon.classList.contains('fa-pause');
+
+    if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+    document.querySelectorAll('.audio-btn i').forEach(ic => { ic.classList.remove('fa-pause'); ic.classList.add('fa-play'); });
+    document.querySelectorAll('.audio-wave').forEach(w => w.classList.remove('playing'));
+
+    if (!isPlaying) {
+      const src = audioFiles[n];
+      if (!src) return;
+      const audio = new Audio(src);
+      currentAudio = audio;
+      icon.classList.remove('fa-play'); icon.classList.add('fa-pause');
+      wave.classList.add('playing');
+      audio.play();
+      audio.addEventListener('ended', () => {
+        icon.classList.remove('fa-pause'); icon.classList.add('fa-play');
+        wave.classList.remove('playing');
+        currentAudio = null;
+      });
+    }
+  });
+});
+
+const flipCards = document.querySelectorAll('.flip-card');
+const progressFill = $('trainProgressFill');
+const progressLabel = $('trainProgressLabel');
+function updateTrainProgress() {
+  const learned = document.querySelectorAll('.flip-card.flipped').length;
+  progressFill.style.width = (learned / flipCards.length * 100) + '%';
+  progressLabel.textContent = learned + ' / ' + flipCards.length + ' learned';
+}
+flipCards.forEach(c => c.addEventListener('click', () => { c.classList.toggle('flipped'); updateTrainProgress(); }));
+
+const trail = $('tpTrail');
+const pawPositions = [
+  {top:'10%', left:'6%'}, {top:'20%', left:'18%'}, {top:'78%', left:'10%'},
+  {top:'85%', left:'24%'}, {top:'62%', left:'88%'}, {top:'28%', left:'92%'}
+];
+pawPositions.forEach((pos, i) => {
+  const p = document.createElement('i');
+  p.className = 'fa-solid fa-paw tp-paw';
+  p.style.top = pos.top; p.style.left = pos.left;
+  p.style.animationDelay = (i * 0.35) + 's';
+  trail.appendChild(p);
+});
+
+const ballPositions = [
+  {top:'14%', left:'82%', size:34}, {top:'68%', left:'6%', size:26}, {top:'40%', left:'92%', size:22},
+  {top:'8%', left:'46%', size:20}
+];
+ballPositions.forEach((pos, i) => {
+  const b = document.createElement('span');
+  b.className = 'tp-ball';
+  b.style.top = pos.top; b.style.left = pos.left;
+  b.style.width = pos.size + 'px'; b.style.height = pos.size + 'px';
+  b.style.animationDuration = (2.4 + i * 0.4) + 's';
+  b.style.animationDelay = (i * 0.3) + 's';
+  trail.appendChild(b);
+});
+
+const starPositions = [
+  {top:'6%', left:'20%', size:22}, {top:'50%', left:'4%', size:16}, {top:'82%', left:'50%', size:20},
+  {top:'18%', left:'70%', size:16}
+];
+starPositions.forEach((pos, i) => {
+  const s = document.createElement('i');
+  s.className = 'fa-solid fa-star tp-star';
+  s.style.top = pos.top; s.style.left = pos.left;
+  s.style.fontSize = pos.size + 'px';
+  s.style.animationDuration = (2.8 + i * 0.3) + 's';
+  s.style.animationDelay = (i * 0.4) + 's';
+  trail.appendChild(s);
+});
+
+const bonePositions = [
+  {top:'34%', left:'12%', size:26}, {top:'88%', left:'70%', size:22}, {top:'4%', left:'62%', size:24}
+];
+bonePositions.forEach((pos, i) => {
+  const bn = document.createElement('i');
+  bn.className = 'fa-solid fa-bone tp-bone';
+  bn.style.top = pos.top; bn.style.left = pos.left;
+  bn.style.fontSize = pos.size + 'px';
+  bn.style.animationDuration = (3 + i * 0.4) + 's';
+  bn.style.animationDelay = (i * 0.5) + 's';
+  trail.appendChild(bn);
+});
+</script>
+
+<style>
+  @media (max-width: 900px) {
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 28px; }
+  }
+  @media (max-width: 600px) {
+    .footer-top { grid-template-columns: 1fr; gap: 24px; }
+  }
+</style>
+
+</body>
+</html>

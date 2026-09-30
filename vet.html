@@ -1,0 +1,2799 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vet &amp; Emergency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      width: 100%;
+      max-width: 100%;
+      min-height: 100vh;
+      font-family: 'Nunito', sans-serif;
+      background: #FFF6EE;
+      color: #201333;
+      overflow-x: hidden;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    button,
+    a {
+      text-decoration: none;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    h1, h2, h3, .display {
+      font-family: 'Baloo 2', sans-serif;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px clamp(16px, 3.5vw, 42px);
+      background: rgba(255, 246, 238, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 3px solid rgba(21, 51, 82, 0.1);
+      flex-wrap: wrap;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: clamp(18px, 1.8vw, 24px);
+      color: #153352;
+      white-space: nowrap;
+    }
+
+    .nav-brand svg {
+      width: 32px;
+      height: 32px;
+      fill: #E4362B;
+      filter: drop-shadow(0 3px 6px rgba(228, 54, 43, 0.3));
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 600;
+      font-size: clamp(12px, 0.95vw, 14px);
+      color: #153352;
+      white-space: nowrap;
+      transition: background 0.2s ease, color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: rgba(228, 54, 43, 0.1);
+      color: #E4362B;
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .nav-dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 14px 32px rgba(21, 51, 82, 0.18);
+      border: 2px solid rgba(21, 51, 82, 0.06);
+      padding: 6px 0;
+      z-index: 50;
+      margin-top: 4px;
+    }
+
+    .nav-dropdown-content a {
+      display: block;
+      padding: 10px 18px;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      color: #153352;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-dropdown-content a:hover {
+      background: #FFF6EE;
+      color: #E4362B;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-content {
+      display: block;
+    }
+
+    .nav-link .fa-chevron-down {
+      font-size: 9px;
+      margin-left: 4px;
+      opacity: 0.6;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .pet-profile-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      padding: 5px 16px 5px 5px;
+      border-radius: 999px;
+      background: #153352;
+      box-shadow: 0 6px 14px rgba(21, 51, 82, 0.28);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    }
+
+    .pet-profile-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(21, 51, 82, 0.35);
+    }
+
+    .pphoto {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #FFB627;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 2px solid #FFF6EE;
+      flex: none;
+    }
+
+    .pphoto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .pphoto i {
+      color: #153352;
+      font-size: 15px;
+    }
+
+    .ppname {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 600;
+      font-size: clamp(12px, 0.9vw, 14px);
+      color: #FFF6EE;
+      white-space: nowrap;
+    }
+
+    .pchevron {
+      color: rgba(255, 246, 238, 0.5);
+      font-size: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .pet-profile-btn.open .pchevron {
+      transform: rotate(180deg);
+    }
+
+    .profile-popup {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      min-width: 260px;
+      max-width: 300px;
+      background: #fff;
+      border-radius: 20px;
+      border: 2.5px solid #E7EFF7;
+      box-shadow: 0 22px 48px rgba(21, 51, 82, 0.22);
+      opacity: 0;
+      transform: translateY(-10px) scale(0.95);
+      pointer-events: none;
+      transition: 0.32s cubic-bezier(0.22, 1, 0.3, 1);
+      transform-origin: top right;
+      z-index: 50;
+      padding: 16px;
+    }
+
+    .profile-popup.open {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    .profile-popup .pp-empty {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 13px;
+      color: #153352;
+      text-align: center;
+      padding: 10px 4px;
+    }
+
+    .switch-role-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, #E4362B, #A61F17);
+      color: #fff;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 600;
+      font-size: clamp(11px, 0.9vw, 13px);
+      box-shadow: 0 8px 18px rgba(228, 54, 43, 0.35);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    }
+
+    .switch-role-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(228, 54, 43, 0.45);
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      border-radius: 10px;
+      background: transparent;
+      cursor: pointer;
+      z-index: 60;
+      transition: background .2s ease;
+    }
+
+    .nav-hamburger:hover {
+      background: rgba(21, 51, 82, .06);
+    }
+
+    .nav-hamburger .bar {
+      display: block;
+      width: 100%;
+      height: 3px;
+      border-radius: 3px;
+      background: #153352;
+      transition: transform .3s ease, opacity .3s ease;
+      transform-origin: center;
+    }
+
+    .nav-hamburger.open .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-hamburger.open .bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .nav-hamburger.open .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+  
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: clamp(440px, 62vh, 620px);
+      background: linear-gradient(150deg, #0D2338 0%, #153352 55%, #1C4266 100%);
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      padding: clamp(30px, 5vw, 60px) clamp(20px, 5vw, 70px);
+      gap: clamp(20px, 4vw, 60px);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 12% 88%, rgba(228, 54, 43, 0.22), transparent 32%),
+        radial-gradient(circle at 92% 10%, rgba(255, 182, 39, 0.16), transparent 26%);
+      pointer-events: none;
+    }
+
+    .hero-stripes {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.05;
+      background: repeating-linear-gradient(-45deg, #fff 0 18px, transparent 18px 36px);
+      pointer-events: none;
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-ribbon {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(228, 54, 43, 0.22);
+      border: 1.5px solid rgba(255, 122, 110, 0.4);
+      color: #FFD9D4;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 600;
+      font-size: clamp(11px, 0.9vw, 13px);
+      letter-spacing: 0.8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+
+    .hero-ribbon i {
+      color: #E4362B;
+      font-size: 12px;
+      animation: iconPulse 1.4s ease-in-out infinite;
+    }
+
+    .hero h1 {
+      font-weight: 700;
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.14;
+      color: #fff;
+    }
+
+    .hero h1 .hl-accent {
+      background: linear-gradient(90deg, #FFB627, #FF7A5C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      color: rgba(255, 246, 238, 0.82);
+      font-size: clamp(14px, 1.1vw, 17px);
+      font-weight: 600;
+      max-width: 460px;
+      line-height: 1.6;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 26px;
+      border-radius: 999px;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 600;
+      font-size: clamp(13px, 1vw, 15px);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hero-btn.primary {
+      background: linear-gradient(120deg, #E4362B, #A61F17);
+      color: #fff;
+      box-shadow: 0 10px 0 #7A140E, 0 16px 26px rgba(228, 54, 43, 0.35);
+    }
+
+    .hero-btn.primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 13px 0 #7A140E, 0 20px 30px rgba(228, 54, 43, 0.4);
+    }
+
+    .hero-btn.primary:active {
+      transform: translateY(2px);
+      box-shadow: 0 5px 0 #7A140E, 0 10px 16px rgba(228, 54, 43, 0.3);
+    }
+
+    .hero-btn.ghost {
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px solid rgba(255, 246, 238, 0.35);
+      color: #fff;
+    }
+
+    .hero-btn.ghost:hover {
+      background: rgba(255, 255, 255, 0.16);
+      transform: translateY(-3px);
+    }
+
+    .hero-jump-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .hero-jump {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 15px;
+      border-radius: 999px;
+      background: rgba(255, 246, 238, 0.1);
+      border: 1.5px dashed rgba(255, 246, 238, 0.35);
+      color: rgba(255, 246, 238, 0.9);
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 500;
+      font-size: 12.5px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .hero-jump:hover {
+      background: rgba(255, 182, 39, 0.22);
+      color: #FFB627;
+      transform: translateY(-2px);
+    }
+
+    .hero-right {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .kawaii-frame {
+      position: relative;
+      width: min(430px, 94%);
+      padding: clamp(13px, 1.6vw, 18px);
+      border: 4px solid #08131F;
+      border-radius: clamp(30px, 4vw, 46px);
+      background:
+        radial-gradient(circle at 15% 18%, rgba(228, 54, 43, 0.4), transparent 20%),
+        radial-gradient(circle at 85% 80%, rgba(255, 182, 39, 0.25), transparent 22%),
+        linear-gradient(145deg, #081A2C 0%, #153352 55%, #0D2338 100%);
+      box-shadow:
+        0 26px 48px rgba(4, 14, 24, 0.45),
+        0 0 0 3px rgba(255, 246, 238, 0.06),
+        inset 0 0 0 2px rgba(255, 246, 238, 0.16),
+        inset 0 -14px 28px rgba(0, 0, 0, 0.3);
+      isolation: isolate;
+    }
+
+    .kawaii-frame::before {
+      content: "";
+      position: absolute;
+      inset: 11px;
+      border: 2px dashed rgba(255, 246, 238, 0.34);
+      border-radius: clamp(22px, 3vw, 36px);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .frame-ear {
+      position: absolute;
+      top: -22px;
+      width: 58px;
+      height: 50px;
+      border: 4px solid #08131F;
+      border-radius: 70% 70% 42% 42%;
+      background: #122E4C;
+      z-index: 0;
+    }
+
+    .frame-ear::after {
+      content: "";
+      position: absolute;
+      inset: 12px 14px 13px;
+      border-radius: inherit;
+      background: rgba(228, 54, 43, 0.65);
+    }
+
+    .frame-ear.l {
+      left: 11%;
+      transform: rotate(-17deg);
+    }
+
+    .frame-ear.r {
+      right: 11%;
+      transform: rotate(17deg);
+    }
+
+    .video-shell {
+      position: relative;
+      overflow: hidden;
+      padding: 7px;
+      border: 2px solid rgba(255, 246, 238, 0.25);
+      border-radius: clamp(20px, 3vw, 34px);
+      background: #081A2C;
+      box-shadow: inset 0 0 20px rgba(255, 246, 238, 0.08);
+      z-index: 1;
+    }
+
+    .video-shell video {
+      width: 100%;
+      display: block;
+      border-radius: clamp(15px, 2.4vw, 27px);
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: #04101c;
+    }
+
+    .frame-paw {
+      position: absolute;
+      z-index: 3;
+      font-size: clamp(13px, 1.5vw, 18px);
+      animation: pawFloat 3.4s ease-in-out infinite;
+      filter: drop-shadow(0 3px 0 rgba(4, 14, 24, 0.5));
+    }
+
+    .fp1 { top: -13px; left: 30%; color: #FFB627; --r: -16deg; }
+    .fp2 { top: 12%; right: -11px; color: #E4362B; --r: 22deg; animation-delay: .4s; }
+    .fp3 { bottom: 20%; right: -9px; color: #FFF6EE; --r: -28deg; animation-delay: .8s; }
+    .fp4 { bottom: -11px; left: 26%; color: #FFB627; --r: 12deg; animation-delay: 1.1s; }
+    .fp5 { top: 44%; left: -12px; color: #FF7A5C; --r: 26deg; animation-delay: 1.5s; }
+
+    @keyframes pawFloat {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(var(--r, 0deg));
+      }
+
+      50% {
+        transform: translateY(-7px) rotate(var(--r, 0deg));
+      }
+    }
+
+    .spark-dot {
+      position: absolute;
+      z-index: 3;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #FFB627;
+      box-shadow: 0 0 0 5px rgba(255, 182, 39, 0.15);
+    }
+
+    .sd-f1 { top: 16%; left: -4px; }
+    .sd-f2 { right: 10%; bottom: -5px; background: #E4362B; box-shadow: 0 0 0 5px rgba(228, 54, 43, 0.14); }
+
+    @keyframes sonarPulse {
+      0% {
+        transform: scale(0.55);
+        opacity: 0.9;
+      }
+
+      100% {
+        transform: scale(1.15);
+        opacity: 0;
+      }
+    }
+
+    .vitals-strip {
+      position: relative;
+      margin-top: 12px;
+      width: 100%;
+      background: rgba(8, 26, 44, 0.75);
+      border: 1.5px solid rgba(255, 246, 238, 0.25);
+      border-radius: 999px;
+      padding: 6px 14px;
+    }
+
+    .vitals-strip svg {
+      display: block;
+      width: 100%;
+      height: 26px;
+    }
+
+    .vitals-strip path {
+      fill: none;
+      stroke: #4FD1A5;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+      animation: ecgDraw 2.6s linear infinite;
+    }
+
+    @keyframes ecgDraw {
+      0% {
+        stroke-dashoffset: 300;
+      }
+
+      70% {
+        stroke-dashoffset: 0;
+      }
+
+      100% {
+        stroke-dashoffset: -20;
+      }
+    }
+
+    .hero-waves {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      z-index: 3;
+    }
+
+    .hero-waves svg {
+      display: block;
+      width: 100%;
+    }
+
+
+    .sec-head {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-bottom: clamp(28px, 5vh, 46px);
+    }
+
+    .sec-head span.eyebrow {
+      display: inline-block;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #E4362B;
+      background: #FDE4E1;
+      padding: 6px 18px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .sec-head h2 {
+      font-weight: 700;
+      font-size: clamp(24px, 3.2vw, 38px);
+      color: #153352;
+    }
+
+    .sec-head h2 em {
+      font-style: normal;
+      color: #E4362B;
+    }
+
+    .sec-head p {
+      max-width: 560px;
+      margin: 10px auto 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(21, 51, 82, 0.65);
+      line-height: 1.6;
+    }
+
+    .helplines-section {
+      position: relative;
+      padding: clamp(50px, 8vh, 90px) clamp(20px, 5vw, 70px);
+      background: #FFF6EE;
+      overflow: hidden;
+    }
+
+    .helplines-layout {
+      position: relative;
+      z-index: 1;
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(24px, 4vw, 50px);
+      align-items: center;
+    }
+
+
+    .seal-card {
+      position: relative;
+      background: linear-gradient(150deg, #E4362B 0%, #A61F17 100%);
+      color: #fff;
+      padding: clamp(34px, 5vw, 54px) clamp(22px, 4vw, 34px);
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 8px;
+      clip-path: polygon(50% 0%, 61% 6%, 75% 1%, 79% 14%, 93% 13%, 92% 27%, 100% 37%,
+          92% 47%, 100% 58%, 91% 67%, 93% 81%, 79% 80%, 75% 93%, 61% 88%,
+          50% 100%, 39% 88%, 25% 93%, 21% 80%, 7% 81%, 9% 67%, 0% 58%,
+          8% 47%, 0% 37%, 8% 27%, 7% 13%, 21% 14%, 25% 1%, 39% 6%);
+      box-shadow: 0 24px 46px rgba(166, 31, 23, 0.35);
+    }
+
+    .seal-card i.seal-icon {
+      font-size: clamp(30px, 3.4vw, 40px);
+      color: #FFB627;
+      margin-bottom: 4px;
+    }
+
+    .seal-card .seal-tag {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+      background: rgba(255, 255, 255, 0.18);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .seal-card h3 {
+      font-size: clamp(17px, 1.7vw, 21px);
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .seal-card .seal-number {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: clamp(22px, 2.6vw, 30px);
+      letter-spacing: 0.5px;
+      color: #FFB627;
+    }
+
+    .seal-card .seal-desc {
+      font-size: 12.5px;
+      font-weight: 700;
+      opacity: 0.85;
+      max-width: 220px;
+      line-height: 1.5;
+    }
+
+    .seal-call {
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: #fff;
+      color: #A61F17;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      box-shadow: 0 8px 0 rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease;
+    }
+
+    .seal-call:hover {
+      transform: translateY(-3px);
+    }
+
+    .helplines-right h3.list-title {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: clamp(16px, 1.4vw, 19px);
+      color: #153352;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .helplines-right h3.list-title i {
+      color: #E4362B;
+    }
+
+    .ticket-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .ticket-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 3px solid #201333;
+      background: #fff;
+      clip-path: polygon(0 0, 100% 0, 100% 44%, 95% 50%, 100% 56%, 100% 100%, 0 100%, 0 56%, 5% 50%, 0 44%);
+    }
+
+    .ticket-card .t-icon {
+      flex: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      color: #fff;
+    }
+
+    .ticket-card.tc-1 .t-icon { background: #2E5D8A; }
+    .ticket-card.tc-2 .t-icon { background: #4FD1A5; }
+    .ticket-card.tc-3 .t-icon { background: #FFC857; color: #4A3300; }
+    .ticket-card.tc-4 .t-icon { background: #7A5AA6; }
+
+    .ticket-card .t-body b {
+      display: block;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 13.5px;
+      color: #153352;
+      margin-bottom: 2px;
+    }
+
+    .ticket-card .t-body .t-num {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: #E4362B;
+    }
+
+    .ticket-card .t-call {
+      margin-left: auto;
+      flex: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #FDE4E1;
+      color: #A61F17;
+      font-size: 13px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .ticket-card .t-call:hover {
+      background: #E4362B;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .clinics-section {
+      position: relative;
+      padding: clamp(50px, 8vh, 90px) clamp(20px, 5vw, 70px);
+      background: #E7EFF7;
+      overflow: hidden;
+    }
+
+    .locator-bar {
+      max-width: 720px;
+      margin: 0 auto clamp(34px, 5vh, 50px);
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: #fff;
+      border: 3px solid #201333;
+      border-radius: 999px;
+      padding: 8px;
+      box-shadow: 0 7px 0 #201333, 0 18px 32px rgba(21, 51, 82, 0.16);
+    }
+
+    .locator-bar input {
+      flex: 1 1 200px;
+      min-width: 140px;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: #153352;
+      padding: 10px 16px;
+    }
+
+    .locator-bar input::placeholder {
+      color: rgba(21, 51, 82, 0.4);
+    }
+
+    .locator-bar button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      white-space: nowrap;
+      transition: transform 0.2s ease;
+    }
+
+    .locator-bar button:hover {
+      transform: translateY(-2px);
+    }
+
+    .loc-btn-geo {
+      background: #E7EFF7;
+      color: #153352;
+      border: 2px solid #153352 !important;
+    }
+
+    .loc-btn-search {
+      background: linear-gradient(120deg, #E4362B, #A61F17);
+      color: #fff;
+    }
+
+    .clinic-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+  
+    .clinic-card {
+      transition: transform .35s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    .clinic-card:nth-child(odd) {
+      transform: rotate(-0.9deg);
+    }
+
+    .clinic-card:nth-child(even) {
+      transform: rotate(0.9deg);
+    }
+
+    .clinic-card:hover {
+      transform: rotate(0deg) translateY(-6px);
+    }
+
+    .shield-card {
+      position: relative;
+      height: 100%;
+      background: #fff;
+      border: 3.5px solid #201333;
+      border-radius: 20px;
+      padding: 24px 24px 28px;
+      box-shadow: 0 8px 0 #201333, 0 18px 30px rgba(21, 51, 82, 0.12);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: transform .35s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s ease, opacity .5s ease;
+    }
+
+    .shield-card.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .shield-card:hover {
+      box-shadow: 0 13px 0 #201333, 0 26px 42px rgba(21, 51, 82, 0.18);
+    }
+
+    .shield-card::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 2px dashed rgba(21, 51, 82, 0.2);
+      border-radius: 13px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .shield-card::after {
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      content: "\f1b0";
+      position: absolute;
+      right: 22px;
+      bottom: -17px;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 3px solid #201333;
+      z-index: 3;
+      animation: badgeBob 3.4s ease-in-out infinite;
+    }
+
+    .sc-1::after { background: #FF7A6E; color: #fff; }
+    .sc-2::after { background: #2E5D8A; color: #fff; }
+    .sc-3::after { background: #4FD1A5; color: #063D2E; }
+    .sc-4::after { background: #7A5AA6; color: #fff; }
+
+    .shield-card>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .shield-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .shield-icon {
+      flex: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      color: #fff;
+      transform: rotate(-4deg);
+    }
+
+    .shield-card.sc-1 .shield-icon { background: #FF7A6E; }
+    .shield-card.sc-2 .shield-icon { background: #2E5D8A; }
+    .shield-card.sc-3 .shield-icon { background: #4FD1A5; }
+    .shield-card.sc-4 .shield-icon { background: #7A5AA6; }
+
+    .shield-open {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 10.5px;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #DEF8EF;
+      color: #0E6E52;
+      white-space: nowrap;
+    }
+
+    .shield-card h3 {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: #153352;
+      margin-bottom: 4px;
+    }
+
+    .shield-card .shield-addr {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: rgba(21, 51, 82, 0.6);
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .shield-card .shield-addr i {
+      margin-top: 2px;
+      color: #E4362B;
+    }
+
+    .shield-card .shield-phone {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: #A61F17;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .shield-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .shield-tags span {
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #FFF1D6;
+      color: #7A4E00;
+    }
+
+    .shield-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .shield-actions a {
+      flex: 1;
+      text-align: center;
+      padding: 10px 8px;
+      border-radius: 999px;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 12.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: transform 0.2s ease;
+    }
+
+    .shield-actions a:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-call-mini {
+      background: linear-gradient(120deg, #E4362B, #A61F17);
+      color: #fff;
+    }
+
+    .btn-dir-mini {
+      background: #E7EFF7;
+      color: #153352;
+      border: 2px solid #153352;
+    }
+
+    .clinic-card.hidden-by-search {
+      display: none;
+    }
+
+    .rules-section {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(50px, 8vh, 90px) clamp(20px, 5vw, 70px);
+      background: #FFF6EE;
+    }
+
+    .rules-grid {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+
+    
+    .rule-panel {
+      position: relative;
+      border: 3.5px solid #201333;
+      border-radius: 22px;
+      padding: 28px 26px 24px;
+      box-shadow: 0 9px 0 #201333, 0 20px 34px rgba(21, 51, 82, 0.14);
+      opacity: 0;
+      transform: translateY(26px);
+      transition: transform .35s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s ease, opacity .5s ease;
+    }
+
+    .rules-grid .rule-panel:nth-child(odd) {
+      transform: translateY(26px) rotate(-1.2deg);
+    }
+
+    .rules-grid .rule-panel:nth-child(even) {
+      transform: translateY(26px) rotate(1.1deg);
+    }
+
+    .rule-panel.in-view {
+      opacity: 1;
+      transform: translateY(0) rotate(-1.2deg);
+    }
+
+    .rules-grid .rule-panel:nth-child(even).in-view {
+      transform: translateY(0) rotate(1.1deg);
+    }
+
+    .rules-grid .rule-panel:hover {
+      transform: translateY(-6px) rotate(0deg);
+      box-shadow: 0 15px 0 #201333, 0 28px 44px rgba(21, 51, 82, 0.2);
+    }
+
+    .rule-panel::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 2px dashed rgba(21, 51, 82, 0.26);
+      border-radius: 15px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .do-panel::before {
+      border-color: rgba(14, 110, 82, 0.35);
+    }
+
+    .dont-panel::before {
+      border-color: rgba(166, 31, 23, 0.3);
+    }
+
+    
+    .do-panel::after,
+    .dont-panel::after {
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      top: -16px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 3px solid #201333;
+      z-index: 3;
+      animation: badgeBob 3.2s ease-in-out infinite;
+    }
+
+    @keyframes badgeBob {
+
+      0%,
+      100% {
+        transform: rotate(6deg);
+      }
+
+      50% {
+        transform: rotate(-6deg) scale(1.08);
+      }
+    }
+
+    .do-panel::after {
+      content: "\f00c";
+      background: #1FAE87;
+      color: #fff;
+    }
+
+    .dont-panel::after {
+      content: "\f00d";
+      background: #E4362B;
+      color: #fff;
+    }
+
+    .rule-panel.do-panel {
+      background: #DEF8EF;
+    }
+
+    .rule-panel.dont-panel {
+      background: #FDE4E1;
+    }
+
+    .rule-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .rule-head .rh-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 19px;
+      color: #fff;
+      flex: none;
+    }
+
+    .do-panel .rh-icon {
+      background: #1FAE87;
+    }
+
+    .dont-panel .rh-icon {
+      background: #E4362B;
+    }
+
+    .rule-head h3 {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: clamp(17px, 1.6vw, 21px);
+    }
+
+    .do-panel .rule-head h3 {
+      color: #0E6E52;
+    }
+
+    .dont-panel .rule-head h3 {
+      color: #A61F17;
+    }
+
+    .rule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .rule-list li {
+      list-style: none;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      line-height: 1.5;
+      color: #201333;
+    }
+
+    .rule-list li i {
+      flex: none;
+      margin-top: 2px;
+      font-size: 13px;
+    }
+
+    .do-panel .rule-list li i {
+      color: #0E6E52;
+    }
+
+    .dont-panel .rule-list li i {
+      color: #A61F17;
+    }
+
+    
+    .rule-head,
+    .rule-list {
+      position: relative;
+      z-index: 1;
+    }
+
+   
+    .rule-list li {
+      cursor: pointer;
+      padding: 6px 10px;
+      margin: -2px -4px;
+      border-radius: 12px;
+      transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .rule-list li:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .rule-list li.marked {
+      background: linear-gradient(120deg, rgba(255, 182, 39, 0.45), rgba(255, 182, 39, 0.2));
+      box-shadow: inset 0 0 0 2px rgba(255, 182, 39, 0.6);
+    }
+
+    .rule-list li.wiggle {
+      animation: listWiggle 0.45s ease;
+    }
+
+    @keyframes listWiggle {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-5px);
+      }
+
+      60% {
+        transform: translateX(4px);
+      }
+    }
+
+    
+    .symptoms-section {
+      position: relative;
+      padding: clamp(50px, 8vh, 90px) clamp(20px, 5vw, 70px) clamp(60px, 9vh, 100px);
+      background: #0D2338;
+      overflow: hidden;
+    }
+
+    .symptoms-section .sec-head span.eyebrow {
+      background: rgba(255, 182, 39, 0.16);
+      color: #FFB627;
+    }
+
+    .symptoms-section .sec-head h2 {
+      color: #fff;
+    }
+
+    .symptoms-section .sec-head h2 em {
+      color: #FF7A5C;
+    }
+
+    .symptoms-section .sec-head p {
+      color: rgba(255, 246, 238, 0.65);
+    }
+
+    .octagon-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+  
+    .octagon-card {
+      position: relative;
+      padding: 24px 22px;
+      border: 3px solid rgba(255, 246, 238, 0.85);
+      clip-path: polygon(10% 0%, 90% 0%, 100% 12%, 100% 88%, 90% 100%, 10% 100%, 0% 88%, 0% 12%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .octagon-card.oc-1 { background: linear-gradient(150deg, #7A241D, #4A130E); }
+    .octagon-card.oc-2 { background: linear-gradient(150deg, #1F4A6E, #123049); }
+    .octagon-card.oc-3 { background: linear-gradient(150deg, #7A5A1A, #4A360E); }
+    .octagon-card.oc-4 { background: linear-gradient(150deg, #5A2E7A, #331A49); }
+    .octagon-card.oc-5 { background: linear-gradient(150deg, #14705A, #0A4438); }
+    .octagon-card.oc-6 { background: linear-gradient(150deg, #7A3A14, #4A230C); }
+
+    .octagon-card .oc-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255, 246, 238, 0.16);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .octagon-card h3 {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 16.5px;
+      color: #fff;
+    }
+
+    .octagon-card .oc-signs {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255, 246, 238, 0.72);
+      line-height: 1.6;
+    }
+
+    .octagon-card .oc-tip {
+      margin-top: 4px;
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #FFB627;
+      line-height: 1.5;
+    }
+
+    .octagon-card .oc-tip i {
+      margin-top: 2px;
+      flex: none;
+    }
+
+    .symptoms-cta {
+      max-width: 600px;
+      margin: clamp(34px, 5vh, 50px) auto 0;
+      text-align: center;
+      background: rgba(228, 54, 43, 0.14);
+      border: 2px dashed rgba(255, 122, 110, 0.5);
+      border-radius: 24px;
+      padding: 22px 24px;
+    }
+
+    .symptoms-cta p {
+      color: #fff;
+      font-weight: 700;
+      font-size: 13.5px;
+      margin-bottom: 14px;
+    }
+
+    .floating-call {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 60;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+
+    .floating-call .fc-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(228, 54, 43, 0.55);
+      animation: sonarPulse 2.4s ease-out infinite;
+    }
+
+    .floating-call .fc-ring.fr2 {
+      animation-delay: 0.8s;
+    }
+
+    .floating-call .fc-core {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(150deg, #E4362B, #A61F17);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 22px;
+      box-shadow: 0 14px 28px rgba(228, 54, 43, 0.45);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .floating-call:hover .fc-core {
+      transform: scale(1.08);
+    }
+
+
+    .site-footer {
+      position: relative;
+      overflow: hidden;
+      background: #0D2338;
+      color: #FFF6EE;
+      padding: clamp(46px, 7vh, 70px) clamp(20px, 5vw, 70px) 22px;
+    }
+
+    .footer-paw-bg {
+      position: absolute;
+      font-size: 340px;
+      color: rgba(255, 246, 238, 0.04);
+      right: -60px;
+      bottom: -90px;
+      transform: rotate(-18deg);
+      pointer-events: none;
+    }
+
+    .footer-top {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      gap: 34px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding-bottom: 36px;
+      border-bottom: 2px dashed rgba(255, 246, 238, 0.15);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand svg {
+      width: 30px;
+      height: 30px;
+      fill: #FFB627;
+    }
+
+    .footer-tagline {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: rgba(255, 246, 238, 0.72);
+      max-width: 280px;
+      margin-bottom: 18px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 246, 238, 0.1);
+      color: #FFF6EE;
+      font-size: 14px;
+      transition: background .2s ease, transform .25s cubic-bezier(.34, 1.56, .64, 1), color .2s ease;
+    }
+
+    .footer-social a:nth-child(1):hover { background: #E4362B; }
+    .footer-social a:nth-child(2):hover { background: #FF7A5C; }
+    .footer-social a:nth-child(3):hover { background: #1FAE87; color: #0D2338; }
+
+    .footer-social a:hover {
+      transform: translateY(-3px);
+    }
+
+    .footer-col h4 {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      color: #FFB627;
+      margin-bottom: 14px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13.5px;
+      color: rgba(255, 246, 238, 0.78);
+      margin-bottom: 10px;
+      transition: color .2s ease, transform .2s ease;
+    }
+
+    .footer-col a:hover {
+      color: #FF7A5C;
+      transform: translateX(3px);
+    }
+
+    .footer-bottom {
+      position: relative;
+      z-index: 1;
+      max-width: 1180px;
+      margin: 20px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+      color: rgba(255, 246, 238, 0.55);
+    }
+
+    .footer-bottom i {
+      color: #E4362B;
+      margin: 0 3px;
+    }
+
+    
+    .toast-zone {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 200;
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+      pointer-events: none;
+      width: max-content;
+      max-width: 92vw;
+    }
+
+    .toast {
+      background: #201333;
+      color: #FFF6EE;
+      border-radius: 99px;
+      padding: 12px 24px;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 16px 34px rgba(21, 51, 82, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: toastIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), toastOut 0.35s ease 2.7s forwards;
+      max-width: 92vw;
+    }
+
+    .toast i {
+      color: #FFB627;
+    }
+
+    @keyframes toastIn {
+      from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.9);
+      }
+    }
+
+    @keyframes toastOut {
+      to {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+    }
+
+    @keyframes iconPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.18);
+        opacity: .7;
+      }
+    }
+
+    @keyframes floatShape {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+      }
+
+      50% {
+        transform: translateY(-22px) rotate(10deg) scale(1.06);
+      }
+    }
+
+  
+    .section-bg-shapes {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+      transition: transform .3s ease-out;
+      will-change: transform;
+    }
+
+    .sbg-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(1px);
+      opacity: .16;
+      animation: floatShape 9s ease-in-out infinite;
+    }
+
+    .sbg-blob.sb1 { width: 210px; height: 210px; background: #E4362B; top: -60px; left: -50px; }
+    .sbg-blob.sb2 { width: 150px; height: 150px; background: #1FAE87; bottom: 6%; right: -40px; animation-direction: reverse; animation-duration: 11s; }
+    .sbg-blob.sb3 { width: 100px; height: 100px; background: #FFB627; top: 28%; right: 8%; border-radius: 42% 58% 55% 45% / 50% 45% 55% 50%; animation-duration: 8s; animation-delay: .6s; }
+    .sbg-blob.sb4 { width: 80px; height: 80px; background: #153352; bottom: -20px; left: 22%; animation-duration: 10s; animation-delay: 1.2s; }
+    .sbg-blob.sb5 { width: 60px; height: 60px; background: #FF7A5C; top: 10%; left: 40%; opacity: .18; animation-duration: 7s; animation-delay: .3s; }
+
+    .sbg-dot {
+      position: absolute;
+      border-radius: 50%;
+      opacity: .3;
+    }
+
+    .sbg-dot.sd1 { width: 14px; height: 14px; top: 16%; left: 46%; background: #E4362B; }
+    .sbg-dot.sd2 { width: 10px; height: 10px; top: 62%; left: 10%; background: #153352; }
+    .sbg-dot.sd3 { width: 12px; height: 12px; bottom: 20%; right: 26%; background: #1FAE87; }
+    .sbg-dot.sd4 { width: 9px; height: 9px; top: 38%; right: 14%; background: #FFB627; }
+
+    .sbg-cross {
+      position: absolute;
+      color: #E4362B;
+      opacity: .1;
+      font-size: 46px;
+      animation: floatShape 8s ease-in-out infinite;
+    }
+
+    .sbg-cross.scr1 { top: 12%; right: 20%; animation-delay: .8s; }
+    .sbg-cross.scr2 { bottom: 14%; left: 8%; color: #153352; font-size: 34px; animation-delay: 1.6s; animation-direction: reverse; }
+    .sbg-cross.scr3 { top: 55%; right: 6%; color: #1FAE87; font-size: 30px; animation-delay: .3s; }
+
+    @media (max-width: 1024px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        order: 3;
+        flex-basis: 100%;
+        justify-content: center;
+        padding-top: 6px;
+        border-top: 1.5px dashed rgba(21, 51, 82, .08);
+        margin-top: 4px;
+      }
+
+      .nav-link {
+        padding: 7px 12px;
+        font-size: 12.5px;
+      }
+
+      .helplines-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .seal-card {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        min-height: auto;
+        padding: 40px 20px 60px;
+      }
+
+      .hero-left {
+        align-items: center;
+        order: 1;
+      }
+
+      .hero-right {
+        order: 2;
+      }
+
+      .hero-cta-row,
+      .hero-jump-row {
+        justify-content: center;
+      }
+
+      .kawaii-frame {
+        width: min(330px, 86%);
+      }
+
+      .octagon-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .clinic-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ticket-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rules-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-popup {
+        right: 6px;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(255, 246, 238, .98);
+        backdrop-filter: blur(14px);
+        border-top: 2px dashed rgba(21, 51, 82, .1);
+        padding: 10px 16px 16px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height .35s ease, opacity .3s ease, padding .3s ease;
+        z-index: 55;
+      }
+
+      .nav-links.mobile-open {
+        max-height: 500px;
+        opacity: 1;
+        padding: 10px 16px 16px;
+      }
+
+      .nav-link {
+        padding: 11px 14px;
+        border-radius: 10px;
+        font-size: 14px;
+      }
+
+      .nav-dropdown-content {
+        position: static;
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+        box-shadow: none;
+        border: none;
+        background: rgba(21, 51, 82, .04);
+        border-radius: 10px;
+        margin-top: 2px;
+        padding: 4px 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
+      }
+
+      .nav-dropdown.mobile-open .nav-dropdown-content {
+        max-height: 300px;
+      }
+
+      .nav-dropdown-content a {
+        padding: 9px 14px 9px 20px;
+        font-size: 13px;
+        border-radius: 8px;
+      }
+
+      .nav-dropdown > a .fa-chevron-down {
+        transition: transform .3s ease;
+      }
+
+      .nav-dropdown.mobile-open > a .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 10px 14px;
+      }
+
+      .nav-brand {
+        font-size: 16px;
+      }
+
+      .nav-brand svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      .pet-profile-btn {
+        padding: 5px 10px 5px 5px;
+      }
+
+      .ppname {
+        font-size: 12px;
+      }
+
+      .pphoto {
+        width: 32px;
+        height: 32px;
+      }
+
+      .switch-role-btn {
+        padding: 7px 12px;
+        font-size: 11px;
+      }
+
+      .switch-role-btn span {
+        display: none;
+      }
+
+      .hero {
+        padding: 30px 16px 50px;
+      }
+
+      .hero h1 {
+        font-size: clamp(24px, 7vw, 32px);
+      }
+
+      .helplines-section,
+      .clinics-section,
+      .rules-section,
+      .symptoms-section {
+        padding: clamp(30px, 6vw, 44px) clamp(14px, 3vw, 24px);
+      }
+
+      .octagon-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ticket-card {
+        clip-path: none;
+        border-radius: 16px;
+      }
+
+      .rule-panel {
+        clip-path: none;
+        border-radius: 18px;
+      }
+
+      .seal-card {
+        clip-path: none;
+        border-radius: 28px;
+        aspect-ratio: auto;
+      }
+
+      .shield-card {
+        clip-path: none;
+        border-radius: 18px;
+        padding: 20px 18px 20px;
+      }
+
+      .octagon-card {
+        clip-path: none;
+        border-radius: 18px;
+      }
+
+      .locator-bar {
+        border-radius: 22px;
+      }
+
+      .floating-call {
+        width: 54px;
+        height: 54px;
+        bottom: 16px;
+        right: 16px;
+      }
+
+      .floating-call .fc-core {
+        font-size: 19px;
+      }
+
+      .frame-ear {
+        width: 46px;
+        height: 40px;
+        top: -18px;
+      }
+
+      .fp2,
+      .fp3,
+      .fp5 {
+        display: none;
+      }
+
+      .rule-panel::after,
+      .shield-card::after {
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
+      }
+
+      .shield-card::after {
+        bottom: -15px;
+        right: 18px;
+      }
+
+      .profile-popup {
+        width: min(280px, calc(100vw - 32px));
+        min-width: 0;
+        right: 8px;
+        max-width: 280px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-link {
+        font-size: 10px;
+        padding: 4px 6px;
+      }
+
+      .hero h1 {
+        font-size: 22px;
+      }
+
+      .hero-sub {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <style>
+    .info-strip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 20px;padding:8px clamp(14px,3vw,42px);background:#0B2826;color:#FFF6DF;font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:700;position:relative;z-index:70;border-bottom:3px dashed rgba(255,246,223,.25)}
+    .info-strip .is-headline{font-family:'Fredoka',sans-serif;font-weight:600;font-size:13px;letter-spacing:.4px;color:#FFD43B;display:inline-flex;align-items:center;gap:7px}
+    .info-strip .is-headline i{color:#F04B3E}
+    .info-strip .is-item{display:inline-flex;align-items:center;gap:6px;color:rgba(255,246,223,.85)}
+    .info-strip .is-item i{color:#7FC8BC}
+    .info-strip .is-item b{color:#FFD43B}
+    @media(max-width:680px){.info-strip{gap:4px 14px;font-size:11px}.info-strip .is-headline{flex-basis:100%;justify-content:center}}
+    .profile-popup .pp-empty{padding:22px 18px;text-align:center;font-weight:700;font-size:13px;color:rgba(18,60,58,.75);line-height:1.55}
+    .profile-popup .pp-empty i{font-size:26px;color:#F04B3E;margin-bottom:8px;display:inline-block}
+    .profile-popup .pp-empty b{font-family:'Fredoka',sans-serif;color:#123C3A;display:block;margin-bottom:2px}
+    .profile-popup .pp-home-btn{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:9px 16px;border-radius:999px;background:linear-gradient(120deg,#F04B3E,#A3250F);color:#FFF6DF;border:2px solid #061716;box-shadow:0 3px 0 #061716;font-family:'Fredoka',sans-serif;font-weight:600;font-size:12.5px}
+  </style>
+
+  <div class="info-strip">
+    <span class="is-headline"><i class="fa-solid fa-truck-medical"></i>Vet &amp; Emergency Hub — Help Is One Tap Away</span>
+    <span class="is-item"><i class="fa-regular fa-clock"></i><span id="liveClock">—</span></span>
+    <span class="is-item"><i class="fa-solid fa-location-dot"></i><span id="userLocation">Locating…</span></span>
+    <span class="is-item"><i class="fa-solid fa-eye"></i>Visitors:&nbsp;<b id="visitorCount">0</b></span>
+  </div>
+
+  <script>
+    (function(){
+      var clockEl=document.getElementById('liveClock');
+      function tick(){try{clockEl.textContent=new Date().toLocaleString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});}catch(e){}}
+      tick();setInterval(tick,1000);
+      var vc=document.getElementById('visitorCount'),n=0;
+      try{n=parseInt(localStorage.getItem('fureverVisits')||'0',10)||0;}catch(e){}
+      var seen=false;try{seen=sessionStorage.getItem('fureverVisitDone')==='1';}catch(e){}
+      if(!seen){n++;try{localStorage.setItem('fureverVisits',String(n));sessionStorage.setItem('fureverVisitDone','1');}catch(e){}}
+      vc.textContent=n.toLocaleString();
+      var locEl=document.getElementById('userLocation');
+      function setLoc(t){locEl.textContent=t;}
+      function fallbackLoc(){var tz='';try{tz=(Intl.DateTimeFormat().resolvedOptions().timeZone||'').split('/').pop().replace(/_/g,' ');}catch(e){}setLoc(tz||'Your Area');}
+      fallbackLoc();
+      if(navigator.geolocation){navigator.geolocation.getCurrentPosition(function(pos){fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude='+pos.coords.latitude+'&longitude='+pos.coords.longitude+'&localityLanguage=en').then(function(r){return r.json();}).then(function(d){var city=d.city||d.locality||d.principalSubdivision||'';var c=d.countryName||'';setLoc(city&&c?city+', '+c:(c||city));}).catch(fallbackLoc);},fallbackLoc,{timeout:6000,maximumAge:600000});}
+    })();
+  </script>
+
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <symbol id="paw-shape" viewBox="0 0 100 100">
+      <ellipse cx="50" cy="66" rx="29" ry="23" />
+      <ellipse cx="18" cy="34" rx="13" ry="17" transform="rotate(-25 18 34)" />
+      <ellipse cx="42" cy="16" rx="13" ry="17" />
+      <ellipse cx="68" cy="17" rx="12.5" ry="16.5" transform="rotate(18 68 17)" />
+      <ellipse cx="86" cy="40" rx="11" ry="14.5" transform="rotate(38 86 40)" />
+    </symbol>
+  <symbol id="brand-logo" viewBox="0 0 120 120">
+      <path d="M60 114 C60 114 6 76 6 40 C6 15 26 3 43 15 C51 21 56 29 60 38 C64 29 69 21 77 15 C94 3 114 15 114 40 C114 76 60 114 60 114 Z"
+        fill="#E8A400" stroke="#FFF6DF" stroke-width="4" stroke-linejoin="round"/>
+      <g fill="#FFF6DF">
+        <ellipse cx="60" cy="72" rx="15" ry="13"/>
+        <ellipse cx="42" cy="53" rx="6" ry="7.5" transform="rotate(-16 42 53)"/>
+        <ellipse cx="54" cy="47" rx="5.5" ry="7.5" transform="rotate(-5 54 47)"/>
+        <ellipse cx="66" cy="47" rx="5.5" ry="7.5" transform="rotate(5 66 47)"/>
+        <ellipse cx="78" cy="53" rx="6" ry="7.5" transform="rotate(16 78 53)"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <div class="dashboard" id="dashboard">
+
+    <header class="navbar">
+      <a href="pet-owner.html" class="nav-brand">
+        <svg viewBox="0 0 120 120" width="48" height="48"><use href="#brand-logo"/></svg>
+        FurEver Care
+      </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="pet-owner.html" class="nav-link"><i class="fa-solid fa-house" style="margin-right:4px"></i> Home</a>
+
+        <div class="nav-dropdown">
+          <a href="petcare.html" class="nav-link">Pet Care <i class="fa-solid fa-chevron-down"></i></a>
+          <div class="nav-dropdown-content">
+            <a href="petcare.html#feeding"><i class="fa-solid fa-bowl-food" style="margin-right:8px"></i>Feeding Guide</a>
+            <a href="petcare.html#grooming"><i class="fa-solid fa-scissors" style="margin-right:8px"></i>Grooming</a>
+            <a href="petcare.html#health"><i class="fa-solid fa-heart-pulse" style="margin-right:8px"></i>Health Tips</a>
+            <a href="petcare.html#training"><i class="fa-solid fa-graduation-cap" style="margin-right:8px"></i>Training Tips</a>
+          </div>
+        </div>
+
+        <a href="product.html" class="nav-link"><i class="fa-solid fa-bag-shopping" style="margin-right:4px"></i>
+          Products</a>
+        <div class="nav-dropdown">
+          <a href="vet.html" class="nav-link active"><i class="fa-solid fa-truck-medical" style="margin-right:4px"></i> Vet &
+            Emergency <i class="fa-solid fa-chevron-down"></i></a>
+          <div class="nav-dropdown-content">
+            <a href="vet.html#helplines"><i class="fa-solid fa-phone-volume" style="margin-right:8px"></i>Emergency Helplines</a>
+            <a href="vet.html#locator"><i class="fa-solid fa-location-crosshairs" style="margin-right:8px"></i>Find Nearby Vet</a>
+            <a href="vet.html#instructions"><i class="fa-solid fa-kit-medical" style="margin-right:8px"></i>First Aid Steps</a>
+            <a href="vet.html#symptoms"><i class="fa-solid fa-stethoscope" style="margin-right:8px"></i>Common Symptoms</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <a href="about.html" class="nav-link">About <i class="fa-solid fa-chevron-down"></i></a>
+          <div class="nav-dropdown-content">
+            <a href="about.html"><i class="fa-solid fa-circle-info" style="margin-right:8px"></i>About Us</a>
+            <a href="feedback.html"><i class="fa-solid fa-comment" style="margin-right:8px"></i>Feedback</a>
+            <a href="contact.html"><i class="fa-solid fa-envelope" style="margin-right:8px"></i>Contact Us</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-right">
+        <button class="pet-profile-btn" id="petProfileBtn">
+          <span class="pphoto" id="navAvatar"><i class="fa-solid fa-paw"></i></span>
+          <span class="ppname" id="navName">Your Pet</span>
+          <i class="fa-solid fa-chevron-down pchevron"></i>
+        </button>
+        <div class="profile-popup" id="profilePopup"></div>
+
+        <div style="position:relative">
+          <a href="role.html" class="switch-role-btn"><i class="fa-solid fa-shuffle"></i> <span>Switch Role</span></a>
+        </div>
+      </div>
+    </header>
+
+  
+    <section class="hero">
+      <div class="hero-stripes"></div>
+
+      <div class="hero-left">
+        <span class="hero-ribbon"><i class="fa-solid fa-triangle-exclamation"></i> VET &amp; EMERGENCY HUB</span>
+        <h1>When every second<br>counts, we're <span class="hl-accent">here.</span></h1>
+        <p class="hero-sub">24/7 emergency contacts, trusted nearby vets and clear steps to protect your pet until
+          proper help arrives.</p>
+        <div class="hero-cta-row">
+          <a href="tel:08007091" class="hero-btn primary"><i class="fa-solid fa-phone-volume"></i> Call Emergency Vet</a>
+          <a href="#locator" class="hero-btn ghost"><i class="fa-solid fa-location-crosshairs"></i> Find Nearby Vet</a>
+        </div>
+        <div class="hero-jump-row">
+          <a href="#symptoms" class="hero-jump"><i class="fa-solid fa-flask"></i> Poisoning</a>
+          <a href="#symptoms" class="hero-jump"><i class="fa-solid fa-bandage"></i> Injury</a>
+          <a href="#symptoms" class="hero-jump"><i class="fa-solid fa-lungs"></i> Breathing</a>
+          <a href="#symptoms" class="hero-jump"><i class="fa-solid fa-droplet"></i> Bleeding</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="kawaii-frame">
+          <span class="frame-ear l" aria-hidden="true"></span>
+          <span class="frame-ear r" aria-hidden="true"></span>
+
+          <span class="frame-paw fp1" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
+          <span class="frame-paw fp2" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
+          <span class="frame-paw fp3" aria-hidden="true"><i class="fa-solid fa-heart"></i></span>
+          <span class="frame-paw fp4" aria-hidden="true"><i class="fa-solid fa-bone"></i></span>
+          <span class="frame-paw fp5" aria-hidden="true"><i class="fa-solid fa-star"></i></span>
+
+          <span class="spark-dot sd-f1" aria-hidden="true"></span>
+          <span class="spark-dot sd-f2" aria-hidden="true"></span>
+
+          <div class="video-shell">
+        
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="images/vet video.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="vitals-strip">
+            <svg viewBox="0 0 300 40" preserveAspectRatio="none">
+              <path d="M0,20 L60,20 L75,20 L85,4 L95,36 L105,20 L120,20 L135,20 L145,10 L155,30 L165,20 L300,20" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-waves">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:45px">
+          <path d="M0,40 C360,80 720,0 1080,50 C1260,68 1380,30 1440,40 L1440,80 L0,80 Z" fill="#FFF6EE" />
+        </svg>
+      </div>
+    </section>
+
+   
+    <section class="helplines-section" id="helplines">
+      <div class="section-bg-shapes">
+        <span class="sbg-blob sb1"></span>
+        <span class="sbg-blob sb2"></span>
+        <span class="sbg-blob sb3"></span>
+        <span class="sbg-blob sb4"></span>
+        <span class="sbg-dot sd1"></span>
+        <span class="sbg-dot sd2"></span>
+        <span class="sbg-dot sd3"></span>
+        <i class="fa-solid fa-paw sbg-cross scr2"></i>
+        <i class="fa-solid fa-kit-medical sbg-cross scr1"></i>
+        <i class="fa-solid fa-heart-pulse sbg-cross scr3"></i>
+      </div>
+      <div class="sec-head">
+        <span class="eyebrow">SAVE THESE NUMBERS</span>
+        <h2>Emergency Vet <em>Contacts</em></h2>
+        <p>Keep these on speed-dial — a quick call can make all the difference in the first few minutes.</p>
+      </div>
+
+      <div class="helplines-layout">
+        <div class="seal-card">
+          <i class="fa-solid fa-skull-crossbones seal-icon"></i>
+          <span class="seal-tag">POISON CONTROL</span>
+          <h3>Pet Poison Helpline</h3>
+          <div class="seal-number">0800-70911</div>
+          <p class="seal-desc">Suspected poisoning, chemicals, toxic plants or spoiled food — call before doing
+            anything else.</p>
+          <a href="tel:080070911" class="seal-call"><i class="fa-solid fa-phone"></i> Call Now</a>
+        </div>
+
+        <div class="helplines-right">
+          <h3 class="list-title"><i class="fa-solid fa-list-check"></i> Other Important Emergency Helplines</h3>
+          <div class="ticket-grid">
+            <div class="ticket-card tc-1">
+              <span class="t-icon"><i class="fa-solid fa-truck-medical"></i></span>
+              <div class="t-body">
+                <b>National Animal Emergency Line</b>
+                <span class="t-num">1244</span>
+              </div>
+              <a href="tel:1244" class="t-call"><i class="fa-solid fa-phone"></i></a>
+            </div>
+            <div class="ticket-card tc-2">
+              <span class="t-icon"><i class="fa-solid fa-van-shuttle"></i></span>
+              <div class="t-body">
+                <b>Animal Ambulance Service</b>
+                <span class="t-num">0311-9887766</span>
+              </div>
+              <a href="tel:03119887766" class="t-call"><i class="fa-solid fa-phone"></i></a>
+            </div>
+            <div class="ticket-card tc-3">
+              <span class="t-icon"><i class="fa-solid fa-paw"></i></span>
+              <div class="t-body">
+                <b>Wildlife &amp; Stray Rescue</b>
+                <span class="t-num">0800-55123</span>
+              </div>
+              <a href="tel:080055123" class="t-call"><i class="fa-solid fa-phone"></i></a>
+            </div>
+            <div class="ticket-card tc-4">
+              <span class="t-icon"><i class="fa-solid fa-building-shield"></i></span>
+              <div class="t-body">
+                <b>Municipal Vet Emergency Desk</b>
+                <span class="t-num">1122</span>
+              </div>
+              <a href="tel:1122" class="t-call"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="clinics-section" id="locator">
+      <div class="section-bg-shapes">
+        <span class="sbg-blob sb1"></span>
+        <span class="sbg-blob sb3"></span>
+        <span class="sbg-blob sb4"></span>
+        <span class="sbg-dot sd1"></span>
+        <span class="sbg-dot sd3"></span>
+        <span class="sbg-dot sd4"></span>
+        <i class="fa-solid fa-paw sbg-cross scr1"></i>
+        <i class="fa-solid fa-location-dot sbg-cross scr2"></i>
+        <i class="fa-solid fa-heart-pulse sbg-cross scr3"></i>
+      </div>
+      <div class="sec-head">
+        <span class="eyebrow" style="color:#153352; background:#E7EFF7">FIND A VET</span>
+        <h2>Nearby Vet <em>Clinics</em></h2>
+        <p>Search by area or use your location to see which emergency clinic is closest right now.</p>
+      </div>
+
+      <div class="locator-bar">
+        <input type="text" id="clinicSearch" placeholder="Enter your area, e.g. Bahawalpur">
+        <button class="loc-btn-geo" id="useLocationBtn"><i class="fa-solid fa-location-crosshairs"></i> Use My
+          Location</button>
+        <button class="loc-btn-search" id="searchClinicBtn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+      </div>
+
+      <div class="clinic-grid" id="clinicGrid">
+        <div class="clinic-card" data-area="bahawalpur">
+          <div class="shield-card sc-1">
+            <div class="shield-top">
+              <span class="shield-icon"><i class="fa-solid fa-hospital"></i></span>
+              <span class="shield-open">OPEN 24/7</span>
+            </div>
+            <h3>PawCare Emergency Clinic</h3>
+            <div class="shield-addr"><i class="fa-solid fa-location-dot"></i> Model Town Road, Bahawalpur, Punjab</div>
+            <div class="shield-phone"><i class="fa-solid fa-phone"></i> 0300-1234567</div>
+            <div class="shield-tags">
+              <span>Surgery</span><span>X-Ray</span><span>ICU</span>
+            </div>
+            <div class="shield-actions">
+              <a href="tel:03001234567" class="btn-call-mini"><i class="fa-solid fa-phone"></i> Call Now</a>
+              <a href="https://www.google.com/maps/search/PawCare+Emergency+Clinic+Bahawalpur" target="_blank"
+                class="btn-dir-mini"><i class="fa-solid fa-diamond-turn-right"></i> Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="clinic-card" data-area="lahore">
+          <div class="shield-card sc-2">
+            <div class="shield-top">
+              <span class="shield-icon"><i class="fa-solid fa-house-medical"></i></span>
+              <span class="shield-open">OPEN 24/7</span>
+            </div>
+            <h3>Lahore Animal Hospital</h3>
+            <div class="shield-addr"><i class="fa-solid fa-location-dot"></i> Gulberg III, Lahore, Punjab</div>
+            <div class="shield-phone"><i class="fa-solid fa-phone"></i> 042-35678901</div>
+            <div class="shield-tags">
+              <span>Ambulance</span><span>ICU</span><span>Pharmacy</span>
+            </div>
+            <div class="shield-actions">
+              <a href="tel:04235678901" class="btn-call-mini"><i class="fa-solid fa-phone"></i> Call Now</a>
+              <a href="https://www.google.com/maps/search/Lahore+Animal+Hospital+Gulberg" target="_blank"
+                class="btn-dir-mini"><i class="fa-solid fa-diamond-turn-right"></i> Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="clinic-card" data-area="karachi">
+          <div class="shield-card sc-3">
+            <div class="shield-top">
+              <span class="shield-icon"><i class="fa-solid fa-stethoscope"></i></span>
+              <span class="shield-open">OPEN NOW</span>
+            </div>
+            <h3>Karachi Pet Emergency Center</h3>
+            <div class="shield-addr"><i class="fa-solid fa-location-dot"></i> Clifton Block 5, Karachi, Sindh</div>
+            <div class="shield-phone"><i class="fa-solid fa-phone"></i> 021-34456789</div>
+            <div class="shield-tags">
+              <span>Surgery</span><span>Lab Tests</span><span>ICU</span>
+            </div>
+            <div class="shield-actions">
+              <a href="tel:02134456789" class="btn-call-mini"><i class="fa-solid fa-phone"></i> Call Now</a>
+              <a href="https://www.google.com/maps/search/Karachi+Pet+Emergency+Center+Clifton" target="_blank"
+                class="btn-dir-mini"><i class="fa-solid fa-diamond-turn-right"></i> Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="clinic-card" data-area="islamabad">
+          <div class="shield-card sc-4">
+            <div class="shield-top">
+              <span class="shield-icon"><i class="fa-solid fa-shield-dog"></i></span>
+              <span class="shield-open">OPEN 24/7</span>
+            </div>
+            <h3>Capital Vet &amp; Emergency Care</h3>
+            <div class="shield-addr"><i class="fa-solid fa-location-dot"></i> F-8 Markaz, Islamabad</div>
+            <div class="shield-phone"><i class="fa-solid fa-phone"></i> 051-2233445</div>
+            <div class="shield-tags">
+              <span>Ambulance</span><span>Surgery</span><span>Boarding</span>
+            </div>
+            <div class="shield-actions">
+              <a href="tel:0512233445" class="btn-call-mini"><i class="fa-solid fa-phone"></i> Call Now</a>
+              <a href="https://www.google.com/maps/search/Capital+Vet+Emergency+Care+F8+Islamabad" target="_blank"
+                class="btn-dir-mini"><i class="fa-solid fa-diamond-turn-right"></i> Directions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+    <section class="rules-section" id="instructions">
+      <div class="section-bg-shapes">
+        <span class="sbg-blob sb2" style="left:auto; right:-40px; top:-40px;"></span>
+        <span class="sbg-blob sb5"></span>
+        <span class="sbg-dot sd4"></span>
+        <span class="sbg-dot sd2" style="left:auto; right:12%; top:12%;"></span>
+        <i class="fa-solid fa-shield-heart sbg-cross scr1"></i>
+        <i class="fa-solid fa-paw sbg-cross scr2"></i>
+        <i class="fa-solid fa-bandage sbg-cross scr3"></i>
+      </div>
+      <div class="sec-head">
+        <span class="eyebrow">FIRST FEW MINUTES</span>
+        <h2>What To Do — <em>and What Not To</em></h2>
+        <p>Simple actions until you reach a vet. Staying calm helps your pet stay calm too.</p>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rule-panel do-panel">
+          <div class="rule-head">
+            <span class="rh-icon"><i class="fa-solid fa-check"></i></span>
+            <h3>Do</h3>
+          </div>
+          <ul class="rule-list">
+            <li><i class="fa-solid fa-circle-check"></i> Stay calm and speak softly — your pet reacts to your energy.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Keep your pet warm, still and supported while you call for help.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Note down symptoms, timing and what happened, if anything.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Call the helpline or clinic before moving or transporting your pet.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Use a secure carrier or firm board to move an injured pet.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Muzzle gently only if it's safe to do so — pain can cause biting.</li>
+          </ul>
+        </div>
+
+        <div class="rule-panel dont-panel">
+          <div class="rule-head">
+            <span class="rh-icon"><i class="fa-solid fa-xmark"></i></span>
+            <h3>Don't</h3>
+          </div>
+          <ul class="rule-list">
+            <li><i class="fa-solid fa-circle-xmark"></i> Don't give any human medicine without a vet's direction.</li>
+            <li><i class="fa-solid fa-circle-xmark"></i> Don't try to induce vomiting unless a professional tells you to.</li>
+            <li><i class="fa-solid fa-circle-xmark"></i> Don't apply ice directly onto a wound or burn.</li>
+            <li><i class="fa-solid fa-circle-xmark"></i> Don't force water or food into an unconscious or dazed pet.</li>
+            <li><i class="fa-solid fa-circle-xmark"></i> Don't wait to "see if it gets better" — call immediately instead.</li>
+            <li><i class="fa-solid fa-circle-xmark"></i> Don't restrain a seizing pet or put your hand near its mouth.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+   
+    <section class="symptoms-section" id="symptoms">
+      <div class="sec-head">
+        <span class="eyebrow">KNOW THE SIGNS</span>
+        <h2>Emergency Symptoms <em>to Watch For</em></h2>
+        <p>Recognising these early can buy your pet precious extra minutes.</p>
+      </div>
+
+      <div class="octagon-grid">
+        <div class="octagon-card oc-1">
+          <span class="oc-icon"><i class="fa-solid fa-flask"></i></span>
+          <h3>Poisoning</h3>
+          <p class="oc-signs">Drooling, vomiting, sudden weakness, tremors or seizures after eating something unusual.</p>
+          <p class="oc-tip"><i class="fa-solid fa-bolt"></i> Call the Poison Helpline now and bring the packaging.</p>
+        </div>
+
+        <div class="octagon-card oc-2">
+          <span class="oc-icon"><i class="fa-solid fa-droplet"></i></span>
+          <h3>Severe Bleeding / Injury</h3>
+          <p class="oc-signs">Continuous bleeding, visible wounds, limping or refusal to put weight on a limb.</p>
+          <p class="oc-tip"><i class="fa-solid fa-bolt"></i> Apply firm, clean pressure and get to a clinic fast.</p>
+        </div>
+
+        <div class="octagon-card oc-3">
+          <span class="oc-icon"><i class="fa-solid fa-lungs"></i></span>
+          <h3>Breathing Difficulty</h3>
+          <p class="oc-signs">Rapid or laboured breathing, blue-tinged gums, wheezing or choking sounds.</p>
+          <p class="oc-tip"><i class="fa-solid fa-bolt"></i> Keep airway clear and rush to the nearest vet.</p>
+        </div>
+
+        <div class="octagon-card oc-4">
+          <span class="oc-icon"><i class="fa-solid fa-bolt"></i></span>
+          <h3>Seizures</h3>
+          <p class="oc-signs">Uncontrolled shaking, loss of consciousness, paddling legs or drooling.</p>
+          <p class="oc-tip"><i class="fa-solid fa-bolt"></i> Clear the area, don't restrain, and time the episode.</p>
+        </div>
+
+        <div class="octagon-card oc-5">
+          <span class="oc-icon"><i class="fa-solid fa-temperature-high"></i></span>
+          <h3>Heatstroke</h3>
+          <p class="oc-signs">Heavy panting, thick drooling, bright red gums, weakness or collapse.</p>
+          <p class="oc-tip"><i class="fa-solid fa-bolt"></i> Move to shade, cool paws and belly with water, call vet.</p>
+        </div>
+
+        <div class="octagon-card oc-6">
+          <span class="oc-icon"><i class="fa-solid fa-face-dizzy"></i></span>
+          <h3>Choking</h3>
+          <p class="oc-signs">Pawing at the mouth, distress, blue-tinged tongue or gagging without result.</p>
+          <p class="oc-tip"><i class="fa-solid fa-bolt"></i> Check the mouth carefully and get help immediately.</p>
+        </div>
+      </div>
+
+      <div class="symptoms-cta">
+        <p>Seeing any of these signs right now?</p>
+        <a href="tel:08007091" class="hero-btn primary"><i class="fa-solid fa-phone-volume"></i> Get Help Now</a>
+      </div>
+    </section>
+
+    
+    <footer class="site-footer">
+      <i class="fa-solid fa-paw footer-paw-bg"></i>
+
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-brand">
+            <svg viewBox="0 0 120 120" width="48" height="48"><use href="#brand-logo"/></svg>
+            FurEver Care
+          </div>
+          <p class="footer-tagline">They deserve forever love — smart care, trusted vets and forever homes, all in one
+            place.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://tiktok.com/" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://youtube.com/" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="pet-owner.html">Home</a>
+          <a href="petcare.html">Pet Care</a>
+          <a href="product.html">Products</a>
+          <a href="vet.html">Vet &amp; Emergency</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="feedback.html">Feedback</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="role.html">Switch Role</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Emergency</h4>
+          <a href="tel:080070911">Poison Helpline: 0800-70911</a>
+          <a href="tel:1244">Animal Emergency: 1244</a>
+          <a href="vet.html#locator">Find Nearby Vet</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 FurEver Care. All rights reserved.</span>
+        <span>Made with <i class="fa-solid fa-heart"></i> for every paw out there</span>
+      </div>
+    </footer>
+
+  </div>
+
+ 
+  <a href="tel:08007091" class="floating-call" aria-label="Call emergency vet now">
+    <span class="fc-ring"></span>
+    <span class="fc-ring fr2"></span>
+    <span class="fc-core"><i class="fa-solid fa-phone"></i></span>
+  </a>
+
+  <div class="toast-zone" id="toastZone"></div>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const navAvatar = $('navAvatar');
+    const navName = $('navName');
+    const profilePopup = $('profilePopup');
+    const petProfileBtn = $('petProfileBtn');
+    const toastZone = $('toastZone');
+    const navHamburger = $('navHamburger');
+    const navLinks = $('navLinks');
+
+    function showToast(msg, icon) {
+      const t = document.createElement('div');
+      t.className = 'toast';
+      t.innerHTML = '<i class="fa-solid ' + (icon || 'fa-paw') + '"></i><span>' + msg + '</span>';
+      toastZone.appendChild(t);
+      setTimeout(() => t.remove(), 3300);
+    }
+
+   
+    profilePopup.innerHTML =
+      '<p class="pp-empty"><i class="fa-solid fa-paw"></i><b>No profile yet!</b>Pet profiles are made on the Home page.' +
+      '<br><a href="pet-owner.html" class="pp-home-btn"><i class="fa-solid fa-house"></i> Make one through Home</a></p>';
+
+    petProfileBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      const w = profilePopup.classList.contains('open');
+      closeAll();
+      if (!w) {
+        profilePopup.classList.add('open');
+        petProfileBtn.classList.add('open');
+      }
+    });
+
+    function closeAll() {
+      profilePopup.classList.remove('open');
+      petProfileBtn.classList.remove('open');
+      navLinks.classList.remove('mobile-open');
+      navHamburger.classList.remove('open');
+      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('mobile-open'));
+    }
+
+    navHamburger.addEventListener('click', e => {
+      e.stopPropagation();
+      const wasOpen = navLinks.classList.contains('mobile-open');
+      closeAll();
+      if (!wasOpen) {
+        navLinks.classList.toggle('mobile-open');
+        navHamburger.classList.toggle('open');
+      }
+    });
+
+    document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+      link.addEventListener('click', e => {
+        if (window.innerWidth > 900) return;
+        e.preventDefault();
+        e.stopPropagation();
+        link.parentElement.classList.toggle('mobile-open');
+      });
+    });
+
+    document.querySelectorAll('.nav-links .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) closeAll();
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) closeAll();
+    });
+
+    document.addEventListener('click', e => {
+      if (!profilePopup.contains(e.target) && !petProfileBtn.contains(e.target)) {
+        closeAll();
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeAll();
+    });
+
+    
+    const clinicSearch = $('clinicSearch');
+    const searchClinicBtn = $('searchClinicBtn');
+    const useLocationBtn = $('useLocationBtn');
+    const clinicCards = document.querySelectorAll('.clinic-card');
+
+    function filterClinics() {
+      const q = clinicSearch.value.trim().toLowerCase();
+      let anyVisible = false;
+      clinicCards.forEach(card => {
+        const area = card.dataset.area || '';
+        const text = card.textContent.toLowerCase();
+        const match = !q || area.includes(q) || text.includes(q);
+        card.classList.toggle('hidden-by-search', !match);
+        if (match) anyVisible = true;
+      });
+      if (q) showToast(anyVisible ? 'Showing clinics near "' + clinicSearch.value.trim() + '"' : 'No clinics found — showing all instead', anyVisible ? 'fa-magnifying-glass-location' : 'fa-circle-info');
+      if (!anyVisible) clinicCards.forEach(card => card.classList.remove('hidden-by-search'));
+    }
+
+    searchClinicBtn.addEventListener('click', filterClinics);
+    clinicSearch.addEventListener('keydown', e => { if (e.key === 'Enter') filterClinics(); });
+
+    useLocationBtn.addEventListener('click', () => {
+      showToast('Locating you…', 'fa-location-crosshairs');
+      setTimeout(() => {
+        clinicCards.forEach(c => c.classList.remove('hidden-by-search'));
+        clinicSearch.value = 'Bahawalpur';
+        filterClinics();
+      }, 700);
+    });
+
+   
+    const revealEls = document.querySelectorAll('.rule-panel, .shield-card');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          en.target.classList.add('in-view');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealEls.forEach(el => {
+      const siblings = Array.from(el.parentElement.children);
+      el.style.transitionDelay = (siblings.indexOf(el) * 0.09).toFixed(2) + 's';
+      io.observe(el);
+    });
+
+  
+    setTimeout(() => {
+      revealEls.forEach(el => el.classList.add('in-view'));
+    }, 2600);
+
+    
+    document.querySelectorAll('.rules-section, .clinics-section, .helplines-section').forEach(sec => {
+      const layer = sec.querySelector('.section-bg-shapes');
+      if (!layer) return;
+      sec.addEventListener('mousemove', e => {
+        const r = sec.getBoundingClientRect();
+        const dx = (e.clientX - r.left - r.width / 2) / r.width;
+        const dy = (e.clientY - r.top - r.height / 2) / r.height;
+        layer.style.transform = 'translate(' + (dx * -24).toFixed(1) + 'px,' + (dy * -18).toFixed(1) + 'px)';
+      });
+      sec.addEventListener('mouseleave', () => {
+        layer.style.transform = 'translate(0,0)';
+      });
+    });
+
+    
+    let highlightHinted = false;
+    document.querySelectorAll('.rule-list li').forEach(li => {
+      li.addEventListener('click', () => {
+        li.classList.toggle('marked');
+        li.classList.remove('wiggle');
+        void li.offsetWidth;
+        li.classList.add('wiggle');
+        if (!highlightHinted) {
+          highlightHinted = true;
+          showToast('Line highlighted! Emergency mein quickly scan karne ke liye', 'fa-highlighter');
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

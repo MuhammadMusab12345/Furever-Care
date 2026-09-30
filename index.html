@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      font-family: 'Nunito', sans-serif;
+      background: #face60e7;
+      color: #123C3A;
+      overflow-x: hidden;
+    }
+
+    @media (min-width: 901px) {
+      body { overflow: hidden; }
+    }
+
+    .defs {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: 100vh;
+      height: 100svh;
+    }
+
+    @media (min-width: 901px) {
+      .hero { overflow: hidden; }
+    }
+
+    .brand {
+      position: absolute;
+      top: clamp(18px, 3vw, 32px);
+      left: clamp(20px, 4vw, 44px);
+      z-index: 6;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: clamp(16px, 1.6vw, 20px);
+      color: #123C3A;
+    }
+
+    .brand svg {
+      width: 26px;
+      height: 26px;
+      fill: #F04B3E;
+    }
+
+    .cloud-img {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      display: block;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .cloud-top {
+      top: 0;
+    }
+
+    .cloud-bottom {
+      bottom: 0;
+    }
+
+    .decor {
+      position: absolute;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .heart {
+      fill: none;
+      stroke: #F04B3E;
+      stroke-width: 6;
+      stroke-linecap: round;
+    }
+
+    .heart.solid {
+      fill: #FF7A6E;
+      stroke: none;
+    }
+
+    .heart.teal {
+      stroke: #123C3A;
+    }
+
+    .heart.pink {
+      stroke: #FF3E8E;
+    }
+
+    .paw {
+      fill: #123C3A;
+    }
+
+    .paw.ghost {
+      opacity: .16;
+    }
+
+    .paw.mid {
+      opacity: .35;
+    }
+
+    .float {
+      animation: floaty 5s ease-in-out infinite;
+    }
+
+    .float.slow {
+      animation-duration: 7s;
+    }
+
+    .float.rev {
+      animation-direction: reverse;
+    }
+
+    @keyframes floaty {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(var(--r, 0deg));
+      }
+
+      50% {
+        transform: translateY(-14px) rotate(var(--r, 0deg));
+      }
+    }
+
+    .dotline {
+      stroke-width: 3;
+      stroke-dasharray: 2 8;
+      stroke-linecap: round;
+      fill: none;
+    }
+
+    .dotline.red {
+      stroke: #F04B3E;
+    }
+
+    .dotline.teal {
+      stroke: #123C3A;
+    }
+
+    .dotline.pink {
+      stroke: #FF3E8E;
+    }
+
+    .content {
+      position: relative;
+      z-index: 5;
+      height: 100%;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(12px, 2.2vh, 22px);
+      text-align: center;
+      padding: clamp(54px, 7vh, 82px) clamp(24px, 6vw, 90px) clamp(108px, 14vh, 152px);
+    }
+
+    .hero.is-ending .brand,
+    .hero.is-ending .cloud-img,
+    .hero.is-ending .decor,
+    .hero.is-ending .content {
+      animation: pageDisappear 1.05s ease forwards .24s;
+    }
+
+    .video-side {
+      flex: none;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(18px) scale(.96);
+      animation: revealUp .85s cubic-bezier(.16, 1, .3, 1) forwards 1.15s;
+    }
+
+    .kawaii-frame {
+      position: relative;
+      width: min(100%, clamp(300px, 34vw, 470px));
+      margin-left: 0;
+      padding: clamp(12px, 1.5vw, 18px);
+      border: 4px solid #061716;
+      border-radius: clamp(34px, 5vw, 58px);
+      background:
+        radial-gradient(circle at 16% 18%, rgba(240, 75, 62, .35), transparent 18%),
+        radial-gradient(circle at 86% 76%, rgba(255, 212, 59, .22), transparent 20%),
+        linear-gradient(145deg, #061312 0%, #123C3A 54%, #071f1e 100%);
+      box-shadow:
+        0 24px 45px rgba(6, 19, 18, .28),
+        inset 0 0 0 2px rgba(255, 246, 223, .18),
+        inset 0 -14px 28px rgba(0, 0, 0, .28);
+      isolation: isolate;
+    }
+
+    .kawaii-frame::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 2px dashed rgba(255, 246, 223, .34);
+      border-radius: clamp(26px, 4vw, 46px);
+      pointer-events: none;
+    }
+
+    .kawaii-frame::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -14px;
+      width: 34%;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(6, 19, 18, .38);
+      filter: blur(6px);
+      transform: translateX(-50%);
+      z-index: -2;
+    }
+
+    .frame-ear {
+      position: absolute;
+      top: -23px;
+      width: 72px;
+      height: 62px;
+      border: 4px solid #061716;
+      border-radius: 70% 70% 42% 42%;
+      background: #0A2826;
+      z-index: -1;
+    }
+
+    .frame-ear::after {
+      content: "";
+      position: absolute;
+      inset: 13px 17px 15px;
+      border-radius: inherit;
+      background: rgba(240, 75, 62, .7);
+    }
+
+    .ear-left {
+      left: 12%;
+      transform: rotate(-18deg);
+    }
+
+    .ear-right {
+      right: 12%;
+      transform: rotate(18deg);
+    }
+
+    .video-shell {
+      position: relative;
+      overflow: hidden;
+      padding: 8px;
+      border: 2px solid rgba(255, 246, 223, .25);
+      border-radius: clamp(25px, 4vw, 42px);
+      background: #061312;
+      box-shadow: inset 0 0 22px rgba(255, 246, 223, .08);
+    }
+
+    .video-shell::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: clamp(20px, 3.5vw, 34px);
+      box-shadow: inset 0 0 0 3px rgba(255, 212, 59, .2);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .video-side video {
+      width: 100%;
+      display: block;
+      border-radius: clamp(20px, 3.5vw, 34px);
+    }
+
+    .frame-paw {
+      position: absolute;
+      z-index: 3;
+      color: #FFF6DF;
+      font-size: clamp(12px, 1.35vw, 18px);
+      filter: drop-shadow(0 3px 0 rgba(6, 19, 18, .45));
+      animation: pawWiggle 3.4s ease-in-out infinite;
+    }
+
+    .frame-paw i {
+      display: block;
+      transform: rotate(var(--paw-rotate, 0deg));
+    }
+
+    .paw-one {
+      top: -12px;
+      left: 28%;
+      color: #FFE07A;
+      --paw-rotate: -16deg;
+    }
+
+    .paw-two {
+      top: 10%;
+      right: -10px;
+      color: #F04B3E;
+      --paw-rotate: 23deg;
+      animation-delay: .35s;
+    }
+
+    .paw-three {
+      bottom: 14%;
+      right: -8px;
+      color: #FFF6DF;
+      --paw-rotate: -28deg;
+      animation-delay: .75s;
+    }
+
+    .paw-four {
+      bottom: -10px;
+      left: 27%;
+      color: #FFD43B;
+      --paw-rotate: 12deg;
+      animation-delay: 1.1s;
+    }
+
+    .paw-five {
+      top: 44%;
+      left: -12px;
+      color: #F04B3E;
+      --paw-rotate: 28deg;
+      animation-delay: 1.45s;
+    }
+
+    .paw-six {
+      top: 7%;
+      left: 7%;
+      color: rgba(255, 246, 223, .86);
+      --paw-rotate: -34deg;
+      animation-delay: 1.8s;
+    }
+
+    .spark-dot {
+      position: absolute;
+      z-index: 3;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #FFD43B;
+      box-shadow: 0 0 0 5px rgba(255, 212, 59, .12);
+    }
+
+    .dot-one {
+      top: 20%;
+      left: -4px;
+    }
+
+    .dot-two {
+      right: 9%;
+      top: -5px;
+      background: #F04B3E;
+      box-shadow: 0 0 0 5px rgba(240, 75, 62, .12);
+    }
+
+    .dot-three {
+      right: 16%;
+      bottom: -5px;
+    }
+
+    @keyframes pawWiggle {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-7px) scale(1.08);
+      }
+    }
+
+    .welcome-block {
+      max-width: 1100px;
+      text-align: center;
+      flex: none;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: revealUp .75s cubic-bezier(.16, 1, .3, 1) forwards .25s;
+    }
+
+    .intro-orbit {
+      position: relative;
+      width: 78px;
+      height: 78px;
+      margin: -12px auto 8px;
+      display: grid;
+      place-items: center;
+      animation: orbitPulse 3.8s ease-in-out infinite;
+    }
+
+    .intro-orbit::before,
+    .intro-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      border: 2px dashed rgba(18, 60, 58, .45);
+    }
+
+    .intro-orbit::after {
+      inset: 18px;
+      border-style: solid;
+      border-color: rgba(240, 75, 62, .28);
+    }
+
+    .center-icon {
+      position: relative;
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #FFD43B;
+      background: linear-gradient(145deg, #061312, #123C3A);
+      box-shadow: 0 10px 18px rgba(6, 19, 18, .22), inset 0 0 0 2px rgba(255, 246, 223, .18);
+    }
+
+    .orbit-track {
+      position: absolute;
+      inset: 0;
+      animation: orbitSpin 3.8s cubic-bezier(.48, 0, .25, 1) infinite;
+    }
+
+    .orbit-icon {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-size: 12px;
+      color: #FFF6DF;
+      background: #F04B3E;
+      box-shadow: 0 7px 12px rgba(6, 19, 18, .18);
+    }
+
+    .orbit-heart {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .orbit-bone {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #123C3A;
+    }
+
+    .orbit-star {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0A302E;
+      color: #FFD43B;
+    }
+
+    h1 {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      flex-wrap: wrap;
+      column-gap: .22em;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      font-size: clamp(34px, 5.2vw, 68px);
+      line-height: 1.15;
+    }
+
+    h1 .heading-group {
+      display: inline-flex;
+      align-items: baseline;
+      white-space: nowrap;
+    }
+
+    h1 .brand-line {
+      white-space: nowrap;
+    }
+
+    h1 .letter {
+      display: inline-block;
+      opacity: 0;
+      transform: translateX(50px);
+      animation: letterIn .55s cubic-bezier(.34, 1.7, .64, 1) forwards;
+    }
+
+    h1 .heading-teal {
+      color: #123C3A;
+    }
+
+    h1 .heading-red {
+      color: #F04B3E;
+    }
+
+    h1 .space {
+      display: inline-block;
+      flex: 0 0 .28em;
+      width: .28em;
+    }
+
+    @keyframes letterIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .intro-tagline {
+      margin-top: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(13px, 1.35vw, 17px);
+      font-weight: 700;
+      letter-spacing: .22px;
+      color: #275956;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: taglineIn .65s ease forwards 1.4s;
+    }
+
+    .role-shapes {
+      margin-top: 4px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .role-shape {
+      appearance: none;
+      position: relative;
+      min-width: 142px;
+      border: 0;
+      cursor: pointer;
+      isolation: isolate;
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(12.5px, 1vw, 15px);
+      font-weight: 600;
+      padding: 15px 17px;
+      color: #FFF6DF;
+      background: #123C3A;
+      clip-path: polygon(12% 0, 88% 0, 100% 34%, 86% 100%, 14% 100%, 0 34%);
+      box-shadow: 0 11px 0 #071f1e, 0 18px 26px rgba(6, 19, 18, .18);
+      opacity: 0;
+      transform: translateY(18px) rotate(var(--tilt, 0deg)) scale(.9);
+      animation: badgeIn .7s cubic-bezier(.16, 1, .3, 1) forwards calc(1.95s + var(--badge-delay, 0s));
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+
+    .role-shape::before {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border: 1px dashed rgba(255, 246, 223, .45);
+      clip-path: inherit;
+      pointer-events: none;
+    }
+
+    .role-shape i {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 1.15em;
+      color: #FFD43B;
+    }
+
+    .role-shape:hover,
+    .role-shape:focus-visible {
+      outline: none;
+      background: #0A302E;
+      box-shadow: 0 14px 0 #061716, 0 22px 30px rgba(6, 19, 18, .24);
+      transform: translateY(-7px) rotate(0deg) scale(1.03);
+    }
+
+    .role-shape.owner {
+      --tilt: -2deg;
+      --badge-delay: 0s;
+    }
+
+    .role-shape.vet {
+      --tilt: 1.5deg;
+      --badge-delay: .16s;
+      background: #F04B3E;
+      box-shadow: 0 11px 0 #a92b23, 0 18px 26px rgba(6, 19, 18, .18);
+    }
+
+    .role-shape.vet:hover,
+    .role-shape.vet:focus-visible {
+      background: #DC3E32;
+      box-shadow: 0 14px 0 #92241e, 0 22px 30px rgba(6, 19, 18, .24);
+    }
+
+    .role-shape.shelter {
+      --tilt: -1deg;
+      --badge-delay: .32s;
+    }
+
+    .transition-circle {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      z-index: 30;
+      width: 20vmax;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(.02);
+      background:
+        radial-gradient(circle at 32% 28%, #FFFFFF 0 8%, transparent 9%),
+        radial-gradient(circle at 68% 32%, rgba(255, 212, 59, .95) 0 13%, transparent 14%),
+        radial-gradient(circle at 35% 72%, rgba(255, 122, 110, .75) 0 14%, transparent 15%),
+        linear-gradient(145deg, #FFF8DF 0%, #FFE07A 44%, #FFB6A8 100%);
+      box-shadow:
+        0 0 0 10px rgba(255, 255, 255, .48),
+        0 0 0 22px rgba(255, 212, 59, .2),
+        0 20px 70px rgba(240, 75, 62, .24);
+    }
+
+    .transition-circle::before,
+    .transition-circle::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .transition-circle::before {
+      inset: 11%;
+      border: 3px dashed rgba(18, 60, 58, .25);
+    }
+
+    .transition-circle::after {
+      inset: 24%;
+      background: rgba(255, 255, 255, .34);
+      box-shadow: inset 0 0 0 2px rgba(240, 75, 62, .18);
+    }
+
+    .transition-circle i {
+      position: relative;
+      z-index: 2;
+      color: #F04B3E;
+      font-size: clamp(34px, 7vw, 82px);
+      opacity: 0;
+      transform: scale(.45);
+      filter: drop-shadow(0 5px 0 rgba(255, 255, 255, .75));
+    }
+
+    .hero.is-ending .transition-circle {
+      animation: circleOpen 2.25s cubic-bezier(.55, 0, .1, 1) forwards;
+    }
+
+    .hero.is-ending .transition-circle i {
+      animation: circleIcon 1.25s ease forwards .16s;
+    }
+
+    @keyframes revealUp {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes taglineIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes badgeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0) rotate(var(--tilt, 0deg)) scale(1);
+      }
+    }
+
+    @keyframes orbitPulse {
+
+      0%,
+      72%,
+      100% {
+        transform: scale(1);
+      }
+
+      84% {
+        transform: scale(1.09);
+      }
+    }
+
+    @keyframes orbitSpin {
+
+      0%,
+      18% {
+        transform: rotate(0deg);
+      }
+
+      64%,
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pageDisappear {
+      to {
+        opacity: 0;
+        transform: translateY(-12px) scale(.94);
+        filter: blur(6px);
+      }
+    }
+
+    @keyframes circleIcon {
+      0% {
+        opacity: 0;
+        transform: scale(.45) rotate(-18deg);
+      }
+
+      55% {
+        opacity: 1;
+        transform: scale(1.04) rotate(8deg);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(.65) rotate(18deg);
+      }
+    }
+
+    @keyframes circleOpen {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.02);
+      }
+
+      28% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(.75);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(10);
+      }
+    }
+    @media (max-width: 900px) {
+      .content {
+        justify-content: center;
+        padding-top: 96px;
+        padding-bottom: 150px;
+      }
+
+      .kawaii-frame {
+        width: min(100%, 440px);
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .content {
+        gap: 16px;
+      }
+
+      .intro-orbit {
+        width: 64px;
+        height: 64px;
+        margin: -8px auto 6px;
+      }
+
+      .center-icon {
+        width: 38px;
+        height: 38px;
+      }
+
+      .orbit-icon {
+        width: 21px;
+        height: 21px;
+        font-size: 10px;
+      }
+
+      .role-shape {
+        min-width: 132px;
+        padding: 13px 15px;
+      }
+
+      .kawaii-frame {
+        width: min(100%, 340px);
+      }
+
+      .frame-ear {
+        width: 56px;
+        height: 50px;
+        top: -18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <svg class="defs" aria-hidden="true">
+    <symbol id="paw-shape" viewBox="0 0 100 100">
+      <ellipse cx="50" cy="66" rx="29" ry="23" />
+      <ellipse cx="18" cy="34" rx="13" ry="17" transform="rotate(-25 18 34)" />
+      <ellipse cx="42" cy="16" rx="13" ry="17" />
+      <ellipse cx="68" cy="17" rx="12.5" ry="16.5" transform="rotate(18 68 17)" />
+      <ellipse cx="86" cy="40" rx="11" ry="14.5" transform="rotate(38 86 40)" />
+    </symbol>
+  <symbol id="brand-logo" viewBox="0 0 120 120">
+      <path d="M60 114 C60 114 6 76 6 40 C6 15 26 3 43 15 C51 21 56 29 60 38 C64 29 69 21 77 15 C94 3 114 15 114 40 C114 76 60 114 60 114 Z"
+        fill="#E8A400" stroke="#FFF6DF" stroke-width="4" stroke-linejoin="round"/>
+      <g fill="#FFF6DF">
+        <ellipse cx="60" cy="72" rx="15" ry="13"/>
+        <ellipse cx="42" cy="53" rx="6" ry="7.5" transform="rotate(-16 42 53)"/>
+        <ellipse cx="54" cy="47" rx="5.5" ry="7.5" transform="rotate(-5 54 47)"/>
+        <ellipse cx="66" cy="47" rx="5.5" ry="7.5" transform="rotate(5 66 47)"/>
+        <ellipse cx="78" cy="53" rx="6" ry="7.5" transform="rotate(16 78 53)"/>
+      </g>
+    </symbol>
+    <symbol id="heart-shape" viewBox="0 0 100 90">
+      <path
+        d="M50 84 C22 61 2 42 2 21 C2 6 16 -3 30 6 C40 13 46 22 50 30 C54 22 60 13 70 6 C84 -3 98 6 98 21 C98 42 78 61 50 84 Z" />
+    </symbol>
+  </svg>
+
+  <div class="hero">
+
+    <img class="cloud-img cloud-top" src="images/pg 1 top.png" alt="">
+    <img class="cloud-img cloud-bottom" src="images/pg 1 btm.png" alt="">
+
+    <div class="brand">
+      <svg viewBox="0 0 120 120" width="48" height="48"><use href="#brand-logo"/></svg>
+      FurEver Care
+    </div>
+    <svg class="decor float slow" style="top:11%; left:7%; width:66px;" viewBox="0 0 100 90">
+      <use href="#heart-shape" class="heart" />
+    </svg>
+    <svg class="decor float rev" style="top:7%; left:30%; width:30px; --r:-8deg;" viewBox="0 0 100 90">
+      <use href="#heart-shape" class="heart solid" />
+    </svg>
+    <svg class="decor float" style="top:18%; left:44%; width:38px; --r:10deg;" viewBox="0 0 100 90">
+      <use href="#heart-shape" class="heart teal" />
+    </svg>
+    <svg class="decor float slow" style="top:9%; left:70%; width:34px; --r:6deg;" viewBox="0 0 100 90">
+      <use href="#heart-shape" class="heart pink" />
+    </svg>
+    <svg class="decor" style="top:22%; left:18%; width:90px; height:60px;" viewBox="0 0 90 60">
+      <path class="dotline red" d="M2,50 C20,10 40,55 58,15 C68,-5 80,20 88,5" />
+    </svg>
+    <svg class="decor" style="top:4%; left:56%; width:80px; height:50px;" viewBox="0 0 80 50">
+      <path class="dotline teal" d="M2,10 C20,40 40,5 58,35 C66,48 74,25 78,42" />
+    </svg>
+    <svg class="decor paw ghost float" style="top:32%; left:3%; width:120px; --r:-12deg;" viewBox="0 0 100 100">
+      <use href="#paw-shape" />
+    </svg>
+    <svg class="decor paw mid float rev slow" style="top:5%; left:52%; width:46px; --r:20deg;" viewBox="0 0 100 100">
+      <use href="#paw-shape" />
+    </svg>
+    <svg class="decor paw ghost float" style="top:15%; left:88%; width:70px; --r:-30deg;" viewBox="0 0 100 100">
+      <use href="#paw-shape" />
+    </svg>
+
+    <svg class="decor paw mid float" style="top:46%; left:2%; width:44px; --r:12deg;" viewBox="0 0 100 100">
+      <use href="#paw-shape" />
+    </svg>
+    <svg class="decor float rev" style="top:52%; left:93%; width:36px; --r:-6deg;" viewBox="0 0 100 90">
+      <use href="#heart-shape" class="heart pink" />
+    </svg>
+    <svg class="decor" style="top:44%; left:90%; width:70px; height:40px;" viewBox="0 0 70 40">
+      <path class="dotline pink" d="M2,6 C16,32 30,2 44,28 C52,40 58,18 62,34" />
+    </svg>
+
+    <svg class="decor float" style="bottom:13%; left:9%; width:52px; --r:8deg;" viewBox="0 0 100 90">
+      <use href="#heart-shape" class="heart" />
+    </svg>
+    <svg class="decor float rev slow" style="bottom:7%; left:34%; width:34px; --r:-12deg;" viewBox="0 0 100 90">
+      <use href="#heart-shape" class="heart teal" />
+    </svg>
+    <svg class="decor float slow" style="bottom:16%; left:66%; width:30px; --r:14deg;" viewBox="0 0 100 90">
+      <use href="#heart-shape" class="heart pink" />
+    </svg>
+    <svg class="decor" style="bottom:19%; left:20%; width:90px; height:55px;" viewBox="0 0 90 55">
+      <path class="dotline teal" d="M2,45 C22,10 42,50 60,15 C70,-3 82,20 88,8" />
+    </svg>
+    <svg class="decor" style="bottom:5%; left:50%; width:70px; height:46px;" viewBox="0 0 70 46">
+      <path class="dotline red" d="M2,8 C18,38 34,4 50,32 C58,44 64,22 68,38" />
+    </svg>
+    <svg class="decor paw mid float" style="bottom:15%; left:4%; width:58px; --r:24deg;" viewBox="0 0 100 100">
+      <use href="#paw-shape" />
+    </svg>
+    <svg class="decor paw ghost float rev" style="bottom:3%; left:42%; width:100px; --r:-18deg;" viewBox="0 0 100 100">
+      <use href="#paw-shape" />
+    </svg>
+    <svg class="decor paw ghost float" style="bottom:10%; left:80%; width:64px; --r:10deg;" viewBox="0 0 100 100">
+      <use href="#paw-shape" />
+    </svg>
+    <div class="content">
+
+      <div class="welcome-block">
+        <div class="intro-orbit" aria-hidden="true">
+          <span class="orbit-track">
+            <i class="fa-solid fa-heart orbit-icon orbit-heart"></i>
+            <i class="fa-solid fa-bone orbit-icon orbit-bone"></i>
+            <i class="fa-solid fa-star orbit-icon orbit-star"></i>
+          </span>
+          <i class="fa-solid fa-paw center-icon"></i>
+        </div>
+        <h1 id="animatedHeading"></h1>
+        <p class="intro-tagline">Smart care, trusted vets and forever homes for every pet.</p>
+      </div>
+
+      <div class="video-side">
+        <div class="kawaii-frame">
+          <span class="frame-ear ear-left" aria-hidden="true"></span>
+          <span class="frame-ear ear-right" aria-hidden="true"></span>
+          <span class="frame-paw paw-one" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
+          <span class="frame-paw paw-two" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
+          <span class="frame-paw paw-three" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
+          <span class="frame-paw paw-four" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
+          <span class="frame-paw paw-five" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
+          <span class="frame-paw paw-six" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
+          <span class="spark-dot dot-one" aria-hidden="true"></span>
+          <span class="spark-dot dot-two" aria-hidden="true"></span>
+          <span class="spark-dot dot-three" aria-hidden="true"></span>
+          <div class="video-shell">
+            <video id="introVideo" autoplay muted playsinline preload="auto">
+              <source src="images/intro 1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div class="role-shapes" aria-label="FurEver Care roles">
+        <button class="role-shape owner" type="button"><i class="fa-solid fa-paw" aria-hidden="true"></i><span>Pet
+            Owners</span></button>
+        <button class="role-shape vet" type="button"><i class="fa-solid fa-stethoscope"
+            aria-hidden="true"></i><span>Veterinarians</span></button>
+        <button class="role-shape shelter" type="button"><i class="fa-solid fa-house-chimney"
+            aria-hidden="true"></i><span>Animal Shelters</span></button>
+      </div>
+
+    </div>
+    <div class="transition-circle" aria-hidden="true"><i class="fa-solid fa-paw"></i></div>
+  </div>
+
+  <script>
+    const heading = document.getElementById('animatedHeading');
+    const headingGroups = [
+      {
+        groupClass: 'intro-line',
+        words: [
+          { text: 'Welcome', colorClass: 'heading-teal' },
+          { text: 'to', colorClass: 'heading-teal' }
+        ]
+      },
+      {
+        groupClass: 'brand-line',
+        words: [
+          { text: 'FurEver', colorClass: 'heading-red' },
+          { text: 'Care', colorClass: 'heading-teal' }
+        ]
+      }
+    ];
+    let delay = 0;
+
+    function appendLetters(parent, word) {
+      [...word.text].forEach((ch) => {
+        const span = document.createElement('span');
+        span.className = `letter ${word.colorClass}`;
+        span.textContent = ch;
+        span.style.animationDelay = delay + 's';
+        delay += 0.045;
+        parent.appendChild(span);
+      });
+    }
+
+    headingGroups.forEach((group) => {
+      const groupEl = document.createElement('span');
+      groupEl.className = `heading-group ${group.groupClass}`;
+
+      group.words.forEach((word, index) => {
+        if (index > 0) {
+          const space = document.createElement('span');
+          space.className = 'space';
+          space.innerHTML = '&nbsp;';
+          groupEl.appendChild(space);
+        }
+        appendLetters(groupEl, word);
+      });
+
+      heading.appendChild(groupEl);
+    });
+
+    const hero = document.querySelector('.hero');
+    const introVideo = document.getElementById('introVideo');
+    const NEXT_PAGE = 'role.html'; 
+    const VIDEO_PLAYBACK_RATE = 0.85;
+    const INTRO_MIN_MS = 9800;
+    const INTRO_FALLBACK_MS = 12000;
+    const EXIT_ANIMATION_MS = 2250;
+    const introStartedAt = performance.now();
+    let exitStarted = false;
+    let introTimer = window.setTimeout(startExit, INTRO_FALLBACK_MS);
+
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    history.replaceState(null, '', `${location.pathname}${location.search}`);
+    window.scrollTo(0, 0);
+    window.addEventListener('load', () => window.scrollTo(0, 0), { once: true });
+
+    function scheduleExit(delayMs) {
+      window.clearTimeout(introTimer);
+      const elapsedMs = performance.now() - introStartedAt;
+      const minDelayMs = Math.max(0, INTRO_MIN_MS - elapsedMs);
+      introTimer = window.setTimeout(startExit, Math.max(delayMs, minDelayMs));
+    }
+
+    function startExit() {
+      if (exitStarted) return;
+      exitStarted = true;
+      window.clearTimeout(introTimer);
+      hero.classList.add('is-ending');
+      if (introVideo) introVideo.pause();
+      window.setTimeout(() => {
+        window.location.href = NEXT_PAGE;
+      }, EXIT_ANIMATION_MS);
+    }
+
+    if (introVideo) {
+      introVideo.playbackRate = VIDEO_PLAYBACK_RATE;
+      introVideo.addEventListener('ended', () => scheduleExit(0), { once: true });
+      introVideo.addEventListener('loadedmetadata', () => {
+        if (Number.isFinite(introVideo.duration) && introVideo.duration > 0) {
+          const rate = introVideo.playbackRate || VIDEO_PLAYBACK_RATE;
+          const videoDurationMs = (introVideo.duration * 1000) / rate;
+          scheduleExit(Math.min(videoDurationMs + 180, INTRO_FALLBACK_MS));
+        }
+      }, { once: true });
+      introVideo.addEventListener('error', () => scheduleExit(0), { once: true });
+    }
+  </script>
+
+</body>
+
+</html>
